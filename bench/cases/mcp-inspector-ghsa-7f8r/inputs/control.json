@@ -1,0 +1,1 @@
+{"command": "echo", "args": "benign-{{NONCE}}"}

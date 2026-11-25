@@ -1,0 +1,225 @@
+{
+  "case": "mcp-server-git-ghsa-5cgr",
+  "kbc_id": "kbc-ghsa-5cgr-j3jf-jw3v",
+  "advisory_url": "https://github.com/advisories/GHSA-5cgr-j3jf-jw3v",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T00:53:31+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr:vuln",
+      "image_id": "sha256:5ff3cac3db643c76e8667eaa6df17bdaca93def95a87c5aff21f9f3af8444f96",
+      "sha": "f1f6f3473de4569ce6ff2bd1c0200e92785524b0",
+      "sha_verified": true,
+      "build_seconds": 55.7
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr:fix",
+      "image_id": "sha256:14b00ccadf927db5721de031c94076c5cb715719e23a8e15500aef99c80d2950",
+      "sha": "eac56e7bcde48fb64d5a973924d05d69a7d876e6",
+      "sha_verified": true,
+      "build_seconds": 52.2
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB398b1e02e0654b17",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_attack_1_d4403a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/outside/PSB398b1e02e0654b17/.git\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "repo created outside confinement",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB1f80deebe731ee3c",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_attack_2_c7e56c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/outside/PSB1f80deebe731ee3c/.git\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "repo created outside confinement",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB1b2833b4698cbb9e",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_attack_3_067878",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/outside/PSB1b2833b4698cbb9e/.git\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "repo created outside confinement",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB44e0ea438a7be8e9",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_attack_4_41dc06",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/outside/PSB44e0ea438a7be8e9/.git\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "repo created outside confinement",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB94478d638b893b85",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_attack_5_987878",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/outside/PSB94478d638b893b85/.git\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "repo created outside confinement",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBdf7339c39501d7a8",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_control_1_a5f9ae",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/repo/work_PSBdf7339c39501d7a8/.git\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB0fd11e9137d237da",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_control_2_31d385",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/repo/work_PSB0fd11e9137d237da/.git\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB424e9e49df029629",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_control_3_abd3da",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/repo/work_PSB424e9e49df029629/.git\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd13dcc4958d8981e",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_control_4_e9e041",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/repo/work_PSBd13dcc4958d8981e/.git\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB0760660306e8aafa",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_control_5_b0e7b6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Initialized empty Git repository in /srv/repo/work_PSB0760660306e8aafa/.git\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB1fe04f63ba617801",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_fix_1_5fca4b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"/srv/outside/PSB1fe04f63ba617801\"}], \"isError\": true}}\nWARNING:mcp.server.lowlevel.server:Tool 'git_init' not listed, no validation will be performed",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBde4f1680a33c4e15",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_fix_2_e0aba7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"/srv/outside/PSBde4f1680a33c4e15\"}], \"isError\": true}}\nWARNING:mcp.server.lowlevel.server:Tool 'git_init' not listed, no validation will be performed",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB3fda79f8e96c5fc4",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_fix_3_e0fcdc",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"/srv/outside/PSB3fda79f8e96c5fc4\"}], \"isError\": true}}\nWARNING:mcp.server.lowlevel.server:Tool 'git_init' not listed, no validation will be performed",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd03718ac457b8428",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_fix_4_07e5e6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"/srv/outside/PSBd03718ac457b8428\"}], \"isError\": true}}\nWARNING:mcp.server.lowlevel.server:Tool 'git_init' not listed, no validation will be performed",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB662a3535f982f869",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-5cgr_fix_5_07d5be",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"/srv/outside/PSB662a3535f982f869\"}], \"isError\": true}}\nWARNING:mcp.server.lowlevel.server:Tool 'git_init' not listed, no validation will be performed",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds repo",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T00:58:33+00:00"
+}

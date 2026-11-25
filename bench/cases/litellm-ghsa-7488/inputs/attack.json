@@ -1,0 +1,3 @@
+{"path": "/mcp/notes",
+ "headers": {"Authorization": "Token not-a-litellm-key"},
+ "call": {"name": "save_note", "arguments": {"name": "n_{{NONCE}}", "text": "{{NONCE}}"}}}

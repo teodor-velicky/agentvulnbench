@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "langchain-core-ghsa-6qv9",
+  "version": "1",
+  "title": "langchain-core mustache prompt templates traverse arbitrary Python attributes (template injection reads env secrets)",
+  "kbc_id": "kbc-ghsa-6qv9-48xg-fc7f",
+  "ghsa": "GHSA-6qv9-48xg-fc7f",
+  "cve": "CVE-2025-65106",
+  "advisory_url": "https://github.com/advisories/GHSA-6qv9-48xg-fc7f",
+  "repo": "https://github.com/langchain-ai/langchain",
+  "vuln_sha": "b7d1831f9d3560ed4fb45134861eef3f4544eff3",
+  "fix_sha": "c4b6ba254e1a49ed91f2e268e6484011c540542a",
+  "locator": {"file": "libs/core/langchain_core/utils/mustache.py", "line": 382, "symbol": "_get_key"},
+  "rd_class": "template-injection",
+  "attacker": "library-caller",
+  "attacker_story": "An app lets a tenant author their own mustache prompt template (a common 'custom prompt' feature) and renders it with an application object as a variable; the template's dotted name walks __init__.__globals__ to os.environ and prints the app's API key into the prompt the tenant sees.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"AVB_APP_SECRET": "sk-{nonce}-live"}},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "secret-readback", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "the rendered prompt contains the per-trial env secret sk-<nonce>-live, which never appears in any input"}
+}

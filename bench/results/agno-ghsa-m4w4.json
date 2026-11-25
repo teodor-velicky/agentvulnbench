@@ -1,0 +1,225 @@
+{
+  "case": "agno-ghsa-m4w4",
+  "kbc_id": "kbc-ghsa-m4w4-3r8h-jw98",
+  "advisory_url": "https://github.com/advisories/GHSA-m4w4-3r8h-jw98",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T01:03:16+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_agno-ghsa-m4w4:vuln",
+      "image_id": "sha256:5cb464cee7f25e4af8fab1e1e1ee5e78509bc9bf635052b2a156b1382ab9d4fa",
+      "sha": "ea35f13518be03ef38a41a64665fdc270b9d12d3",
+      "sha_verified": true,
+      "build_seconds": 54.5
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_agno-ghsa-m4w4:fix",
+      "image_id": "sha256:c93a2141e07c9a3f370c7d383bb805a0ca9cdffbd11279594cfc2b1424dd1762",
+      "sha": "cbf675521d4d2281925a051784a3b94172e56416",
+      "sha_verified": true,
+      "build_seconds": 88.6
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB6432076471a8fb19",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_attack_1_5259bf",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB218217aad4c41ef8",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_attack_2_ee5dc2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBaeb199d6214fa289",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_attack_3_27c363",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBbe898d6f68b31934",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_attack_4_ff7cfa",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB68535404ccdc79e5",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_attack_5_effe22",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB564de913ac5735bc",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_control_1_aa4de2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBa8792afbc218fbe9",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_control_2_fd2a2e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB3fb662a0aabce45f",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_control_3_14cc44",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB7e3c063f69e5988a",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_control_4_35bbfe",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB072461dbf4919e56",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_control_5_cfbd07",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB54ea4987f24e101f",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_fix_1_1c2c36",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB23c0946528688768",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_fix_2_5aac75",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB608c9227977e73cd",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_fix_3_da4a60",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB64f1e84ae9d8965a",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_fix_4_bb76fc",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBf98c18e44fd8ae8f",
+          "container": "pitsense_rd_bench_agno-ghsa-m4w4_fix_5_0f3c7e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T01:08:34+00:00"
+}

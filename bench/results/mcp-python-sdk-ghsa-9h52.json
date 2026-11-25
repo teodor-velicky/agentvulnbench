@@ -1,0 +1,225 @@
+{
+  "case": "mcp-python-sdk-ghsa-9h52",
+  "kbc_id": "kbc-ghsa-9h52-p55h-vw2f",
+  "advisory_url": "https://github.com/advisories/GHSA-9h52-p55h-vw2f",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T02:24:36+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52:vuln",
+      "image_id": "sha256:bb55fdf0bc22a5a9cb50aaad9e67e5b9c7a53bad33dad8fdd4461b9cc8968ec7",
+      "sha": "fa851d93a2036a37cce73e098f7dbc80a6c48765",
+      "sha_verified": true,
+      "build_seconds": 35.4
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52:fix",
+      "image_id": "sha256:8f034eafc9097b8efc216213dd6b0b8df43a9d390799825b1b492e6168910f32",
+      "sha": "d3a184119e4479ea6a63590bc41f01dc06e3fa99",
+      "sha_verified": true,
+      "build_seconds": 28.9
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB42fba220f0c9072e",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_attack_1_8ce2ff",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ent: message\n data: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "note written by cross-site request: ['/tmp/notes_pwned']",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB8e3d3243f935315d",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_attack_2_f97065",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ent: message\n data: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "note written by cross-site request: ['/tmp/notes_pwned']",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB67807506aa78b97b",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_attack_3_e43359",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ent: message\n data: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "note written by cross-site request: ['/tmp/notes_pwned']",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB913713228064cbca",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_attack_4_c5256c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ent: message\n data: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "note written by cross-site request: ['/tmp/notes_pwned']",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB88b8f2f36153799d",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_attack_5_823d86",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ent: message\n data: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "note written by cross-site request: ['/tmp/notes_pwned']",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB0521a94d0d6b8b98",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_control_1_1248f1",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "c\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"PSB0521a94d0d6b8b98\"}],\"structuredContent\":{\"result\":\"PSB0521a94d0d6b8b98\"},\"isError\":false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB2ccc5d98eb43d0da",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_control_2_0162d6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "c\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"PSB2ccc5d98eb43d0da\"}],\"structuredContent\":{\"result\":\"PSB2ccc5d98eb43d0da\"},\"isError\":false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB5e685b683b92157a",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_control_3_7554e9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "c\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"PSB5e685b683b92157a\"}],\"structuredContent\":{\"result\":\"PSB5e685b683b92157a\"},\"isError\":false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB0d42826aba0aefa1",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_control_4_0b0338",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "c\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"PSB0d42826aba0aefa1\"}],\"structuredContent\":{\"result\":\"PSB0d42826aba0aefa1\"},\"isError\":false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB2379af7fa01a333f",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_control_5_de69aa",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "c\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":fa\nnotifications/initialized 202 \ntools/call 200 event: message\n data: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"PSB2379af7fa01a333f\"}],\"structuredContent\":{\"result\":\"PSB2379af7fa01a333f\"},\"isError\":false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB927d09aa279f0132",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_fix_1_b43dcf",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 421 Invalid Host header",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBafd274e3068cd906",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_fix_2_ed3160",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 421 Invalid Host header",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBab545b4a275697ba",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_fix_3_67d398",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 421 Invalid Host header",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB1c448c003d8ad498",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_fix_4_ee0f82",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 421 Invalid Host header",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB3e007486bca654d9",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-9h52_fix_5_505bf4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 421 Invalid Host header",
+          "oracle_rc": 1,
+          "oracle_out": "no note with nonce []",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T02:27:58+00:00"
+}

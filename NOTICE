@@ -1,0 +1,31 @@
+AgentVulnBench
+Copyright 2026 Teodor Velický (PitSense)
+
+This product includes software and data developed by PitSense.
+Code is licensed under the Apache License, Version 2.0 (LICENSE).
+Data, results, scores and documentation are licensed under the Creative Commons
+Attribution 4.0 International licence (LICENSE-DATA).
+
+Third-party material
+--------------------
+
+Upstream projects. Each case Dockerfile (bench/cases/*/Dockerfile, chainlab/cases/*/Dockerfile)
+downloads the affected upstream project at build time, from GitHub's codeload service at a pinned
+commit or from PyPI/npm at a pinned version. That upstream code is NOT redistributed in this
+repository; it stays under its own licence. File paths, line numbers, symbol names and commit
+SHAs of upstream projects appear in case metadata only to identify the vulnerable code.
+
+GitHub Advisory Database. Advisory identifiers, titles and summaries quoted in case metadata,
+docs/MANIFEST.md, docs/advisory-status.json and paths-to-root/ come from the GitHub Advisory
+Database (https://github.com/advisories), which is licensed under CC BY 4.0.
+
+Semgrep rules. Semgrep registry rule packs are licensed under the Semgrep Rules License and are NOT
+included. bench/tools/semgrep/SNAPSHOT.json records only the pack names and the sha256 of the
+snapshot used for the v0 scores.
+
+Base images. Case Dockerfiles reference public base images (for example python and node official
+images) pinned by digest or version tag. They are pulled from their registries at build time and are not
+redistributed here.
+
+Deliberately vulnerable code. The case images reproduce known, already-fixed vulnerabilities on
+purpose. Build and run them only through bench/run.py or chainlab/run.py, which isolate them.

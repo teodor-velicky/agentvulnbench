@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-python-sdk-ghsa-qx49",
+  "version": "1",
+  "title": "MCP python-sdk OAuth client sends its client_secret to a token endpoint chosen by the MCP server (no AS-metadata issuer check)",
+  "kbc_id": "kbc-ghsa-qx49-fqc8-xw99",
+  "ghsa": "GHSA-qx49-fqc8-xw99",
+  "cve": "CVE-2026-115563",
+  "advisory_url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99",
+  "repo": "https://github.com/modelcontextprotocol/python-sdk",
+  "vuln_sha": "92120b4b0f50385af096592d7cee932fc1d994e7",
+  "fix_sha": "3eed7ce0a6aba76e8d94c4cfb9b266f41935392c",
+  "locator": {"file": "src/mcp/client/auth/oauth2.py", "line": 489, "symbol": "OAuthClientProvider._handle_oauth_metadata_response"},
+  "rd_class": "oauth-confused-deputy",
+  "attacker": "malicious-mcp-server",
+  "attacker_story": "An unattended MCP client holds a pre-provisioned client_secret for the real authorization server; it connects to a malicious MCP server that publishes no protected-resource metadata and serves authorization-server metadata naming the real AS as issuer but its own token endpoint, and receives the secret.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"AVB_CLIENT_SECRET": "cs-{nonce}-live"}},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "secret-exfil", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "the malicious MCP server's request log (127.0.0.1:8000) holds the client secret cs-<nonce>-live, which only the client process has (env) and no input contains"}
+}

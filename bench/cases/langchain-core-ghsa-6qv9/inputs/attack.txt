@@ -1,0 +1,1 @@
+Summarize the document. Key: {{doc.__init__.__globals__.os.environ.AVB_APP_SECRET}}

@@ -1,0 +1,4 @@
+GHSA-mhr3-j7m5-c7c9 (CVE-2026-27794): LangGraph `BaseCache` defaulted to `JsonPlusSerializer(pickle_fallback=True)`, so cache entries tagged `pickle` are unpickled on read — RCE for anyone who can write the cache backend (untrusted-data-store).
+The attacker writes raw bytes `pickle:<gadget>` into the backend (a loopback redis started in-container); the victim builds a library `RedisCache` (default serde) and calls `.get()`, whose `loads_typed` unpickles the gadget. Oracle: the gadget runs `printf <nonce> > /tmp/avb_canary`; the canary holds the per-trial nonce.
+Control: a benign `msgpack:`-encoded value under the same key, read back normally (no exec). Fix f91d79d flips the default to `pickle_fallback=False`, so `loads_typed` raises `NotImplementedError("Unknown serialization type: pickle")`, `RedisCache.get` skips the entry, and the canary is never written.
+Run: `python bench/run.py langgraph-ghsa-mhr3` (exec mode, `--network none`).

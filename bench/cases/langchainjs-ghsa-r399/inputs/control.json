@@ -1,0 +1,1 @@
+{"function_call": {"name": "lookup", "arguments": {"query": "weather {{NONCE}}", "id": ["AVB_APP_SECRET"]}}}

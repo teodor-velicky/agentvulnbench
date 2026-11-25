@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "langchainjs-ghsa-r399",
+  "version": "1",
+  "title": "@langchain/core (langchainjs) load() revives model-controlled 'lc' secret dicts from process.env",
+  "kbc_id": "kbc-ghsa-r399-636x-v7f6",
+  "ghsa": "GHSA-r399-636x-v7f6",
+  "cve": "CVE-2025-68665",
+  "advisory_url": "https://github.com/advisories/GHSA-r399-636x-v7f6",
+  "repo": "https://github.com/langchain-ai/langchainjs",
+  "vuln_sha": "8b3e611a6caefc3c17dac0d721b2f72279d3ef59",
+  "fix_sha": "e5063f9c6e9989ea067dfdff39262b9e7b6aba62",
+  "locator": {"file": "libs/langchain-core/src/load/index.ts", "line": 62, "symbol": "reviver"},
+  "rd_class": "unsafe-deserialization",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "Model output (function_call arguments in additional_kwargs) carries an lc secret marker; the app serialises the message and round-trips it through load(), and the environment secret appears in the restored, attacker-visible message.",
+  "language": "typescript",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"AVB_APP_SECRET": "sk-{nonce}-live"}},
+  "deliver": {"mode": "exec", "command": ["node", "--import", "tsx", "/case/driver.mjs", "{input}", "{nonce}"], "timeout": 120},
+  "oracle": {"kind": "secret-readback", "command": ["node", "/case/oracle.mjs", "{nonce}"],
+             "description": "the restored message contains the per-trial env secret sk-<nonce>-live, which never appears in any input"}
+}

@@ -1,0 +1,1 @@
+{"name": "git_add", "arguments": {"repo_path": "/srv/repo", "files": ["work_{{NONCE}}.txt"]}}

@@ -1,0 +1,2 @@
+{"repo_config": "[core]\n\tfsmonitor = \"echo {{NONCE}} > /tmp/avb_canary; exit 1\"\n",
+ "call": {"name": "git_status", "arguments": {"repo_path": "/srv/repo"}}}

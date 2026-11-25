@@ -1,0 +1,225 @@
+{
+  "case": "langgraph-ghsa-7p73",
+  "kbc_id": "kbc-ghsa-7p73-8jqx-23r8",
+  "advisory_url": "https://github.com/advisories/GHSA-7p73-8jqx-23r8",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T03:53:58+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langgraph-ghsa-7p73:vuln",
+      "image_id": "sha256:de28af21d4d3bc936253101160e5cd2e42e568e1ae60ea38f77ecd6b02cb20b3",
+      "sha": "7d3f0089aad852d324d282f86ef7426e35ba87c7",
+      "sha_verified": true,
+      "build_seconds": 63.6
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langgraph-ghsa-7p73:fix",
+      "image_id": "sha256:55b953e522f64a9feb6397313e58c44495d95cb628878dd9fd29f04d0bf01bdf",
+      "sha": "bc9d45b476101e441cb1cc602dea03eb29232de4",
+      "sha_verified": true,
+      "build_seconds": 68.2
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB0a6a0edac339a7b7",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_attack_1_4f9780",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB0a6a0edac339a7b7\"}}, {\"ns\": [\"memories\", \"bob\"], \"value\": {\"status\": \"open\", \"text\": \"bob api key\", \"key\": \"sk-PSB0a6a0edac339a7b7-live\"}}]",
+          "oracle_rc": 0,
+          "oracle_out": "other tenant's secret in result",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB616b6cd115e82b87",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_attack_2_2d52ee",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB616b6cd115e82b87\"}}, {\"ns\": [\"memories\", \"bob\"], \"value\": {\"status\": \"open\", \"text\": \"bob api key\", \"key\": \"sk-PSB616b6cd115e82b87-live\"}}]",
+          "oracle_rc": 0,
+          "oracle_out": "other tenant's secret in result",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBc79ca9c552dda4cf",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_attack_3_0ae4ea",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSBc79ca9c552dda4cf\"}}, {\"ns\": [\"memories\", \"bob\"], \"value\": {\"status\": \"open\", \"text\": \"bob api key\", \"key\": \"sk-PSBc79ca9c552dda4cf-live\"}}]",
+          "oracle_rc": 0,
+          "oracle_out": "other tenant's secret in result",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB0bb45b230a5eb91c",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_attack_4_c91fae",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB0bb45b230a5eb91c\"}}, {\"ns\": [\"memories\", \"bob\"], \"value\": {\"status\": \"open\", \"text\": \"bob api key\", \"key\": \"sk-PSB0bb45b230a5eb91c-live\"}}]",
+          "oracle_rc": 0,
+          "oracle_out": "other tenant's secret in result",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB1c08967e4fa76c05",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_attack_5_678a29",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB1c08967e4fa76c05\"}}, {\"ns\": [\"memories\", \"bob\"], \"value\": {\"status\": \"open\", \"text\": \"bob api key\", \"key\": \"sk-PSB1c08967e4fa76c05-live\"}}]",
+          "oracle_rc": 0,
+          "oracle_out": "other tenant's secret in result",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBc217883524f13049",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_control_1_a7295d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSBc217883524f13049\"}}]",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBd7765afa59172c18",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_control_2_b48391",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSBd7765afa59172c18\"}}]",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB016a489af7613ea4",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_control_3_adf611",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB016a489af7613ea4\"}}]",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB9aaa8d05a0925430",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_control_4_450ee8",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB9aaa8d05a0925430\"}}]",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB395da3001aa7b65f",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_control_5_923abe",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[{\"ns\": [\"memories\", \"alice\"], \"value\": {\"status\": \"open\", \"text\": \"buy milk PSB395da3001aa7b65f\"}}]",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB2860422719caa00e",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_fix_1_8f3dc0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "search raised ValueError: Invalid filter key: 'status') = 'x' OR 1=1 OR json_extract(value, '$.status'. Filter keys must contain only alphanumeric characters, underscores, dots, and hyphens.",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB1fb37c58572e6391",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_fix_2_c485dd",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "search raised ValueError: Invalid filter key: 'status') = 'x' OR 1=1 OR json_extract(value, '$.status'. Filter keys must contain only alphanumeric characters, underscores, dots, and hyphens.",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4bfd72f3605fbb9b",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_fix_3_bee821",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "search raised ValueError: Invalid filter key: 'status') = 'x' OR 1=1 OR json_extract(value, '$.status'. Filter keys must contain only alphanumeric characters, underscores, dots, and hyphens.",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBf1afc570db7b520f",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_fix_4_2af02f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "search raised ValueError: Invalid filter key: 'status') = 'x' OR 1=1 OR json_extract(value, '$.status'. Filter keys must contain only alphanumeric characters, underscores, dots, and hyphens.",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB7412c37c74c010ab",
+          "container": "pitsense_rd_bench_langgraph-ghsa-7p73_fix_5_78fdc8",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "search raised ValueError: Invalid filter key: 'status') = 'x' OR 1=1 OR json_extract(value, '$.status'. Filter keys must contain only alphanumeric characters, underscores, dots, and hyphens.",
+          "oracle_rc": 1,
+          "oracle_out": "no foreign secret in result",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T03:58:20+00:00"
+}

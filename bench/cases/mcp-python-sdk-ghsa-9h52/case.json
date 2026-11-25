@@ -1,0 +1,56 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-python-sdk-ghsa-9h52",
+  "version": "1",
+  "title": "FastMCP localhost HTTP servers accept requests with any Host/Origin (DNS rebinding)",
+  "kbc_id": "kbc-ghsa-9h52-p55h-vw2f",
+  "ghsa": "GHSA-9h52-p55h-vw2f",
+  "cve": "CVE-2025-66416",
+  "advisory_url": "https://github.com/advisories/GHSA-9h52-p55h-vw2f",
+  "repo": "https://github.com/modelcontextprotocol/python-sdk",
+  "vuln_sha": "fa851d93a2036a37cce73e098f7dbc80a6c48765",
+  "fix_sha": "d3a184119e4479ea6a63590bc41f01dc06e3fa99",
+  "locator": {
+    "file": "src/mcp/server/fastmcp/server.py",
+    "line": 175,
+    "symbol": "FastMCP.__init__"
+  },
+  "rd_class": "dns-rebinding",
+  "attacker": "malicious-web-content",
+  "attacker_story": "The developer visits a web page whose hostname the attacker rebinds to 127.0.0.1; the page's scripts then call tools on the unauthenticated local FastMCP server with the attacker's Host/Origin.",
+  "language": "python",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "sha_arg": "REPO_SHA"
+  },
+  "target": {
+    "network": "none",
+    "entrypoint": "python",
+    "command": [
+      "/case/server.py"
+    ],
+    "ready": [
+      "python",
+      "/case/ready.py"
+    ],
+    "ready_timeout": 60
+  },
+  "deliver": {
+    "mode": "exec",
+    "command": [
+      "python",
+      "/case/driver.py",
+      "{input}",
+      "{nonce}"
+    ]
+  },
+  "oracle": {
+    "kind": "canary-file",
+    "command": [
+      "python",
+      "/case/oracle.py",
+      "{nonce}"
+    ],
+    "description": "a /tmp/notes_* file written by the save_note tool contains the per-trial nonce"
+  }
+}

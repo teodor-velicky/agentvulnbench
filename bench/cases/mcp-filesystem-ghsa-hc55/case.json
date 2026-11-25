@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-filesystem-ghsa-hc55",
+  "version": "1",
+  "title": "MCP server-filesystem: allowed-directory check is a bare prefix match",
+  "kbc_id": "kbc-ghsa-hc55-p739-j48w",
+  "ghsa": "GHSA-hc55-p739-j48w",
+  "cve": "CVE-2025-53110",
+  "advisory_url": "https://github.com/advisories/GHSA-hc55-p739-j48w",
+  "repo": "https://github.com/modelcontextprotocol/servers",
+  "vuln_sha": "b7c48c79ee4096c1d3fdebe0089d81122d6cc051",
+  "fix_sha": "d00c60df9d74dba8a3bb13113f8904407cda594f",
+  "locator": {"file": "src/filesystem/index.ts", "line": 66, "symbol": "validatePath"},
+  "rd_class": "path-traversal",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "A prompt-injected model picks the write_file path; the user only granted /srv/allowed. The scripted MCP host forwards the model's tool call verbatim.",
+  "language": "typescript",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["node", "/case/driver.mjs", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["node", "/case/oracle.mjs", "{nonce}"],
+             "description": "a file in the sibling directory /srv/allowed_private contains the per-trial nonce"}
+}

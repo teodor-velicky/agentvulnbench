@@ -1,0 +1,225 @@
+{
+  "case": "langchain-core-ghsa-6qv9",
+  "kbc_id": "kbc-ghsa-6qv9-48xg-fc7f",
+  "advisory_url": "https://github.com/advisories/GHSA-6qv9-48xg-fc7f",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T03:40:54+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langchain-core-ghsa-6qv9:vuln",
+      "image_id": "sha256:ce0535c977fcea2e2190b45c85474bcbc81204c889de28cf9b5cbf8b327a31b2",
+      "sha": "b7d1831f9d3560ed4fb45134861eef3f4544eff3",
+      "sha_verified": true,
+      "build_seconds": 49.3
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langchain-core-ghsa-6qv9:fix",
+      "image_id": "sha256:525c3ce9d5049dc6a6104da0e428293174da3bbfc8c1f89b16d4fa2b7273e91e",
+      "sha": "c4b6ba254e1a49ed91f2e268e6484011c540542a",
+      "sha_verified": true,
+      "build_seconds": 65.4
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB19ed5b40034237bb",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_attack_1_03a459",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key: sk-PSB19ed5b40034237bb-live",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into rendered prompt",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB41f0573b776f79f0",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_attack_2_7c46e9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key: sk-PSB41f0573b776f79f0-live",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into rendered prompt",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB513c26deb032bea4",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_attack_3_70c614",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key: sk-PSB513c26deb032bea4-live",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into rendered prompt",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBb4c62eff649e4113",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_attack_4_8df166",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key: sk-PSBb4c62eff649e4113-live",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into rendered prompt",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBf98ad9a3a8c18e5d",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_attack_5_06eab6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key: sk-PSBf98ad9a3a8c18e5d-live",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into rendered prompt",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBce9f123cd1a2e93a",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_control_1_da1871",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document titled Quarterly report PSBce9f123cd1a2e93a (request PSBce9f123cd1a2e93a).",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB44d90c87b5d84d36",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_control_2_e8577b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document titled Quarterly report PSB44d90c87b5d84d36 (request PSB44d90c87b5d84d36).",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB11541dfb091a5eb4",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_control_3_7e0285",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document titled Quarterly report PSB11541dfb091a5eb4 (request PSB11541dfb091a5eb4).",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB095453bbfcd82cb0",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_control_4_afa774",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document titled Quarterly report PSB095453bbfcd82cb0 (request PSB095453bbfcd82cb0).",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8cc609579b9779a0",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_control_5_a977d1",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document titled Quarterly report PSB8cc609579b9779a0 (request PSB8cc609579b9779a0).",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB25f9a97b146ad10f",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_fix_1_bde492",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key:",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB12e25b328c956a60",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_fix_2_207b6a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key:",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBfaf0560175f3037b",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_fix_3_1a0b99",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key:",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB58a08ff095a8d063",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_fix_4_94dd30",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key:",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB067bfec8afac8a48",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-6qv9_fix_5_ca1986",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Summarize the document. Key:",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T03:45:22+00:00"
+}

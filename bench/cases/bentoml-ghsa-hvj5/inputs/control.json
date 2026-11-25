@@ -1,0 +1,1 @@
+{"content_type": "application/json", "body": "json", "json": {"text": "echo {{NONCE}} > /tmp/pitsense_canary"}}

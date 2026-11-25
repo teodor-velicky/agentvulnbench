@@ -1,0 +1,58 @@
+{
+  "schema": "avb-case/0",
+  "id": "bentoml-ghsa-hvj5",
+  "version": "1",
+  "title": "BentoML service endpoint unpickles the request body when the client sends the pickle media type",
+  "kbc_id": "kbc-ghsa-hvj5-mvw9-93j3",
+  "ghsa": "GHSA-hvj5-mvw9-93j3",
+  "cve": "CVE-2024-2912",
+  "advisory_url": "https://github.com/advisories/GHSA-hvj5-mvw9-93j3",
+  "repo": "https://github.com/bentoml/BentoML",
+  "vuln_sha": "f5c332237b72eb102b9c88f993fc1b6033ef04d2",
+  "fix_sha": "fd70379733c57c6368cc022ac1f841b7b426db7b",
+  "locator": {
+    "file": "src/_bentoml_impl/server/app.py",
+    "line": 414,
+    "symbol": "ServiceAppFactory.api_endpoint"
+  },
+  "rd_class": "unsafe-deserialization",
+  "attacker": "remote-unauth",
+  "attacker_story": "Any client that can reach the HTTP port POSTs a pickle with Content-Type application/vnd.bentoml+pickle; no auth is configured by default.",
+  "language": "python",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "sha_arg": "REPO_SHA"
+  },
+  "target": {
+    "network": "internal",
+    "command": [
+      "-c",
+      "exec bentoml serve service:Echo --working-dir /case --host \"$(hostname -i)\" --port 3000"
+    ],
+    "ready": [
+      "python",
+      "/case/ready.py"
+    ],
+    "ready_timeout": 120,
+    "entrypoint": "sh"
+  },
+  "deliver": {
+    "mode": "client",
+    "command": [
+      "python",
+      "/case/client.py",
+      "{input}",
+      "{nonce}",
+      "{target}"
+    ]
+  },
+  "oracle": {
+    "kind": "canary-file",
+    "command": [
+      "python",
+      "/case/oracle.py",
+      "{nonce}"
+    ],
+    "description": "/tmp/pitsense_canary inside the service container contains the per-trial nonce"
+  }
+}

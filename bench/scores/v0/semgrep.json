@@ -1,0 +1,805 @@
+{
+  "schema": "avb-score/0",
+  "scorer_version": "0.1.0",
+  "harness_version": "0.1.0",
+  "spec": "bench/SPEC.md s2+s7",
+  "tool": "semgrep",
+  "attempt": "bench/scores/v0/semgrep.attempt.json",
+  "scored_utc": "2026-11-25T09:58:39+00:00",
+  "per_case": [
+    {
+      "case": "ag2-ghsa-2h4w",
+      "rd_class": "allowlist-bypass",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 190.2,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 3,
+        "matching_ranks": [],
+        "flags_outside_key": 3
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "agno-ghsa-m4w4",
+      "rd_class": "code-injection",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 779.2,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "bentoml-ghsa-hvj5",
+      "rd_class": "unsafe-deserialization",
+      "attacker": "remote-unauth",
+      "budget": {
+        "seconds": 175.1,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "bentoml-ghsa-mrmq",
+      "rd_class": "ssrf",
+      "attacker": "remote-unauth",
+      "budget": {
+        "seconds": 183.6,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langchain-core-ghsa-6qv9",
+      "rd_class": "template-injection",
+      "attacker": "library-caller",
+      "budget": {
+        "seconds": 220.8,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langchain-core-ghsa-c67j",
+      "rd_class": "unsafe-deserialization",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 150.8,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 9,
+        "matching_ranks": [],
+        "flags_outside_key": 9
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langchainjs-ghsa-gf3v",
+      "rd_class": "ssrf",
+      "attacker": "malicious-web-content",
+      "budget": {
+        "seconds": 184.8,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 1,
+        "matching_ranks": [],
+        "flags_outside_key": 1
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langchainjs-ghsa-r399",
+      "rd_class": "unsafe-deserialization",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 126.9,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 1,
+        "matching_ranks": [],
+        "flags_outside_key": 1
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langflow-ghsa-rvqx",
+      "rd_class": "authz-bypass",
+      "attacker": "remote-unauth",
+      "budget": {
+        "seconds": 125.9,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "langgraph-ghsa-7p73",
+      "rd_class": "sql-injection",
+      "attacker": "library-caller",
+      "budget": {
+        "seconds": 78.9,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 8,
+        "matching_ranks": [],
+        "flags_outside_key": 8
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "litellm-ghsa-7488",
+      "rd_class": "token-passthrough",
+      "attacker": "remote-unauth",
+      "budget": {
+        "seconds": 1176.8,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "llama-index-ghsa-wvpx",
+      "rd_class": "prompt-injection-to-tool",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 269.3,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-filesystem-ghsa-hc55",
+      "rd_class": "path-traversal",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 39.1,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 0,
+        "matching_ranks": [],
+        "flags_outside_key": 0
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-inspector-ghsa-7f8r",
+      "rd_class": "mcp-stdio-cmd-exec",
+      "attacker": "malicious-web-content",
+      "budget": {
+        "seconds": 32.0,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 0,
+        "matching_ranks": [],
+        "flags_outside_key": 0
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-python-sdk-ghsa-9h52",
+      "rd_class": "dns-rebinding",
+      "attacker": "malicious-web-content",
+      "budget": {
+        "seconds": 48.9,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 2,
+        "matching_ranks": [],
+        "flags_outside_key": 2
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-python-sdk-ghsa-qx49",
+      "rd_class": "oauth-confused-deputy",
+      "attacker": "malicious-mcp-server",
+      "budget": {
+        "seconds": 32.2,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 1,
+        "matching_ranks": [],
+        "flags_outside_key": 1
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-server-git-ghsa-5cgr",
+      "rd_class": "path-traversal",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 34.8,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 0,
+        "matching_ranks": [],
+        "flags_outside_key": 0
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-server-git-ghsa-6hqx",
+      "rd_class": "command-injection",
+      "attacker": "untrusted-data-store",
+      "budget": {
+        "seconds": 36.9,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "mcp-server-git-ghsa-vjqx",
+      "rd_class": "path-traversal",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 39.5,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 0,
+        "matching_ranks": [],
+        "flags_outside_key": 0
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "smolagents-ghsa-6v92",
+      "rd_class": "sandbox-escape",
+      "attacker": "untrusted-llm-input",
+      "budget": {
+        "seconds": 56.3,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 8,
+        "matching_ranks": [],
+        "flags_outside_key": 8
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    },
+    {
+      "case": "vllm-ghsa-hjq4",
+      "rd_class": "unsafe-deserialization",
+      "attacker": "remote-unauth",
+      "budget": {
+        "seconds": 136.0,
+        "tokens": 0,
+        "usd": 0
+      },
+      "locate": {
+        "solved": false,
+        "findings_considered": 10,
+        "matching_ranks": [],
+        "flags_outside_key": 10
+      },
+      "prove": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "fix": {
+        "solved": null,
+        "reason": "--no-docker: not scored"
+      },
+      "e2e": null,
+      "case_score": {
+        "stages_solved": 0,
+        "stages_total": 3,
+        "e2e": null
+      }
+    }
+  ],
+  "aggregate": {
+    "overall": {
+      "n": 21,
+      "locate@10": 0.0,
+      "prove": null,
+      "fix": null,
+      "e2e": null
+    },
+    "by_rd_class": {
+      "allowlist-bypass": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "authz-bypass": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "code-injection": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "command-injection": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "dns-rebinding": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "mcp-stdio-cmd-exec": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "oauth-confused-deputy": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "path-traversal": {
+        "n": 3,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "prompt-injection-to-tool": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "sandbox-escape": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "sql-injection": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "ssrf": {
+        "n": 2,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "template-injection": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "token-passthrough": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "unsafe-deserialization": {
+        "n": 4,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      }
+    },
+    "by_attacker": {
+      "library-caller": {
+        "n": 2,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "malicious-mcp-server": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "malicious-web-content": {
+        "n": 3,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "remote-unauth": {
+        "n": 5,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "untrusted-data-store": {
+        "n": 1,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      },
+      "untrusted-llm-input": {
+        "n": 9,
+        "locate@10": 0.0,
+        "prove": null,
+        "fix": null,
+        "e2e": null
+      }
+    },
+    "noise": {
+      "flags_per_case": 5.857,
+      "precision@10": 0.0
+    }
+  }
+}

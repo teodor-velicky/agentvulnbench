@@ -1,0 +1,225 @@
+{
+  "case": "llama-index-ghsa-wvpx",
+  "kbc_id": "kbc-ghsa-wvpx-g427-q9wc",
+  "advisory_url": "https://github.com/advisories/GHSA-wvpx-g427-q9wc",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T01:00:26+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_llama-index-ghsa-wvpx:vuln",
+      "image_id": "sha256:d8efdd5c0090726b0499c7f9a1405e3c7711123655b37d2d4c8ddd427385c68c",
+      "sha": "6882171a95db8dbaa65295c5b750d08cda970db4",
+      "sha_verified": true,
+      "build_seconds": 80.1
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_llama-index-ghsa-wvpx:fix",
+      "image_id": "sha256:e5df0af9dc0f3fd6d72dec481bb9cc045f0c701a310aac7e5d8523f9b294dc7a",
+      "sha": "2c92e88838a5f481d50840240b1dd3180066c6f5",
+      "sha_verified": true,
+      "build_seconds": 86.3
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBeac8d0ce4511a6ec",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_attack_1_64f442",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "None\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5874661eb5fc55d0",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_attack_2_64bca5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "None\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBb452b982e1d3a7a8",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_attack_3_93b7a9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "None\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd9fd0156651286c6",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_attack_4_0588c7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "None\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB1ee286d7cd66bc1d",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_attack_5_2cba81",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "None\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB24f830602e46586d",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_control_1_f03c7a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "14\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBef2c53759656de60",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_control_2_f74f96",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "14\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB17b475623398c3b7",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_control_3_2277f0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "14\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB297e66bf11dd65d3",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_control_4_0543da",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "14\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB2a52c3ae113cbcb0",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_control_5_681d50",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "14\n[nltk_data] Error loading stopwords: <urlopen error [Errno -3]\n[nltk_data]     Temporary failure in name resolution>\n[nltk_data] Error loading punkt: <urlopen error [Errno -3] Temporary\n[nltk_data]     failure in name resolution>",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB82715ee32380821e",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_fix_1_923d70",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ocal/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 157, in safe_eval\n    _verify_source_safety(__source)\n  File \"/usr/local/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 143, in _verify_source_safety\n    raise RuntimeError(\nRuntimeError: Execution of code containing references to private or dunder methods, disallowed builtins, or any imports, is forbidden!",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBf4e842121bafcae8",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_fix_2_992be4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ocal/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 157, in safe_eval\n    _verify_source_safety(__source)\n  File \"/usr/local/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 143, in _verify_source_safety\n    raise RuntimeError(\nRuntimeError: Execution of code containing references to private or dunder methods, disallowed builtins, or any imports, is forbidden!",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd10a789fba49261d",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_fix_3_4c09a3",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ocal/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 157, in safe_eval\n    _verify_source_safety(__source)\n  File \"/usr/local/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 143, in _verify_source_safety\n    raise RuntimeError(\nRuntimeError: Execution of code containing references to private or dunder methods, disallowed builtins, or any imports, is forbidden!",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB8bf29f10038e90f8",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_fix_4_9fd7b5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ocal/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 157, in safe_eval\n    _verify_source_safety(__source)\n  File \"/usr/local/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 143, in _verify_source_safety\n    raise RuntimeError(\nRuntimeError: Execution of code containing references to private or dunder methods, disallowed builtins, or any imports, is forbidden!",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB71ac95ebfdb16190",
+          "container": "pitsense_rd_bench_llama-index-ghsa-wvpx_fix_5_944803",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ocal/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 157, in safe_eval\n    _verify_source_safety(__source)\n  File \"/usr/local/lib/python3.11/site-packages/llama_index/core/exec_utils.py\", line 143, in _verify_source_safety\n    raise RuntimeError(\nRuntimeError: Execution of code containing references to private or dunder methods, disallowed builtins, or any imports, is forbidden!",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T01:08:50+00:00"
+}

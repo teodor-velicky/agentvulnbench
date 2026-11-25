@@ -1,0 +1,15 @@
+--- a/libs/agno/agno/models/base.py
++++ b/libs/agno/agno/models/base.py
+@@ -2031,9 +2031,8 @@
+                 for input_field in fc.arguments.get("user_input_fields", []):
+                     field_type = input_field.get("field_type")
+-                    try:
+-                        python_type = eval(field_type) if isinstance(field_type, str) else field_type
+-                    except (NameError, SyntaxError):
+-                        python_type = str  # Default to str if type is invalid
++                    # never eval model-supplied strings: map a fixed set of type names, default to str
++                    _types = {"str": str, "int": int, "float": float, "bool": bool, "list": list, "dict": dict}
++                    python_type = _types.get(field_type, str) if isinstance(field_type, str) else field_type
+                     user_input_schema.append(
+                         UserInputField(
+                             name=input_field.get("field_name"),

@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-server-git-ghsa-vjqx",
+  "version": "1",
+  "title": "mcp-server-git git_add stages files outside the --repository confinement (path traversal)",
+  "kbc_id": "kbc-ghsa-vjqx-cfc4-9h6v",
+  "ghsa": "GHSA-vjqx-cfc4-9h6v",
+  "cve": "CVE-2026-27735",
+  "advisory_url": "https://github.com/advisories/GHSA-vjqx-cfc4-9h6v",
+  "repo": "https://github.com/modelcontextprotocol/servers",
+  "vuln_sha": "dcb47d2d94a3a33340053d2df550ae68d2795a3f",
+  "fix_sha": "862e717ff714987bd5577318df09858e14883863",
+  "locator": {"file": "src/git/src/mcp_server_git/server.py", "line": 135, "symbol": "git_add"},
+  "rd_class": "path-traversal",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "The user granted the agent one repository via --repository /srv/repo; a prompt-injected model calls git_add with a file path containing '../' that escapes it. The scripted MCP host forwards the model's tool call verbatim over stdio.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-index", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "a path escaping the granted repo (../outside/<nonce>.txt) was staged in /srv/repo's index, outside the server's --repository confinement"}
+}

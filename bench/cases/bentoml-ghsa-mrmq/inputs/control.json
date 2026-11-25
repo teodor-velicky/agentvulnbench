@@ -1,0 +1,1 @@
+{"kind": "file", "filename": "{{NONCE}}.txt", "content": "upload {{NONCE}}"}

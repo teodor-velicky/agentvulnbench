@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-remote-ghsa-6xpm",
+  "version": "1",
+  "title": "mcp-remote opens an untrusted MCP server's OAuth authorization URL with any scheme, launching a local handler (CVE-2025-6514)",
+  "kbc_id": "kbc-ghsa-6xpm-ggf7-wc3p",
+  "ghsa": "GHSA-6xpm-ggf7-wc3p",
+  "cve": "CVE-2025-6514",
+  "advisory_url": "https://github.com/advisories/GHSA-6xpm-ggf7-wc3p",
+  "repo": "https://github.com/geelen/mcp-remote",
+  "vuln_sha": "2a0665de6c5a0cec0695effe592aec7a34c5f215",
+  "fix_sha": "783bf8656952a9590eacfda50db485edbd13aff8",
+  "locator": {"file": "src/lib/node-oauth-client-provider.ts", "line": 175, "symbol": "redirectToAuthorization"},
+  "rd_class": "mcp-client-url-open-exec",
+  "attacker": "malicious-mcp-server",
+  "attacker_story": "A malicious MCP server returns OAuth authorization-server metadata whose authorization_endpoint is an attacker-chosen URL. mcp-remote hands that URL straight to open(), which on the victim's desktop launches whatever local application is registered for the URL's scheme. The fix (783bf86) adds sanitizeUrl(), which rejects any scheme other than http(s) before open() is called.",
+  "language": "typescript",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"DISPLAY": ":99"}},
+  "deliver": {"mode": "exec", "command": ["node", "--import", "tsx", "/case/driver.mjs", "{input}", "{nonce}"], "timeout": 120},
+  "oracle": {"kind": "canary-file", "command": ["node", "/case/oracle.mjs", "{nonce}"],
+             "description": "open() launched the local scheme handler, which wrote /tmp/avb_canary_<nonce> containing pwned-<nonce>"}
+}

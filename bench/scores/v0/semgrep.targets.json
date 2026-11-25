@@ -1,0 +1,65 @@
+{
+ "ag2-ghsa-2h4w": {
+  "scanned_targets": 884
+ },
+ "agno-ghsa-m4w4": {
+  "scanned_targets": 3192
+ },
+ "bentoml-ghsa-hvj5": {
+  "scanned_targets": 839
+ },
+ "bentoml-ghsa-mrmq": {
+  "scanned_targets": 572
+ },
+ "langchain-core-ghsa-6qv9": {
+  "scanned_targets": 1981
+ },
+ "langchain-core-ghsa-c67j": {
+  "scanned_targets": 1992
+ },
+ "langchainjs-ghsa-gf3v": {
+  "scanned_targets": 2545
+ },
+ "langchainjs-ghsa-r399": {
+  "scanned_targets": 2555
+ },
+ "langflow-ghsa-rvqx": {
+  "scanned_targets": 2030
+ },
+ "langgraph-ghsa-7p73": {
+  "scanned_targets": 787
+ },
+ "litellm-ghsa-7488": {
+  "scanned_targets": 4417
+ },
+ "llama-index-ghsa-wvpx": {
+  "scanned_targets": 7379
+ },
+ "mcp-filesystem-ghsa-hc55": {
+  "scanned_targets": 72
+ },
+ "mcp-inspector-ghsa-7f8r": {
+  "scanned_targets": 119
+ },
+ "mcp-python-sdk-ghsa-9h52": {
+  "scanned_targets": 295
+ },
+ "mcp-python-sdk-ghsa-qx49": {
+  "scanned_targets": 327
+ },
+ "mcp-server-git-ghsa-5cgr": {
+  "scanned_targets": 82
+ },
+ "mcp-server-git-ghsa-6hqx": {
+  "scanned_targets": 390
+ },
+ "mcp-server-git-ghsa-vjqx": {
+  "scanned_targets": 124
+ },
+ "smolagents-ghsa-6v92": {
+  "scanned_targets": 119
+ },
+ "vllm-ghsa-hjq4": {
+  "scanned_targets": 1732
+ }
+}

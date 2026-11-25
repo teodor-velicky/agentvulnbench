@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "smolagents-ghsa-6v92",
+  "version": "1",
+  "title": "smolagents LocalPythonExecutor: forbidden submodule reached through indirect getattr",
+  "kbc_id": "kbc-ghsa-6v92-r5mx-h5fx",
+  "ghsa": "GHSA-6v92-r5mx-h5fx",
+  "cve": "CVE-2025-5120",
+  "advisory_url": "https://github.com/advisories/GHSA-6v92-r5mx-h5fx",
+  "repo": "https://github.com/huggingface/smolagents",
+  "vuln_sha": "41b1d7fd3034f386f9d1e64d082a16956bded0e8",
+  "fix_sha": "33a942e62b6fbf6a35d41f1c735bda2d64c163d0",
+  "locator": {"file": "src/smolagents/local_python_executor.py", "line": 298, "symbol": "evaluate_attribute"},
+  "rd_class": "sandbox-escape",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "Prompt-injected or malicious model output is code the CodeAgent runs in LocalPythonExecutor; the scripted model emits it verbatim.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "/tmp/pitsense_canary contains the per-trial nonce, written by os.system outside the sandbox"}
+}

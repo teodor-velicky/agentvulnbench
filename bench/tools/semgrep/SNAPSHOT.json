@@ -1,0 +1,17 @@
+{
+ "fetched_utc": "2026-11-25T03:52:40Z",
+ "source": "https://semgrep.dev/c/p/<pack>",
+ "sha256": {
+  "p-javascript.yaml": "745b13761f38588a36695be1da76b251369d4f6f61c22122a21e4386eae46b90",
+  "p-python.yaml": "de5bc79d074c3b4146338a0bf95830406f169bd91ac590a2f1ef111f162e23f5",
+  "p-security-audit.yaml": "6d2f9a77b0372395072aa859ffd47f57b5851e1511da72a6c1b7ff9898ee1313",
+  "p-typescript.yaml": "745b13761f38588a36695be1da76b251369d4f6f61c22122a21e4386eae46b90"
+ },
+ "superseded": {
+  "p-security-audit.yaml": {
+   "sha256": "4783ea9467af8baeb9d38cc9537dfe60bde84f4347f200e818011761dfe27b49",
+   "used_for": "the original 14-case scores",
+   "note": "registry pack changed upstream before the 21-case re-run; the old bytes were not archived and cannot be re-fetched"
+  }
+ }
+}

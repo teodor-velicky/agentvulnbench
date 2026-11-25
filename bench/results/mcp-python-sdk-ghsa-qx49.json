@@ -1,0 +1,225 @@
+{
+  "case": "mcp-python-sdk-ghsa-qx49",
+  "kbc_id": "kbc-ghsa-qx49-fqc8-xw99",
+  "advisory_url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T04:07:12+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49:vuln",
+      "image_id": "sha256:ac5c5200cb77338d80680411b457e6d529d817921e4ac04aaa6a4eb1b0b1cfd1",
+      "sha": "92120b4b0f50385af096592d7cee932fc1d994e7",
+      "sha_verified": true,
+      "build_seconds": 8.5
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49:fix",
+      "image_id": "sha256:fdaa512252bf166471d4c72653686b1aa23504824dcf8494e2fc269dc534bcfe",
+      "sha": "3eed7ce0a6aba76e8d94c4cfb9b266f41935392c",
+      "sha_verified": true,
+      "build_seconds": 5.0
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB370d3c7f212924ce",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_attack_1_663bb5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: False",
+          "oracle_rc": 0,
+          "oracle_out": "client_secret reached the MCP server",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB4e64e7ef3afd171b",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_attack_2_ae78f6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: False",
+          "oracle_rc": 0,
+          "oracle_out": "client_secret reached the MCP server",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4d93f226fc0a422b",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_attack_3_c26b56",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: False",
+          "oracle_rc": 0,
+          "oracle_out": "client_secret reached the MCP server",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB8c14b51128aa6b95",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_attack_4_7d5bcf",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: False",
+          "oracle_rc": 0,
+          "oracle_out": "client_secret reached the MCP server",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBc32430a840ac373d",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_attack_5_d1a0af",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: False",
+          "oracle_rc": 0,
+          "oracle_out": "client_secret reached the MCP server",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBce291719d3bd0179",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_control_1_266199",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: True",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB13120ec4ee61dac0",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_control_2_bc9ca5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: True",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBe73e6d1ac9c5e3ac",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_control_3_5ece4e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: True",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBa88f7b0158fb0c71",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_control_4_6a7d80",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: True",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4f20f6774ab84907",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_control_5_196872",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "mcp status 401\nreal AS received token request: True",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBb01b1ec3e394850c",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_fix_1_cab5c0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "/site-packages/mcp/client/auth/oauth2.py\", line 612, in async_auth_flow\n    validate_metadata_issuer(asm, expected_issuer)\n  File \"/usr/local/lib/python3.11/site-packages/mcp/client/auth/utils.py\", line 226, in validate_metadata_issuer\n    raise OAuthFlowError(\nmcp.client.auth.exceptions.OAuthFlowError: Authorization server metadata issuer mismatch: http://127.0.0.1:8001/ != http://127.0.0.1:8000/",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBaa4472f160a8ae6c",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_fix_2_7c0e5a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "/site-packages/mcp/client/auth/oauth2.py\", line 612, in async_auth_flow\n    validate_metadata_issuer(asm, expected_issuer)\n  File \"/usr/local/lib/python3.11/site-packages/mcp/client/auth/utils.py\", line 226, in validate_metadata_issuer\n    raise OAuthFlowError(\nmcp.client.auth.exceptions.OAuthFlowError: Authorization server metadata issuer mismatch: http://127.0.0.1:8001/ != http://127.0.0.1:8000/",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf6188012abb0d40d",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_fix_3_b705a0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "/site-packages/mcp/client/auth/oauth2.py\", line 612, in async_auth_flow\n    validate_metadata_issuer(asm, expected_issuer)\n  File \"/usr/local/lib/python3.11/site-packages/mcp/client/auth/utils.py\", line 226, in validate_metadata_issuer\n    raise OAuthFlowError(\nmcp.client.auth.exceptions.OAuthFlowError: Authorization server metadata issuer mismatch: http://127.0.0.1:8001/ != http://127.0.0.1:8000/",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB1c933146ecc2be10",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_fix_4_79747b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "/site-packages/mcp/client/auth/oauth2.py\", line 612, in async_auth_flow\n    validate_metadata_issuer(asm, expected_issuer)\n  File \"/usr/local/lib/python3.11/site-packages/mcp/client/auth/utils.py\", line 226, in validate_metadata_issuer\n    raise OAuthFlowError(\nmcp.client.auth.exceptions.OAuthFlowError: Authorization server metadata issuer mismatch: http://127.0.0.1:8001/ != http://127.0.0.1:8000/",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB0cd6875f9ebbee13",
+          "container": "pitsense_rd_bench_mcp-python-sdk-ghsa-qx49_fix_5_3c5899",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "/site-packages/mcp/client/auth/oauth2.py\", line 612, in async_auth_flow\n    validate_metadata_issuer(asm, expected_issuer)\n  File \"/usr/local/lib/python3.11/site-packages/mcp/client/auth/utils.py\", line 226, in validate_metadata_issuer\n    raise OAuthFlowError(\nmcp.client.auth.exceptions.OAuthFlowError: Authorization server metadata issuer mismatch: http://127.0.0.1:8001/ != http://127.0.0.1:8000/",
+          "oracle_rc": 1,
+          "oracle_out": "MCP server never saw the client secret",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T04:10:01+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "langchain-core-ghsa-c67j",
+  "version": "1",
+  "title": "langchain-core dumps/loads: unescaped 'lc' dicts revive as secrets from os.environ",
+  "kbc_id": "kbc-ghsa-c67j-w6g6-q2cm",
+  "ghsa": "GHSA-c67j-w6g6-q2cm",
+  "cve": "CVE-2025-68664",
+  "advisory_url": "https://github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "repo": "https://github.com/langchain-ai/langchain",
+  "vuln_sha": "6a416c618655102847a59cae280348c0712cf45c",
+  "fix_sha": "5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8",
+  "locator": {"file": "libs/core/langchain_core/load/load.py", "line": 124, "symbol": "Reviver.__call__"},
+  "rd_class": "unsafe-deserialization",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "Model output (function_call arguments in additional_kwargs) carries an lc secret marker; the app round-trips the message through dumps/loads and the environment secret appears in it.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"AVB_APP_SECRET": "sk-{nonce}-live"}},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "secret-readback", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "the restored message contains the per-trial env secret sk-<nonce>-live, which never appears in any input"}
+}

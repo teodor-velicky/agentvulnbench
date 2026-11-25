@@ -1,0 +1,1 @@
+{"content_type": "application/vnd.bentoml+pickle", "body": "pickle-exec", "command": "echo {{NONCE}} > /tmp/pitsense_canary"}

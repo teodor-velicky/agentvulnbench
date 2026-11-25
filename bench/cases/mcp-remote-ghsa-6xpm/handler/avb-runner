@@ -1,0 +1,8 @@
+#!/bin/sh
+# Victim-side application registered for the `avbexec` URL scheme. xdg-open launches it with the
+# full attacker-controlled URL as the first argument (the .desktop %u field). A real registered
+# app would act on that URL; here we only prove the launch happened by writing a per-trial canary
+# keyed on the nonce the attacker embedded in the URL, so a stale file can never cause a hit.
+url="$1"
+nonce=$(printf '%s' "$url" | sed -n 's/.*avbnonce=\([0-9A-Za-z]*\).*/\1/p')
+[ -n "$nonce" ] && printf 'pwned-%s' "$nonce" > "/tmp/avb_canary_${nonce}"

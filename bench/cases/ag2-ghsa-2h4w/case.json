@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "ag2-ghsa-2h4w",
+  "version": "1",
+  "title": "AG2 sandbox shell restricted mode (readonly=True / allowed=[...]) bypassed by a newline: second line runs any command",
+  "kbc_id": "kbc-ghsa-2h4w-29cv-2cmv",
+  "ghsa": "GHSA-2h4w-29cv-2cmv",
+  "cve": "CVE-2026-113663",
+  "advisory_url": "https://github.com/advisories/GHSA-2h4w-29cv-2cmv",
+  "repo": "https://github.com/ag2ai/ag2",
+  "vuln_sha": "f8dc76beb237ee94a2d559356abb6335787156d9",
+  "fix_sha": "3cd86726bb731eb11d6270f0ef9e50e42b5abb39",
+  "locator": {"file": "ag2/tools/sandbox/filter.py", "line": 60, "symbol": null},
+  "rd_class": "allowlist-bypass",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "The developer gives the agent a shell tool restricted to read-only commands (readonly=True); a prompt-injected model emits 'ls' followed by a newline and a command outside the allow-list, which the prefix check passes and sh -c runs.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "/tmp/avb_canary_<nonce> exists: a non-allow-listed command (touch) ran through the read-only shell tool"}
+}

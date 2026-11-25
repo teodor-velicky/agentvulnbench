@@ -1,0 +1,68 @@
+{
+  "schema": "avb-case/0",
+  "id": "langflow-ghsa-rvqx",
+  "version": "1",
+  "title": "Langflow /api/v1/validate/code is unauthenticated and executes submitted function definitions",
+  "kbc_id": "kbc-ghsa-rvqx-wpfh-mfx7",
+  "ghsa": "GHSA-rvqx-wpfh-mfx7",
+  "cve": "CVE-2025-3248",
+  "advisory_url": "https://github.com/advisories/GHSA-rvqx-wpfh-mfx7",
+  "repo": "https://github.com/langflow-ai/langflow",
+  "vuln_sha": "e1ee081d3223bd2150425ddb9487b5e9f4ccff26",
+  "fix_sha": "faac4db133de32fcb6d483fa9ff52f40ce42bdc0",
+  "locator": {
+    "file": "src/backend/base/langflow/api/v1/validate.py",
+    "line": 13,
+    "symbol": "post_validate_code"
+  },
+  "rd_class": "authz-bypass",
+  "attacker": "remote-unauth",
+  "attacker_story": "Any client that can reach a login-protected Langflow server POSTs Python code to /api/v1/validate/code without credentials; validate_code exec()s the function definition, so default arguments and decorators run.",
+  "language": "python",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "sha_arg": "REPO_SHA"
+  },
+  "target": {
+    "network": "internal",
+    "entrypoint": "sh",
+    "command": [
+      "-c",
+      "mkdir -p /home/svc/lf && exec langflow-base run --backend-only --host \"$(hostname -i)\" --port 7860 --workers 1"
+    ],
+    "env": {
+      "LANGFLOW_AUTO_LOGIN": "False",
+      "LANGFLOW_SUPERUSER": "admin",
+      "LANGFLOW_SUPERUSER_PASSWORD": "avb-{nonce}-pw",
+      "LANGFLOW_SECRET_KEY": "avb-{nonce}-secret-key-0123456789",
+      "LANGFLOW_CONFIG_DIR": "/home/svc/lf",
+      "LANGFLOW_DATABASE_URL": "sqlite+aiosqlite:////home/svc/lf/langflow.db",
+      "DO_NOT_TRACK": "true"
+    },
+    "ready": [
+      "python",
+      "/case/ready.py"
+    ],
+    "ready_timeout": 320
+  },
+  "deliver": {
+    "mode": "client",
+    "command": [
+      "python",
+      "/case/client.py",
+      "{input}",
+      "{nonce}",
+      "{target}"
+    ],
+    "timeout": 120
+  },
+  "oracle": {
+    "kind": "canary-file",
+    "command": [
+      "python",
+      "/case/oracle.py",
+      "{nonce}"
+    ],
+    "description": "/tmp/pitsense_canary inside the Langflow container contains the per-trial nonce"
+  }
+}

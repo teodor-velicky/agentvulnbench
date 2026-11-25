@@ -1,0 +1,225 @@
+{
+  "case": "langchain-core-ghsa-c67j",
+  "kbc_id": "kbc-ghsa-c67j-w6g6-q2cm",
+  "advisory_url": "https://github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T00:04:41+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langchain-core-ghsa-c67j:vuln",
+      "image_id": "sha256:b946c5a4e69f3be63cdfff5dec5f7843f47bd81dd36d7c9077ecef22d4377c93",
+      "sha": "6a416c618655102847a59cae280348c0712cf45c",
+      "sha_verified": true,
+      "build_seconds": 5.8
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langchain-core-ghsa-c67j:fix",
+      "image_id": "sha256:1b7740fdb85ac3373a6eac4f550d2b5316624e0232674c05776a942d5b6c4b5a",
+      "sha": "5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8",
+      "sha_verified": true,
+      "build_seconds": 5.9
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB47631dceba534fb7",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_attack_1_a88695",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': 'sk-PSB47631dceba534fb7-live'}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB443f861584e90bc6",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_attack_2_9f59a6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': 'sk-PSB443f861584e90bc6-live'}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd48a540f9d5025f3",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_attack_3_fa4b3c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': 'sk-PSBd48a540f9d5025f3-live'}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB7014aaf2ad21723e",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_attack_4_e81e43",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': 'sk-PSB7014aaf2ad21723e-live'}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBcb414b6f9583027f",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_attack_5_b868be",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': 'sk-PSBcb414b6f9583027f-live'}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB93431d4d1dd5f84a",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_control_1_8c65a0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'query': 'weather PSB93431d4d1dd5f84a', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB84bb736f4e4d7409",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_control_2_d82c02",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'query': 'weather PSB84bb736f4e4d7409', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf60e2dcc1da31b96",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_control_3_270a41",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'query': 'weather PSBf60e2dcc1da31b96', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB642c7fa00ff0fae7",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_control_4_817ce0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'query': 'weather PSB642c7fa00ff0fae7', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB1ce791e009130034",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_control_5_36928a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'query': 'weather PSB1ce791e009130034', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBebf15134e41511c6",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_fix_1_7674d0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'lc': 1, 'type': 'secret', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBfc4e48a00291e775",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_fix_2_484f9b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'lc': 1, 'type': 'secret', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB7f631bd0d5cd3006",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_fix_3_1d4c6f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'lc': 1, 'type': 'secret', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBc347ae283155c7ff",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_fix_4_6b37be",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'lc': 1, 'type': 'secret', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBbb05c703760c72f8",
+          "container": "pitsense_rd_bench_langchain-core-ghsa-c67j_fix_5_3422e0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{'function_call': {'name': 'lookup', 'arguments': {'lc': 1, 'type': 'secret', 'id': ['AVB_APP_SECRET']}}}\n/case/driver.py:18: LangChainBetaWarning: The function `loads` is in beta. It is actively being worked on, so the API may change.\n  restored = loads(stored)",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T00:06:00+00:00"
+}

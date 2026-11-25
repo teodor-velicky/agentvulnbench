@@ -1,0 +1,1 @@
+{"function_call": {"name": "lookup", "arguments": {"lc": 1, "type": "secret", "id": ["AVB_APP_SECRET"]}}}

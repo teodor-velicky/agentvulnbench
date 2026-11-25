@@ -1,0 +1,715 @@
+{
+ "ag2-ghsa-2h4w": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 21,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 3,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 8825,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "agno-ghsa-m4w4": {
+  "pitsense-surface": {
+   "rank": 32,
+   "near": 32,
+   "total": 103,
+   "near_finding": {
+    "line": 2034,
+    "class": "code-injection",
+    "engine_class": "code-exec",
+    "verdict": "REJECT"
+   }
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": 109,
+   "near": 109,
+   "total": 117,
+   "near_finding": {
+    "line": 2034,
+    "class": "code-injection",
+    "rule": "python.lang.security.audit.eval-detected.eval-detected"
+   }
+  },
+  "bandit": {
+   "rank": 72,
+   "near": 72,
+   "total": 19798,
+   "near_finding": {
+    "line": 2034,
+    "class": "command-injection",
+    "rule": "B307:blacklist"
+   }
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "bentoml-ghsa-hvj5": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 83,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 29,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 1054,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "bentoml-ghsa-mrmq": {
+  "pitsense-surface": {
+   "rank": 15,
+   "near": 15,
+   "total": 113,
+   "near_finding": {
+    "line": 195,
+    "class": "ssrf",
+    "engine_class": "ssrf-url-fetch",
+    "verdict": "REJECT"
+   }
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 40,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 1103,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langchain-core-ghsa-6qv9": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 15,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 10,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 9331,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langchain-core-ghsa-c67j": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 15,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 9,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 9901,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langchainjs-ghsa-gf3v": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 24,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 17,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "note": "no raw output (tool not applicable)"
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langchainjs-ghsa-r399": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 24,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 5,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "note": "no raw output (tool not applicable)"
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langflow-ghsa-rvqx": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 59,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 10,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 29,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 2989,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "langgraph-ghsa-7p73": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 56,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 8,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 3152,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "litellm-ghsa-7488": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 400,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 7,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 25,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 47271,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "llama-index-ghsa-wvpx": {
+  "pitsense-surface": {
+   "rank": 16,
+   "near": 16,
+   "total": 260,
+   "near_finding": {
+    "line": 140,
+    "class": "code-injection",
+    "engine_class": "code-exec",
+    "verdict": "REJECT"
+   }
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": 62,
+   "near": 62,
+   "total": 99,
+   "near_finding": {
+    "line": 140,
+    "class": "code-injection",
+    "rule": "python.lang.security.audit.eval-detected.eval-detected"
+   }
+  },
+  "bandit": {
+   "rank": 12,
+   "near": 12,
+   "total": 5253,
+   "near_finding": {
+    "line": 140,
+    "class": "command-injection",
+    "rule": "B307:blacklist"
+   }
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-filesystem-ghsa-hc55": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 2,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "note": "no raw output (tool not applicable)"
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-inspector-ghsa-7f8r": {
+  "pitsense-surface": {
+   "rank": 7,
+   "near": 7,
+   "total": 8,
+   "near_finding": {
+    "line": 108,
+    "class": "code-injection",
+    "engine_class": "code-exec",
+    "verdict": "QUALIFIES"
+   }
+  },
+  "pitsense": {
+   "rank": 2,
+   "near": 2,
+   "total": 3,
+   "near_finding": {
+    "line": 108,
+    "class": "code-injection",
+    "engine_class": "code-exec",
+    "verdict": "QUALIFIES"
+   }
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "note": "no raw output (tool not applicable)"
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-python-sdk-ghsa-9h52": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 7,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 2,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 3136,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-python-sdk-ghsa-qx49": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 7,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 3491,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-server-git-ghsa-5cgr": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 2,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 37,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-server-git-ghsa-6hqx": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 4,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 1,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 11,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 1128,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "mcp-server-git-ghsa-vjqx": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 3,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 85,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "smolagents-ghsa-6v92": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 7,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 8,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 918,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  }
+ },
+ "vllm-ghsa-hjq4": {
+  "pitsense-surface": {
+   "rank": null,
+   "near": null,
+   "total": 47,
+   "near_finding": null
+  },
+  "pitsense": {
+   "rank": null,
+   "near": null,
+   "total": 0,
+   "near_finding": null
+  },
+  "semgrep": {
+   "rank": null,
+   "near": null,
+   "total": 58,
+   "near_finding": null
+  },
+  "bandit": {
+   "rank": null,
+   "near": null,
+   "total": 7705,
+   "near_finding": null
+  },
+  "rankbase": {
+   "rank": null,
+   "near": null,
+   "total": 185,
+   "near_finding": null
+  }
+ }
+}

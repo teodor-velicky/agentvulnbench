@@ -1,0 +1,3 @@
+{"_comment": "Honest server: protected-resource metadata names the real AS; the client fetches the real AS metadata and sends credentials there. trial {{NONCE}}",
+ "prm": {"resource": "http://127.0.0.1:8000/mcp", "authorization_servers": ["http://127.0.0.1:8001"]},
+ "asm": null}

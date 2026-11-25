@@ -1,0 +1,1134 @@
+{
+ "schema": "avb-attempt/0",
+ "tool": "pitsense-surface",
+ "meta": {
+  "tool_version": "PitSense engine (Hunt) 5ae65df97c1dca8f2595c3a8acfd0662a9cf8d0d pitsense 0.1.0",
+  "backend": "deterministic-stub",
+  "cost_usd": 0.0,
+  "stages": "surface_map -> reachability -> G1-G5 triage (no dedup, no proof)",
+  "ranking": "all surface-map candidates in engine order (diagnostic, pre-triage)"
+ },
+ "cases": {
+  "agno-ghsa-m4w4": {
+   "locate": [
+    {
+     "file": "libs/agno/agno/api/agent.py",
+     "line": 11,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/agent.py",
+     "line": 23,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/evals.py",
+     "line": 11,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/evals.py",
+     "line": 20,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/team.py",
+     "line": 11,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/team.py",
+     "line": 24,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/workflow.py",
+     "line": 11,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/api/workflow.py",
+     "line": 23,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/client/a2a/client.py",
+     "line": 369,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/agno/agno/client/a2a/client.py",
+     "line": 456,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 103,
+   "budget": {
+    "seconds": 123.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "bentoml-ghsa-hvj5": {
+   "locate": [
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 121,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 195,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 227,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 295,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 148,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 189,
+     "class": "unsafe-deserialization",
+     "engine_class": "unsafe-deserialization",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 198,
+     "class": "unsafe-deserialization",
+     "engine_class": "unsafe-deserialization",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_sdk/io_models.py",
+     "line": 188,
+     "class": "path-traversal",
+     "engine_class": "path-traversal",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_sdk/validators.py",
+     "line": 70,
+     "class": "path-traversal",
+     "engine_class": "path-traversal",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_sdk/validators.py",
+     "line": 72,
+     "class": "path-traversal",
+     "engine_class": "path-traversal",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 83,
+   "budget": {
+    "seconds": 36.3,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "bentoml-ghsa-mrmq": {
+   "locate": [
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 220,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 226,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 241,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 272,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 303,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 372,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 517,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 557,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 636,
+     "class": "path-traversal",
+     "engine_class": "path-traversal",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/_bentoml_impl/client/http.py",
+     "line": 737,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 113,
+   "budget": {
+    "seconds": 40.5,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchain-core-ghsa-c67j": {
+   "locate": [
+    {
+     "file": "libs/cli/langchain_cli/namespaces/app.py",
+     "line": 260,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/core/langchain_core/prompts/string.py",
+     "line": 67,
+     "class": "template-injection",
+     "engine_class": "template-ssti",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/core/langchain_core/runnables/graph_mermaid.py",
+     "line": 453,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/natbot/crawler.py",
+     "line": 89,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/openai_functions/openapi.py",
+     "line": 196,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/langchain_v1/langchain/agents/middleware/_execution.py",
+     "line": 33,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/langchain_v1/langchain/agents/middleware/file_search.py",
+     "line": 281,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/partners/fireworks/langchain_fireworks/llms.py",
+     "line": 157,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/partners/fireworks/langchain_fireworks/llms.py",
+     "line": 212,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "libs/partners/openai/langchain_openai/chat_models/base.py",
+     "line": 3488,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 15,
+   "budget": {
+    "seconds": 102.2,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchainjs-ghsa-gf3v": {
+   "locate": [
+    {
+     "file": "environment_tests/test-exports-bun/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c1",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c2",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c3",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 25,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c4",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c5",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 24,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c6",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 30,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c7",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c9",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c10",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 24,
+   "budget": {
+    "seconds": 127.2,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchainjs-ghsa-r399": {
+   "locate": [
+    {
+     "file": "environment_tests/test-exports-bun/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c2",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 25,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 24,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 30,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c9",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 24,
+   "budget": {
+    "seconds": 114.5,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langflow-ghsa-rvqx": {
+   "locate": [
+    {
+     "file": "src/backend/base/langflow/__main__.py",
+     "line": 253,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/base/astra_assistants/util.py",
+     "line": 38,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/base/embeddings/aiml_embeddings.py",
+     "line": 53,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/data/api_request.py",
+     "line": 394,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/embeddings/huggingface_inference_api.py",
+     "line": 60,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/embeddings/lmstudioembeddings.py",
+     "line": 37,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/embeddings/ollama.py",
+     "line": 81,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/embeddings/ollama.py",
+     "line": 104,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/components/langwatch/langwatch.py",
+     "line": 99,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/backend/base/langflow/components/langwatch/langwatch.py",
+     "line": 280,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 59,
+   "budget": {
+    "seconds": 115.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "llama-index-ghsa-wvpx": {
+   "locate": [
+    {
+     "file": "llama-index-cli/llama_index/cli/rag/base.py",
+     "line": 202,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-cli/llama_index/cli/rag/base.py",
+     "line": 293,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/integration.py",
+     "line": 10,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/integration.py",
+     "line": 21,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/module.py",
+     "line": 174,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/module.py",
+     "line": 269,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/pack.py",
+     "line": 96,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/pack.py",
+     "line": 144,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/utils.py",
+     "line": 10,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c9",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/download/utils.py",
+     "line": 16,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c10",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 260,
+   "budget": {
+    "seconds": 554.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "locate": [
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 2,
+   "budget": {
+    "seconds": 2.3,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "locate": [
+    {
+     "file": "cli/src/transport.ts",
+     "line": 50,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c1",
+     "verdict": "QUALIFIES",
+     "failed_gate": null
+    },
+    {
+     "file": "client/src/App.tsx",
+     "line": 347,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 245,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 339,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 355,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 371,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "server/src/index.ts",
+     "line": 108,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c7",
+     "verdict": "QUALIFIES",
+     "failed_gate": null
+    },
+    {
+     "file": "server/src/index.ts",
+     "line": 126,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 8,
+   "budget": {
+    "seconds": 6.0,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "locate": [
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 278,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/client/sse.py",
+     "line": 136,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/client/streamable_http.py",
+     "line": 299,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 209,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 221,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/mcp/server/fastmcp/resources/types.py",
+     "line": 159,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 7,
+   "budget": {
+    "seconds": 7.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "locate": [
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 2,
+   "budget": {
+    "seconds": 2.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "locate": [
+    {
+     "file": "src/everything/tools/gzip-file-as-resource.ts",
+     "line": 190,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 3,
+   "budget": {
+    "seconds": 4.7,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "smolagents-ghsa-6v92": {
+   "locate": [
+    {
+     "file": "src/smolagents/agent_types.py",
+     "line": 228,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c1",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 104,
+     "class": "template-injection",
+     "engine_class": "template-ssti",
+     "candidate": "c2",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 892,
+     "class": "template-injection",
+     "engine_class": "template-ssti",
+     "candidate": "c3",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/default_tools.py",
+     "line": 364,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c4",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 262,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c5",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 329,
+     "class": "unsafe-deserialization",
+     "engine_class": "unsafe-deserialization",
+     "candidate": "c6",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    },
+    {
+     "file": "src/smolagents/tools.py",
+     "line": 483,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c7",
+     "verdict": "REJECT",
+     "failed_gate": "G1"
+    }
+   ],
+   "n_findings_total": 7,
+   "budget": {
+    "seconds": 4.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  }
+ }
+}

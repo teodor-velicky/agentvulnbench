@@ -1,0 +1,122 @@
+id,batch,rd_class,attacker,path,why
+kbc-ghsa-2h4w-29cv-2cmv,backfill-2026-11,allowlist-bypass,untrusted-llm-input,P2,override: denylist vs sh -c newline: gate/executor differential
+kbc-ghsa-2jgc-f764-c5r2,fresh-targets,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-2pc9-4j83-qjmr,serving-lowcode,code-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-33xw-247w-6hmc,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-35w5-fv47-8956,backfill-2026-11,code-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-3645-fxcv-hqr4,serving-lowcode,prompt-injection-to-tool,untrusted-llm-input,P1,cell default
+kbc-ghsa-3769-jgqc-cxm7,serving-lowcode,sandbox-escape,remote-authed-user,P2,override: caller options merged over NodeVM sandbox defaults
+kbc-ghsa-3f6c-7fw2-ppm4,serving-lowcode,ssrf,remote-unauth,P8,cell default
+kbc-ghsa-3r68-hf9h-887v,fresh-targets,authz-bypass,remote-authed-user,P6,cell default
+kbc-ghsa-46cm-pfwv-cgf8,serving-lowcode,template-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-4fc4-wcmh-4g86,backfill-2026-11,mcp-stdio-cmd-exec,malicious-mcp-server,P6,override: web page sets Inspector stdio command via URL params
+kbc-ghsa-4j8x-x6v7-w9rq,serving-lowcode,code-injection,remote-authed-user,P2,override: authed user string spliced into Python run by the CSV agent gate
+kbc-ghsa-4v28-j6q3-5m4r,serving-lowcode,ssrf,remote-authed-user,P8,cell default
+kbc-ghsa-53gh-p8jc-7rg8,serving-lowcode,code-injection,remote-authed-user,none,"proxy config names a module to import: config-writer position, not a path"
+kbc-ghsa-5cgr-j3jf-jw3v,mcp-agents,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-5h2m-4q8j-pqpj,backfill-2026-11,token-passthrough,malicious-mcp-server,P7,cell default
+kbc-ghsa-5r34-2g38-6569,fresh-targets,ssrf,untrusted-llm-input,P8,cell default
+kbc-ghsa-5xvg-pmgg-3mxr,serving-lowcode,prompt-injection-to-tool,untrusted-llm-input,P2,override: regex denylist then Pyodide: gate/executor differential
+kbc-ghsa-6529-c226-h328,fresh-targets,ssrf,remote-authed-user,P8,cell default
+kbc-ghsa-6757-hggm-hp2w,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-6cr4-ccf3-x7h4,fresh-targets,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-6g6r-q6gw-w8fg,fresh-targets,dns-rebinding,malicious-web-content,P6,cell default
+kbc-ghsa-6hqx-gqrx-c5r2,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-6qv9-48xg-fc7f,mcp-agents,template-injection,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-6qxp-vccf-f47h,mcp-agents,oauth-confused-deputy,malicious-mcp-server,P7,cell default
+kbc-ghsa-6v92-r5mx-h5fx,mcp-agents,sandbox-escape,untrusted-llm-input,P2,cell default
+kbc-ghsa-6vmq-24h2-pj7j,fresh-targets,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-6wvf-77m9-58rm,serving-lowcode,template-injection,remote-authed-user,none,"authed user's template rendered in unsandboxed Jinja2: no model, gate or artefact"
+kbc-ghsa-6x67-4w4w-9f3w,backfill-2026-11,mcp-stdio-cmd-exec,malicious-mcp-server,P7,cell default
+kbc-ghsa-6xcw-7xm6-48c6,backfill-2026-11,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-6xpm-ggf7-wc3p,mcp-agents,command-injection,malicious-mcp-server,P7,cell default
+kbc-ghsa-7488-6r32-c95q,serving-lowcode,token-passthrough,remote-unauth,P6,cell default
+kbc-ghsa-7972-pg2x-xr59,serving-lowcode,code-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-79j6-g2m3-jgfw,serving-lowcode,prompt-injection-to-tool,untrusted-llm-input,P1,cell default
+kbc-ghsa-7f8r-222p-6f5g,mcp-agents,mcp-stdio-cmd-exec,malicious-web-content,P6,cell default
+kbc-ghsa-7g3p-92qq-8wvh,fresh-targets,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-7h8w-hj9j-8rjw,mcp-agents,command-injection,remote-authed-user,none,"authed user's path interpolated into a shell command: classic injection, no agent-specific guard"
+kbc-ghsa-7p73-8jqx-23r8,mcp-agents,sql-injection,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-7ww9-85pg-cv4x,fresh-targets,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-87qg-cmw8-jc5m,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-8fr4-5q9j-m8gm,serving-lowcode,code-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-8qpj-27x8-pwpq,serving-lowcode,sandbox-escape,remote-authed-user,P2,override: weak-globals PythonREPL sandbox
+kbc-ghsa-8wv7-r664-7594,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-8x5v-cpv7-8jjp,serving-lowcode,ssrf,remote-authed-user,P8,cell default
+kbc-ghsa-9h52-p55h-vw2f,mcp-agents,dns-rebinding,malicious-web-content,P6,cell default
+kbc-ghsa-9pq8-m8gp-4p53,backfill-2026-11,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-9rwj-6rc7-p77c,mcp-agents,sql-injection,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-9vjp-x34c-xg6v,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-c2jp-c369-7pvx,backfill-2026-11,oauth-confused-deputy,remote-unauth,P7,cell default
+kbc-ghsa-c67j-w6g6-q2cm,mcp-agents,unsafe-deserialization,untrusted-llm-input,P5,cell default
+kbc-ghsa-c6xh-wv4j-ppv5,serving-lowcode,ssrf,remote-authed-user,P8,cell default
+kbc-ghsa-cc5h-2pwp-pvcc,fresh-targets,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-cf6m-vc3m-7cgm,serving-lowcode,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-cgcg-p68q-3w7v,mcp-agents,prompt-injection-to-tool,untrusted-llm-input,P1,cell default
+kbc-ghsa-ch89-h4r2-c8f8,fresh-targets,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-f4p7-qx46-wc5j,fresh-targets,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-fvww-7h3r-vfhp,backfill-2026-11,authz-bypass,remote-authed-user,P6,cell default
+kbc-ghsa-fxc2-8m62-m85x,mcp-agents,code-injection,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-g3r5-9h93-4j2c,backfill-2026-11,command-injection,remote-authed-user,P3,override: validated path then cloned later: containment TOCTOU
+kbc-ghsa-g9hg-qhmf-q45m,mcp-agents,code-injection,malicious-mcp-server,P7,cell default
+kbc-ghsa-gf3v-fwqg-4vh7,mcp-agents,ssrf,malicious-web-content,P8,cell default
+kbc-ghsa-gfq8-hmph-9gjv,fresh-targets,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-gppg-gqw8-wh9g,serving-lowcode,code-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-gv7g-jm28-cr3m,backfill-2026-11,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-gxmw-5f7x-6g22,fresh-targets,path-traversal,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-h2g3-rwxm-xfm3,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-hc55-p739-j48w,mcp-agents,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-hf3x-42qp-4rq6,backfill-2026-11,path-traversal,malicious-web-content,P3,override: archive member names escape the staging root (containment)
+kbc-ghsa-hgcf-4mq8-5266,fresh-targets,ssrf,remote-authed-user,P8,cell default
+kbc-ghsa-hhrp-gw25-jr43,serving-lowcode,unsafe-deserialization,untrusted-data-store,P4,cell default
+kbc-ghsa-hj4w-hm2g-p6w5,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-hjq4-87xh-g4fv,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-hvj5-mvw9-93j3,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-hvwj-8w5g-28rg,serving-lowcode,unsafe-deserialization,untrusted-data-store,P4,cell default
+kbc-ghsa-hw8v-xxg5-vvvx,backfill-2026-11,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-hxmv-c4g6-5fqc,fresh-targets,code-injection,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-j44m-5v8f-gc9c,serving-lowcode,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-jpw9-pfvf-9f58,mcp-agents,authz-bypass,remote-authed-user,P6,cell default
+kbc-ghsa-jv9m-vf54-chjj,serving-lowcode,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-m4w4-3r8h-jw98,mcp-agents,code-injection,untrusted-llm-input,P1,cell default
+kbc-ghsa-mhr3-j7m5-c7c9,mcp-agents,unsafe-deserialization,untrusted-data-store,P4,cell default
+kbc-ghsa-mrmq-3q62-6cc8,serving-lowcode,ssrf,remote-unauth,P8,cell default
+kbc-ghsa-mrw7-hf4f-83pf,serving-lowcode,unsafe-deserialization,remote-unauth,P5,override: client prompt_embeds torch.load
+kbc-ghsa-pm7p-vphh-2cg7,backfill-2026-11,command-injection,untrusted-data-store,P4,cell default
+kbc-ghsa-pvph-5j39-v8qc,fresh-targets,dns-rebinding,malicious-web-content,P6,cell default
+kbc-ghsa-pw38-xv9x-h8ch,mcp-agents,code-injection,untrusted-llm-input,P1,override: model-server output eval()d
+kbc-ghsa-q74p-4wrc-q7w6,backfill-2026-11,allowlist-bypass,untrusted-llm-input,P3,cell default
+kbc-ghsa-q978-78c7-phqw,backfill-2026-11,command-injection,malicious-mcp-server,P7,cell default
+kbc-ghsa-qh4c-xf7m-gxfc,serving-lowcode,ssrf,remote-unauth,P8,cell default
+kbc-ghsa-qh6h-p6c9-ff54,mcp-agents,path-traversal,library-caller,none,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-qrjx-72xx-xhmh,backfill-2026-11,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-qx49-fqc8-xw99,mcp-agents,oauth-confused-deputy,malicious-mcp-server,P7,cell default
+kbc-ghsa-r399-636x-v7f6,mcp-agents,unsafe-deserialization,untrusted-llm-input,P5,cell default
+kbc-ghsa-rg5q-pp8p-f7jm,fresh-targets,ssrf,remote-unauth,P8,cell default
+kbc-ghsa-rh4j-5rhw-hr54,serving-lowcode,unsafe-deserialization,untrusted-data-store,P4,cell default
+kbc-ghsa-rvq5-wwqv-78pq,mcp-agents,token-passthrough,remote-authed-user,P7,cell default
+kbc-ghsa-rvqx-wpfh-mfx7,serving-lowcode,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-rwrf-2pqf-9j8j,mcp-agents,ssrf,malicious-mcp-server,P7,override: server-supplied schema $ref fetched by the client
+kbc-ghsa-rww4-4w9c-7733,backfill-2026-11,oauth-confused-deputy,remote-unauth,P7,cell default
+kbc-ghsa-v798-mcc6-2m3m,serving-lowcode,code-injection,remote-authed-user,P6,override: second link of the Langflow validate_code chain (authed exec)
+kbc-ghsa-vcc9-3xgm-p9v4,backfill-2026-11,dns-rebinding,malicious-web-content,P6,cell default
+kbc-ghsa-vj7q-gjh5-988w,mcp-agents,dns-rebinding,malicious-web-content,P6,cell default
+kbc-ghsa-vjqx-cfc4-9h6v,mcp-agents,path-traversal,untrusted-llm-input,P3,cell default
+kbc-ghsa-vv7q-7jx5-f767,mcp-agents,ssrf,untrusted-llm-input,P8,cell default
+kbc-ghsa-vwmf-pq79-vjvx,serving-lowcode,code-injection,remote-unauth,P6,cell default
+kbc-ghsa-w4fh-qvv9-3v23,mcp-agents,token-passthrough,remote-authed-user,P7,cell default
+kbc-ghsa-w66g-j6c4-hcfc,fresh-targets,allowlist-bypass,untrusted-llm-input,P3,cell default
+kbc-ghsa-w66g-j6c4-hcfc-b,fresh-targets,allowlist-bypass,untrusted-llm-input,P3,cell default
+kbc-ghsa-w766-5x43-whvw,backfill-2026-11,allowlist-bypass,untrusted-llm-input,P3,cell default
+kbc-ghsa-w794-rj3p-xv45,serving-lowcode,mcp-stdio-cmd-exec,remote-authed-user,P6,override: user-saved MCP stdio config spawned as-is by the control plane
+kbc-ghsa-wg86-r78f-74mp,serving-lowcode,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-wmjf-2m46-2352,backfill-2026-11,authz-bypass,remote-unauth,P6,cell default
+kbc-ghsa-wrwr-h859-xh2r,backfill-2026-11,sandbox-escape,remote-authed-user,P2,cell default
+kbc-ghsa-wvpx-g427-q9wc,mcp-agents,prompt-injection-to-tool,untrusted-llm-input,P2,override: safe_exec restricted globals: incomplete gate before exec
+kbc-ghsa-wwqv-p2pp-99h5,mcp-agents,unsafe-deserialization,untrusted-data-store,P4,cell default
+kbc-ghsa-x39x-9qw5-ghrf,mcp-agents,allowlist-bypass,malicious-web-content,P8,override: allowed_domains check vs fetcher URL parser
+kbc-ghsa-x3m8-f7g5-qhm7,serving-lowcode,unsafe-deserialization,remote-unauth,P5,cell default
+kbc-ghsa-x44h-65qv-cw74,fresh-targets,ssrf,untrusted-llm-input,P8,cell default
+kbc-ghsa-x6vm-w76m-8j7g,serving-lowcode,code-injection,remote-authed-user,P2,override: regex validator vs Pyodide executor
+kbc-ghsa-xc48-889x-5qmw,serving-lowcode,allowlist-bypass,remote-authed-user,P2,cell default
+kbc-ghsa-xjw9-4gw8-4rqx,mcp-agents,sandbox-escape,untrusted-llm-input,P2,cell default

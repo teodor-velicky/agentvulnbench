@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "langgraph-ghsa-7p73",
+  "version": "1",
+  "title": "langgraph SqliteStore.search concatenates filter keys into SQL (tenant-isolation bypass via SQL injection)",
+  "kbc_id": "kbc-ghsa-7p73-8jqx-23r8",
+  "ghsa": "GHSA-7p73-8jqx-23r8",
+  "cve": "CVE-2025-64104",
+  "advisory_url": "https://github.com/advisories/GHSA-7p73-8jqx-23r8",
+  "repo": "https://github.com/langchain-ai/langgraph",
+  "vuln_sha": "7d3f0089aad852d324d282f86ef7426e35ba87c7",
+  "fix_sha": "bc9d45b476101e441cb1cc602dea03eb29232de4",
+  "locator": {"file": "libs/checkpoint-sqlite/langgraph/store/sqlite/base.py", "line": 386, "symbol": "_prepare_batch_search_queries"},
+  "rd_class": "sql-injection",
+  "attacker": "library-caller",
+  "attacker_story": "A multi-tenant agent app exposes a 'search my memories by field' API that passes the caller's filter {field: value} to SqliteStore.search scoped to the caller's namespace; a filter key carrying SQL breaks out of json_extract() and returns other tenants' memories.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "env": {"AVB_APP_SECRET": "sk-{nonce}-live"}},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "secret-readback", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "tenant alice's search result contains tenant bob's stored secret sk-<nonce>-live (taken from the env, never in any input)"}
+}

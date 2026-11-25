@@ -1,0 +1,2 @@
+{"host": "rebind.attacker.test:8000", "origin": "http://rebind.attacker.test:8000",
+ "call": {"name": "echo", "arguments": {"text": "{{NONCE}}"}}}

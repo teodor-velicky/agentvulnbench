@@ -1,0 +1,288 @@
+{
+ "checked_utc": "2026-11-25T10:10:53.520000Z",
+ "source": "gh api advisories/<GHSA> (fallback repos/<owner>/<repo>/security-advisories/<GHSA>)",
+ "results": {
+  "ag2-ghsa-2h4w": {
+   "cve_id": "CVE-2026-113663",
+   "ghsa_id": "GHSA-2h4w-29cv-2cmv",
+   "html_url": "https://github.com/advisories/GHSA-2h4w-29cv-2cmv",
+   "patched": [
+    "1.1.1",
+    null
+   ],
+   "published_at": "2026-11-10T15:57:17Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-113663"
+  },
+  "agno-ghsa-m4w4": {
+   "cve_id": "CVE-2026-35002",
+   "ghsa_id": "GHSA-m4w4-3r8h-jw98",
+   "html_url": "https://github.com/advisories/GHSA-m4w4-3r8h-jw98",
+   "patched": [
+    "2.3.24"
+   ],
+   "published_at": "2026-10-27T13:30:41Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-35002"
+  },
+  "bentoml-ghsa-hvj5": {
+   "cve_id": "CVE-2024-2912",
+   "ghsa_id": "GHSA-hvj5-mvw9-93j3",
+   "html_url": "https://github.com/advisories/GHSA-hvj5-mvw9-93j3",
+   "patched": [
+    "1.2.5"
+   ],
+   "published_at": "2024-04-16T00:30:33Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2024-2912"
+  },
+  "bentoml-ghsa-mrmq": {
+   "cve_id": "CVE-2025-54381",
+   "ghsa_id": "GHSA-mrmq-3q62-6cc8",
+   "html_url": "https://github.com/advisories/GHSA-mrmq-3q62-6cc8",
+   "patched": [
+    "1.4.19"
+   ],
+   "published_at": "2025-07-29T19:24:47Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-54381"
+  },
+  "langchain-core-ghsa-6qv9": {
+   "cve_id": "CVE-2025-65106",
+   "ghsa_id": "GHSA-6qv9-48xg-fc7f",
+   "html_url": "https://github.com/advisories/GHSA-6qv9-48xg-fc7f",
+   "patched": [
+    "1.0.7",
+    "0.3.80"
+   ],
+   "published_at": "2025-11-20T17:42:12Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-65106"
+  },
+  "langchain-core-ghsa-c67j": {
+   "cve_id": "CVE-2025-68664",
+   "ghsa_id": "GHSA-c67j-w6g6-q2cm",
+   "html_url": "https://github.com/advisories/GHSA-c67j-w6g6-q2cm",
+   "patched": [
+    "1.2.5",
+    "0.3.81"
+   ],
+   "published_at": "2025-12-23T18:46:13Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-68664"
+  },
+  "langchainjs-ghsa-gf3v": {
+   "cve_id": "CVE-2026-26019",
+   "ghsa_id": "GHSA-gf3v-fwqg-4vh7",
+   "html_url": "https://github.com/advisories/GHSA-gf3v-fwqg-4vh7",
+   "patched": [
+    "1.1.14"
+   ],
+   "published_at": "2026-02-11T15:13:20Z",
+   "severity": "medium",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-26019"
+  },
+  "langchainjs-ghsa-r399": {
+   "cve_id": "CVE-2025-68665",
+   "ghsa_id": "GHSA-r399-636x-v7f6",
+   "html_url": "https://github.com/advisories/GHSA-r399-636x-v7f6",
+   "patched": [
+    "1.1.8",
+    "0.3.80",
+    "1.2.3",
+    "0.3.37"
+   ],
+   "published_at": "2025-12-23T20:08:48Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-68665"
+  },
+  "langflow-ghsa-rvqx": {
+   "cve_id": "CVE-2025-3248",
+   "ghsa_id": "GHSA-rvqx-wpfh-mfx7",
+   "html_url": "https://github.com/advisories/GHSA-rvqx-wpfh-mfx7",
+   "patched": [
+    "1.3.0",
+    "0.3.0"
+   ],
+   "published_at": "2025-06-17T20:14:26Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-3248"
+  },
+  "langgraph-ghsa-7p73": {
+   "cve_id": "CVE-2025-64104",
+   "ghsa_id": "GHSA-7p73-8jqx-23r8",
+   "html_url": "https://github.com/advisories/GHSA-7p73-8jqx-23r8",
+   "patched": [
+    "2.0.11"
+   ],
+   "published_at": "2025-10-29T22:21:43Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-64104"
+  },
+  "litellm-ghsa-7488": {
+   "cve_id": "CVE-2026-59822",
+   "ghsa_id": "GHSA-7488-6r32-c95q",
+   "html_url": "https://github.com/advisories/GHSA-7488-6r32-c95q",
+   "patched": [
+    "1.84.0"
+   ],
+   "published_at": "2026-07-22T22:38:33Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-59822"
+  },
+  "llama-index-ghsa-wvpx": {
+   "cve_id": "CVE-2024-3098",
+   "ghsa_id": "GHSA-wvpx-g427-q9wc",
+   "html_url": "https://github.com/advisories/GHSA-wvpx-g427-q9wc",
+   "patched": [
+    "0.10.24"
+   ],
+   "published_at": "2024-04-10T18:30:48Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2024-3098"
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "cve_id": "CVE-2025-53110",
+   "ghsa_id": "GHSA-hc55-p739-j48w",
+   "html_url": "https://github.com/advisories/GHSA-hc55-p739-j48w",
+   "patched": [
+    null,
+    "2025.7.1"
+   ],
+   "published_at": "2025-07-01T20:14:00Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-53110"
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "cve_id": "CVE-2025-49596",
+   "ghsa_id": "GHSA-7f8r-222p-6f5g",
+   "html_url": "https://github.com/advisories/GHSA-7f8r-222p-6f5g",
+   "patched": [
+    "0.14.1"
+   ],
+   "published_at": "2025-06-13T22:15:26Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-49596"
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "cve_id": "CVE-2025-66416",
+   "ghsa_id": "GHSA-9h52-p55h-vw2f",
+   "html_url": "https://github.com/advisories/GHSA-9h52-p55h-vw2f",
+   "patched": [
+    "1.23.0"
+   ],
+   "published_at": "2025-12-02T16:52:08Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-66416"
+  },
+  "mcp-python-sdk-ghsa-qx49": {
+   "cve_id": "CVE-2026-115563",
+   "ghsa_id": "GHSA-qx49-fqc8-xw99",
+   "html_url": "https://github.com/advisories/GHSA-qx49-fqc8-xw99",
+   "patched": [
+    "2.2.0",
+    "1.30.0"
+   ],
+   "published_at": "2026-11-19T22:45:40Z",
+   "severity": "high",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-115563"
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "cve_id": "CVE-2025-68143",
+   "ghsa_id": "GHSA-5cgr-j3jf-jw3v",
+   "html_url": "https://github.com/advisories/GHSA-5cgr-j3jf-jw3v",
+   "patched": [
+    "2025.9.25"
+   ],
+   "published_at": "2025-12-17T19:49:54Z",
+   "severity": "medium",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-68143"
+  },
+  "mcp-server-git-ghsa-6hqx": {
+   "cve_id": null,
+   "ghsa_id": "GHSA-6hqx-gqrx-c5r2",
+   "html_url": "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-6hqx-gqrx-c5r2",
+   "patched": [
+    "2026.11.11"
+   ],
+   "published_at": "2026-11-11T07:25:22Z",
+   "severity": "high",
+   "state": "published",
+   "withdrawn_at": null,
+   "case_cve": null
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "cve_id": "CVE-2026-27735",
+   "ghsa_id": "GHSA-vjqx-cfc4-9h6v",
+   "html_url": "https://github.com/advisories/GHSA-vjqx-cfc4-9h6v",
+   "patched": [
+    "2026.1.14"
+   ],
+   "published_at": "2026-02-26T15:16:57Z",
+   "severity": "medium",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2026-27735"
+  },
+  "smolagents-ghsa-6v92": {
+   "cve_id": "CVE-2025-5120",
+   "ghsa_id": "GHSA-6v92-r5mx-h5fx",
+   "html_url": "https://github.com/advisories/GHSA-6v92-r5mx-h5fx",
+   "patched": [
+    "1.17.0"
+   ],
+   "published_at": "2025-07-27T09:30:26Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-5120"
+  },
+  "vllm-ghsa-hjq4": {
+   "cve_id": "CVE-2025-47277",
+   "ghsa_id": "GHSA-hjq4-87xh-g4fv",
+   "html_url": "https://github.com/advisories/GHSA-hjq4-87xh-g4fv",
+   "patched": [
+    "0.8.5"
+   ],
+   "published_at": "2025-05-20T18:04:30Z",
+   "severity": "critical",
+   "type": "reviewed",
+   "withdrawn_at": null,
+   "case_cve": "CVE-2025-47277"
+  }
+ }
+}

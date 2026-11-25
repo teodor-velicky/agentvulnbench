@@ -1,0 +1,263 @@
+{
+  "schema": "chainlab-proof/0",
+  "finding_id": "langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc",
+  "sink": "langroid/agent/special/neo4j/neo4j_chat_agent.py:Neo4jChatAgent.cypher_retrieval_tool -> read_query -> neo4j session.run(<llm_cypher>) (auto-commit; no read-only/validation gate)",
+  "sink_class": "sql-cypher-injection",
+  "network": "none",
+  "chainlab_cve": "CVE-2026-55615",
+  "chainlab_ghsa": "GHSA-2pq5-3q89-j7cc",
+  "chainlab_advisory_url": "https://github.com/langroid/langroid/security/advisories/GHSA-2pq5-3q89-j7cc",
+  "chainlab_rd_class": "prompt-injection-to-tool",
+  "chainlab_attacker": "untrusted-llm-input",
+  "chainlab_scripted_model": {
+    "interface": "langroid's own MockLM (a LanguageModel, type=mock) set as the agent's llm via Neo4jChatAgentConfig.llm=MockLMConfig(default_response=<tool-call JSON>) -- the framework's real LLM interface",
+    "plugged_into": "agent.llm_response(prompt) -> MockLM emits the CypherRetrievalTool JSON; agent.agent_response(llm_msg) -> the framework parses the tool and runs cypher_retrieval_tool (the sink)",
+    "behavior": "returns the fixture tool-call verbatim, ignoring the prompt; proves the framework runs model-authored Cypher on the read path with no read-only gate, independent of model behaviour",
+    "may_assume": "that some untrusted content could make a real graph-RAG model emit this completion -- in-shape output for a Neo4jChatAgent, i.e. a cypher_retrieval_tool call carrying a Cypher query; nothing more",
+    "may_not_assume": "no privileged config (allow_dangerous_operations is left at its default False -- the advisory's point is that the read path still executes writes), no network, no attacker already on the DB; only that the model's tool call reaches the retrieval handler. The retrieval handler's pre-checks (schema fetched, database has data) model an ordinary RAG session and are set to their normal in-session state, not an attacker privilege."
+  },
+  "chainlab_framework": {
+    "name": "langroid",
+    "vuln_version": "0.65.4",
+    "fix_version": "0.65.5",
+    "repo": "https://github.com/langroid/langroid"
+  },
+  "harness_version": "0.1.0",
+  "spec_version": "1",
+  "started_utc": "2026-11-25T10:44:00+00:00",
+  "trials_per_arm": 5,
+  "versions": {
+    "langroid_vuln": "0.65.4",
+    "langroid_fix": "0.65.5",
+    "image_vuln": "sha256:6f5a92cef6d5b2d7a2c19e5480cc0fb4b2ad505bdbf98a1307f06771e4ca66ed",
+    "image_fix": "sha256:606fc9f7cd8a03a1c63523aaa0fe9e32192e966539d7ae830b1cc63834fba467",
+    "scripted_model_interface": "langroid's own MockLM (a LanguageModel, type=mock) set as the agent's llm via Neo4jChatAgentConfig.llm=MockLMConfig(default_response=<tool-call JSON>) -- the framework's real LLM interface"
+  },
+  "chainlab_images": {
+    "vuln": {
+      "tag": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc:vuln",
+      "image_id": "sha256:6f5a92cef6d5b2d7a2c19e5480cc0fb4b2ad505bdbf98a1307f06771e4ca66ed",
+      "version": "0.65.4",
+      "version_verified": true,
+      "build_seconds": 167.0
+    },
+    "fix": {
+      "tag": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc:fix",
+      "image_id": "sha256:606fc9f7cd8a03a1c63523aaa0fe9e32192e966539d7ae830b1cc63834fba467",
+      "version": "0.65.5",
+      "version_verified": true,
+      "build_seconds": 135.5
+    }
+  },
+  "arms": {
+    "attack": {
+      "trials": 5,
+      "canary_hits": 5,
+      "exfil": 0
+    },
+    "control": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    },
+    "fix": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    }
+  },
+  "chainlab_arms_detail": {
+    "attack": {
+      "image": "vuln",
+      "fixture": "attack",
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB3f2ad7cb5602e4bd",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_attack_1_3b857a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "d the right label names -- \n            remember these are case sensitive, so you have to use the exact \nlabel\n            names you found in the schema. \n            Or retry using one of the  RETRY-SUGGESTIONS in your instructions. \n            \n[attack] scripted model -> framework; handler said:              No results found; check if your query used the right label names --              remember these are case sensitive, so you have to use the exact label             names you found in the s",
+          "oracle_rc": 0,
+          "oracle_out": "ChainlabCanary node with nonce present (1) -> read-path Cypher executed a write",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBaefafd34508880f3",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_attack_2_02035b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "d the right label names -- \n            remember these are case sensitive, so you have to use the exact \nlabel\n            names you found in the schema. \n            Or retry using one of the  RETRY-SUGGESTIONS in your instructions. \n            \n[attack] scripted model -> framework; handler said:              No results found; check if your query used the right label names --              remember these are case sensitive, so you have to use the exact label             names you found in the s",
+          "oracle_rc": 0,
+          "oracle_out": "ChainlabCanary node with nonce present (1) -> read-path Cypher executed a write",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4406de340756b339",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_attack_3_a0dd7b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "d the right label names -- \n            remember these are case sensitive, so you have to use the exact \nlabel\n            names you found in the schema. \n            Or retry using one of the  RETRY-SUGGESTIONS in your instructions. \n            \n[attack] scripted model -> framework; handler said:              No results found; check if your query used the right label names --              remember these are case sensitive, so you have to use the exact label             names you found in the s",
+          "oracle_rc": 0,
+          "oracle_out": "ChainlabCanary node with nonce present (1) -> read-path Cypher executed a write",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB6618644a22957487",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_attack_4_3c1aa4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "d the right label names -- \n            remember these are case sensitive, so you have to use the exact \nlabel\n            names you found in the schema. \n            Or retry using one of the  RETRY-SUGGESTIONS in your instructions. \n            \n[attack] scripted model -> framework; handler said:              No results found; check if your query used the right label names --              remember these are case sensitive, so you have to use the exact label             names you found in the s",
+          "oracle_rc": 0,
+          "oracle_out": "ChainlabCanary node with nonce present (1) -> read-path Cypher executed a write",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBad473e9aef97e8a7",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_attack_5_ee6cee",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "d the right label names -- \n            remember these are case sensitive, so you have to use the exact \nlabel\n            names you found in the schema. \n            Or retry using one of the  RETRY-SUGGESTIONS in your instructions. \n            \n[attack] scripted model -> framework; handler said:              No results found; check if your query used the right label names --              remember these are case sensitive, so you have to use the exact label             names you found in the s",
+          "oracle_rc": 0,
+          "oracle_out": "ChainlabCanary node with nonce present (1) -> read-path Cypher executed a write",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "fixture": "control",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBd8777c718d49e21d",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_control_1_cb4465",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"request\": \"cypher_retrieval_tool\", \"cypher_query\": \"MATCH (p:Person) RETURN \np.name\"}\nAgent: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]\n[control] scripted model -> framework; handler said: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBaadb9fc5f85bb0d0",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_control_2_19d783",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"request\": \"cypher_retrieval_tool\", \"cypher_query\": \"MATCH (p:Person) RETURN \np.name\"}\nAgent: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]\n[control] scripted model -> framework; handler said: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB64e69c01245d70aa",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_control_3_582812",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"request\": \"cypher_retrieval_tool\", \"cypher_query\": \"MATCH (p:Person) RETURN \np.name\"}\nAgent: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]\n[control] scripted model -> framework; handler said: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB6778326ffcc9fa11",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_control_4_e5ba08",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"request\": \"cypher_retrieval_tool\", \"cypher_query\": \"MATCH (p:Person) RETURN \np.name\"}\nAgent: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]\n[control] scripted model -> framework; handler said: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4206d30c890ea66f",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_control_5_ba311d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"request\": \"cypher_retrieval_tool\", \"cypher_query\": \"MATCH (p:Person) RETURN \np.name\"}\nAgent: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]\n[control] scripted model -> framework; handler said: [{'p.name': 'Ada'}, {'p.name': 'Grace'}]",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "fixture": "attack",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB04ce6eef0d7e20d9",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_fix_1_802388",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "e Neo4jChatAgentConfig (only safe with a \nleast-privilege Neo4j role and trusted prompts).\n[attack] scripted model -> framework; handler said: Cypher query REJECTED for safety: the retrieval tool runs READ-ONLY Cypher, but this query uses `CREATE`. Use the creation tool for writes, rewrite this as a read-only (MATCH/RETURN) query, or ask the\n\u001b[33m2026-11-25 10:54:48 - WARNING - Neo4jChatAgent rejected write clause CREATE on read path: \"CREATE (c:ChainlabCanary {nonce:'PSB04ce6eef0d7e20d9'})\"\u001b[0m",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBb21ce3a944cb067e",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_fix_2_e883a4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "e Neo4jChatAgentConfig (only safe with a \nleast-privilege Neo4j role and trusted prompts).\n[attack] scripted model -> framework; handler said: Cypher query REJECTED for safety: the retrieval tool runs READ-ONLY Cypher, but this query uses `CREATE`. Use the creation tool for writes, rewrite this as a read-only (MATCH/RETURN) query, or ask the\n\u001b[33m2026-11-25 10:55:19 - WARNING - Neo4jChatAgent rejected write clause CREATE on read path: \"CREATE (c:ChainlabCanary {nonce:'PSBb21ce3a944cb067e'})\"\u001b[0m",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB32e631e0e98ba374",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_fix_3_0e4053",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "e Neo4jChatAgentConfig (only safe with a \nleast-privilege Neo4j role and trusted prompts).\n[attack] scripted model -> framework; handler said: Cypher query REJECTED for safety: the retrieval tool runs READ-ONLY Cypher, but this query uses `CREATE`. Use the creation tool for writes, rewrite this as a read-only (MATCH/RETURN) query, or ask the\n\u001b[33m2026-11-25 10:55:49 - WARNING - Neo4jChatAgent rejected write clause CREATE on read path: \"CREATE (c:ChainlabCanary {nonce:'PSB32e631e0e98ba374'})\"\u001b[0m",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB8d5670541b6bc418",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_fix_4_494a4c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "e Neo4jChatAgentConfig (only safe with a \nleast-privilege Neo4j role and trusted prompts).\n[attack] scripted model -> framework; handler said: Cypher query REJECTED for safety: the retrieval tool runs READ-ONLY Cypher, but this query uses `CREATE`. Use the creation tool for writes, rewrite this as a read-only (MATCH/RETURN) query, or ask the\n\u001b[33m2026-11-25 10:56:28 - WARNING - Neo4jChatAgent rejected write clause CREATE on read path: \"CREATE (c:ChainlabCanary {nonce:'PSB8d5670541b6bc418'})\"\u001b[0m",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBe29510ad3a43b14d",
+          "container": "pitsense_rd_chainlab_langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc_fix_5_c64862",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "e Neo4jChatAgentConfig (only safe with a \nleast-privilege Neo4j role and trusted prompts).\n[attack] scripted model -> framework; handler said: Cypher query REJECTED for safety: the retrieval tool runs READ-ONLY Cypher, but this query uses `CREATE`. Use the creation tool for writes, rewrite this as a read-only (MATCH/RETURN) query, or ask the\n\u001b[33m2026-11-25 10:57:08 - WARNING - Neo4jChatAgent rejected write clause CREATE on read path: \"CREATE (c:ChainlabCanary {nonce:'PSBe29510ad3a43b14d'})\"\u001b[0m",
+          "oracle_rc": 1,
+          "oracle_out": "no ChainlabCanary node for this nonce (count=0) -> no unauthorized write",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "fix_patches_claimed_sink": true,
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T10:57:18+00:00"
+}

@@ -1,0 +1,1754 @@
+{
+ "schema": "avb-attempt/0",
+ "tool": "rankbase",
+ "meta": {
+  "tool_version": "rankbase 0 (LLM-free heuristic, stdlib)",
+  "ranking": "sink-danger weight x entry-reachability multiplier, per-file decay",
+  "designed_without_answer_keys": true
+ },
+ "cases": {
+  "ag2-ghsa-2h4w": {
+   "locate": [
+    {
+     "file": "ag2/streams/redis/serializer.py",
+     "line": 36,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "ag2/tools/sandbox/base.py",
+     "line": 71,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "ag2/tools/sandbox/local.py",
+     "line": 169,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "ag2/tools/toolkits/filesystem.py",
+     "line": 166,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 14.0,
+     "why": "path-hint+routed-fn+param-in-sink"
+    },
+    {
+     "file": "ag2/tools/skills/skill_search/client.py",
+     "line": 70,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "ag2/tools/sandbox/base.py",
+     "line": 141,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 11.111,
+     "why": "path-hint"
+    },
+    {
+     "file": "ag2/tools/toolkits/filesystem.py",
+     "line": 205,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.37,
+     "why": "path-hint+routed-fn+param-in-sink"
+    },
+    {
+     "file": "ag2/config/mistral/mistral_client.py",
+     "line": 170,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "ag2/eval/sources/tempo.py",
+     "line": 93,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "ag2/extensions/daytona/sandbox.py",
+     "line": 102,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 10.0,
+     "why": ""
+    }
+   ],
+   "n_findings_total": 136,
+   "budget": {
+    "seconds": 26.7,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "agno-ghsa-m4w4": {
+   "locate": [
+    {
+     "file": "libs/agno/agno/tools/function.py",
+     "line": 59,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/tools/python.py",
+     "line": 151,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/utils/pickle.py",
+     "line": 26,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/knowledge/chunking/strategy.py",
+     "line": 47,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/knowledge/reader/base.py",
+     "line": 52,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/knowledge/utils.py",
+     "line": 168,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/tools/bitbucket.py",
+     "line": 77,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/tools/brightdata.py",
+     "line": 85,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/tools/clickup.py",
+     "line": 50,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/agno/agno/tools/discord.py",
+     "line": 53,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 369,
+   "budget": {
+    "seconds": 86.4,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "bentoml-ghsa-hvj5": {
+   "locate": [
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 189,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/jax.py",
+     "line": 82,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/pytorch.py",
+     "line": 172,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/pytorch.py",
+     "line": 79,
+     "class": "unsafe-deserialization",
+     "family": "torch-load",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/tensorflow_v2.py",
+     "line": 387,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/runner/container.py",
+     "line": 334,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/utils/pickle.py",
+     "line": 91,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/testing/server.py",
+     "line": 67,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 15.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 304,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 198,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.333,
+     "why": "param-in-sink"
+    }
+   ],
+   "n_findings_total": 250,
+   "budget": {
+    "seconds": 23.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "bentoml-ghsa-mrmq": {
+   "locate": [
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 257,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/jax.py",
+     "line": 82,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/pytorch.py",
+     "line": 172,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/tensorflow.py",
+     "line": 387,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/runner/container.py",
+     "line": 312,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/utils/pickle.py",
+     "line": 91,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/testing/server.py",
+     "line": 67,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 15.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/utils/__init__.py",
+     "line": 546,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 301,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/bentoml/_internal/runner/container.py",
+     "line": 416,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.333,
+     "why": "param-in-sink"
+    }
+   ],
+   "n_findings_total": 307,
+   "budget": {
+    "seconds": 27.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langchain-core-ghsa-6qv9": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/prompts/string.py",
+     "line": 71,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/llm.py",
+     "line": 410,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/openai_functions/openapi.py",
+     "line": 196,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/app.py",
+     "line": 260,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/integration.py",
+     "line": 135,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/template.py",
+     "line": 84,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/core/langchain_core/runnables/graph_mermaid.py",
+     "line": 452,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/partners/mistralai/langchain_mistralai/chat_models.py",
+     "line": 565,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/partners/openai/langchain_openai/chat_models/base.py",
+     "line": 3424,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/standard-tests/langchain_tests/integration_tests/chat_models.py",
+     "line": 154,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    }
+   ],
+   "n_findings_total": 175,
+   "budget": {
+    "seconds": 83.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langchain-core-ghsa-c67j": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/prompts/string.py",
+     "line": 67,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/llm.py",
+     "line": 410,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/openai_functions/openapi.py",
+     "line": 196,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/app.py",
+     "line": 260,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/integration.py",
+     "line": 135,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/cli/langchain_cli/namespaces/template.py",
+     "line": 84,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 12.0,
+     "why": "routed-fn"
+    },
+    {
+     "file": "libs/core/langchain_core/runnables/graph_mermaid.py",
+     "line": 453,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/partners/mistralai/langchain_mistralai/chat_models.py",
+     "line": 579,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/partners/openai/langchain_openai/chat_models/base.py",
+     "line": 3488,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/standard-tests/langchain_tests/integration_tests/chat_models.py",
+     "line": 154,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    }
+   ],
+   "n_findings_total": 175,
+   "budget": {
+    "seconds": 89.5,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langchainjs-ghsa-gf3v": {
+   "locate": [
+    {
+     "file": "libs/langchain-classic/src/agents/mrkl/outputParser.ts",
+     "line": 38,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/agents/structured_chat/outputParser.ts",
+     "line": 40,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 157,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-community/src/vectorstores/hanavector.ts",
+     "line": 152,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/providers/langchain-google-common/src/experimental/media.ts",
+     "line": 273,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 172,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 18.519,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/chains/api/api_chain.ts",
+     "line": 98,
+     "class": "unsafe-deserialization",
+     "family": "deser",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/util/openapi.ts",
+     "line": 240,
+     "class": "unsafe-deserialization",
+     "family": "deser",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-community/src/vectorstores/hanavector.ts",
+     "line": 180,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 14.815,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 195,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 14.706,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 260,
+   "budget": {
+    "seconds": 76.6,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langchainjs-ghsa-r399": {
+   "locate": [
+    {
+     "file": "libs/langchain-classic/src/agents/mrkl/outputParser.ts",
+     "line": 38,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/agents/structured_chat/outputParser.ts",
+     "line": 40,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 157,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-community/src/vectorstores/hanavector.ts",
+     "line": 152,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/providers/langchain-google-common/src/experimental/media.ts",
+     "line": 271,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 172,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 18.519,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/chains/api/api_chain.ts",
+     "line": 98,
+     "class": "unsafe-deserialization",
+     "family": "deser",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-classic/src/util/openapi.ts",
+     "line": 240,
+     "class": "unsafe-deserialization",
+     "family": "deser",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "libs/langchain-community/src/vectorstores/hanavector.ts",
+     "line": 180,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 14.815,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/langchain/src/agents/middleware/pii.ts",
+     "line": 195,
+     "class": "command-injection",
+     "family": "child-exec",
+     "score": 14.706,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 256,
+   "budget": {
+    "seconds": 62.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langflow-ghsa-rvqx": {
+   "locate": [
+    {
+     "file": "src/backend/base/langflow/utils/validate.py",
+     "line": 71,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/api/v1/chat.py",
+     "line": 149,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 17.5,
+     "why": "path-hint+routed-fn+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/api/v1/monitor.py",
+     "line": 87,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 17.5,
+     "why": "path-hint+routed-fn+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 158,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/backend/base/langflow/utils/validate.py",
+     "line": 312,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 14.815,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/api/utils.py",
+     "line": 146,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/api/v1/files.py",
+     "line": 32,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/components/data/api_request.py",
+     "line": 394,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/components/embeddings/huggingface_inference_api.py",
+     "line": 60,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/mcp_sse.py",
+     "line": 30,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 197,
+   "budget": {
+    "seconds": 33.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "langgraph-ghsa-7p73": {
+   "locate": [
+    {
+     "file": "libs/cli/langgraph_cli/cli.py",
+     "line": 501,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 12.0,
+     "why": "routed-fn+param-in-sink"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/templates.py",
+     "line": 110,
+     "class": "ssrf",
+     "family": "urlopen",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/sdk-py/langgraph_sdk/client.py",
+     "line": 258,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/memory/__init__.py",
+     "line": 591,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 9.0,
+     "why": ""
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/serde/jsonplus.py",
+     "line": 242,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 9.0,
+     "why": ""
+    },
+    {
+     "file": "libs/cli/langgraph_cli/cli.py",
+     "line": 517,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 8.889,
+     "why": "routed-fn+param-in-sink"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/config.py",
+     "line": 703,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 8.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/templates.py",
+     "line": 113,
+     "class": "path-traversal",
+     "family": "send-file",
+     "score": 7.407,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/sdk-py/langgraph_sdk/client.py",
+     "line": 288,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.407,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/cli.py",
+     "line": 550,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 7.059,
+     "why": "routed-fn+param-in-sink"
+    }
+   ],
+   "n_findings_total": 53,
+   "budget": {
+    "seconds": 5.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "litellm-ghsa-7488": {
+   "locate": [
+    {
+     "file": "litellm/proxy/guardrails/guardrail_endpoints.py",
+     "line": 2037,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 25.0,
+     "why": "path-hint+routed-fn"
+    },
+    {
+     "file": "litellm/proxy/client/cli/commands/credentials.py",
+     "line": 115,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 17.5,
+     "why": "path-hint+routed-fn+param-in-sink"
+    },
+    {
+     "file": "litellm/proxy/prompts/prompt_endpoints.py",
+     "line": 1259,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 17.5,
+     "why": "path-hint+routed-fn"
+    },
+    {
+     "file": "litellm/proxy/guardrails/guardrail_hooks/custom_code/custom_code_guardrail.py",
+     "line": 150,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "litellm/proxy/proxy_cli.py",
+     "line": 887,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 15.0,
+     "why": "path-hint+routed-fn"
+    },
+    {
+     "file": "litellm/litellm_core_utils/prompt_templates/factory.py",
+     "line": 396,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "litellm/a2a_protocol/providers/pydantic_ai_agents/transformation.py",
+     "line": 112,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "litellm/llms/anthropic/chat/handler.py",
+     "line": 91,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "litellm/llms/azure_ai/agents/handler.py",
+     "line": 298,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "litellm/llms/azure_ai/anthropic/handler.py",
+     "line": 192,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 426,
+   "budget": {
+    "seconds": 109.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "llama-index-ghsa-wvpx": {
+   "locate": [
+    {
+     "file": "llama-index-core/llama_index/core/download/integration.py",
+     "line": 21,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/exec_utils.py",
+     "line": 140,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-integrations/program/llama-index-program-evaporate/llama_index/program/evaporate/extractor.py",
+     "line": 230,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/exec_utils.py",
+     "line": 140,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/program/predefined/evaporate/extractor.py",
+     "line": 231,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-packs/llama-index-packs-recursive-retriever/llama_index/packs/recursive_retriever/embedded_tables_unstructured/base.py",
+     "line": 42,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-integrations/readers/llama-index-readers-sec-filings/llama_index/readers/sec_filings/prepline_sec_filings/api/section.py",
+     "line": 151,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "llama-index-integrations/tools/llama-index-tools-code-interpreter/llama_index/tools/code_interpreter/base.py",
+     "line": 33,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 15.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/exec_utils.py",
+     "line": 152,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 14.815,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/exec_utils.py",
+     "line": 152,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 14.815,
+     "why": "param-in-sink"
+    }
+   ],
+   "n_findings_total": 604,
+   "budget": {
+    "seconds": 218.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "locate": [
+    {
+     "file": "src/filesystem/index.ts",
+     "line": 204,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 8.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "src/memory/index.ts",
+     "line": 45,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 8.0,
+     "why": "route/tool-registration-near"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/filesystem/index.ts",
+     "line": 594,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 5.926,
+     "why": "route/tool-registration-near"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 5.556,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/everything/everything.ts",
+     "line": 206,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 5.0,
+     "why": ""
+    },
+    {
+     "file": "src/memory/index.ts",
+     "line": 66,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 2.963,
+     "why": ""
+    },
+    {
+     "file": "src/filesystem/index.ts",
+     "line": 268,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 2.353,
+     "why": ""
+    },
+    {
+     "file": "src/filesystem/index.ts",
+     "line": 334,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 1.951,
+     "why": ""
+    },
+    {
+     "file": "src/filesystem/index.ts",
+     "line": 609,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 1.667,
+     "why": ""
+    }
+   ],
+   "n_findings_total": 14,
+   "budget": {
+    "seconds": 1.5,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "locate": [
+    {
+     "file": "server/src/index.ts",
+     "line": 126,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "client/src/App.tsx",
+     "line": 347,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 5.0,
+     "why": ""
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 144,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 5.0,
+     "why": ""
+    },
+    {
+     "file": "cli/src/cli.ts",
+     "line": 157,
+     "class": "path-traversal",
+     "family": "fs-read",
+     "score": 4.0,
+     "why": ""
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 245,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 3.704,
+     "why": ""
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 339,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 2.941,
+     "why": ""
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 355,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 2.439,
+     "why": ""
+    },
+    {
+     "file": "client/src/lib/hooks/useConnection.ts",
+     "line": 371,
+     "class": "ssrf",
+     "family": "outbound-fetch",
+     "score": 2.083,
+     "why": ""
+    }
+   ],
+   "n_findings_total": 8,
+   "budget": {
+    "seconds": 6.5,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "locate": [
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "family": "shell-true",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/client/streamable_http.py",
+     "line": 299,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 278,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 11.111,
+     "why": "path-hint+routed-fn"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 209,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 9.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/client/sse.py",
+     "line": 136,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/server/fastmcp/resources/types.py",
+     "line": 159,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 221,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 6.667,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/cli/claude.py",
+     "line": 88,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 6.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/server/fastmcp/utilities/types.py",
+     "line": 47,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 6.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 5.294,
+     "why": "path-hint"
+    }
+   ],
+   "n_findings_total": 22,
+   "budget": {
+    "seconds": 11.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-python-sdk-ghsa-qx49": {
+   "locate": [
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "family": "shell-true",
+     "score": 15.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/client/streamable_http.py",
+     "line": 340,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 278,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 11.111,
+     "why": "path-hint+routed-fn"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 209,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 9.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/client/sse.py",
+     "line": 138,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/server/fastmcp/resources/types.py",
+     "line": 161,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/os/win32/utilities.py",
+     "line": 221,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 6.667,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/cli/claude.py",
+     "line": 88,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 6.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/server/fastmcp/utilities/types.py",
+     "line": 47,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 6.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 5.294,
+     "why": "path-hint"
+    }
+   ],
+   "n_findings_total": 22,
+   "budget": {
+    "seconds": 11.7,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "locate": [
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 5.556,
+     "why": "path-hint"
+    }
+   ],
+   "n_findings_total": 2,
+   "budget": {
+    "seconds": 1.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-server-git-ghsa-6hqx": {
+   "locate": [
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 239,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/git/src/mcp_server_git/server.py",
+     "line": 197,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 90,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 6.667,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/git/src/mcp_server_git/server.py",
+     "line": 104,
+     "class": "code-injection",
+     "family": "getattr-dyn",
+     "score": 5.556,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 118,
+     "class": "command-injection",
+     "family": "subprocess",
+     "score": 5.294,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/git/src/mcp_server_git/server.py",
+     "line": 219,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 3.529,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 266,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 2.927,
+     "why": "path-hint"
+    }
+   ],
+   "n_findings_total": 7,
+   "budget": {
+    "seconds": 2.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "locate": [
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 77,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 7.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/server.py",
+     "line": 121,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 5.556,
+     "why": "path-hint"
+    }
+   ],
+   "n_findings_total": 2,
+   "budget": {
+    "seconds": 0.4,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "smolagents-ghsa-6v92": {
+   "locate": [
+    {
+     "file": "src/smolagents/tools.py",
+     "line": 483,
+     "class": "code-injection",
+     "family": "exec-eval",
+     "score": 25.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 104,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 17.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 78,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.5,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/smolagents/default_tools.py",
+     "line": 364,
+     "class": "ssrf",
+     "family": "outbound-http",
+     "score": 12.5,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/agent_types.py",
+     "line": 91,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/local_python_executor.py",
+     "line": 1171,
+     "class": "code-injection",
+     "family": "importlib",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 329,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 10.0,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/smolagents/utils.py",
+     "line": 459,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 892,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 7.778,
+     "why": "path-hint"
+    },
+    {
+     "file": "src/smolagents/tools.py",
+     "line": 327,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 7.407,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 49,
+   "budget": {
+    "seconds": 2.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  },
+  "vllm-ghsa-hjq4": {
+   "locate": [
+    {
+     "file": "vllm/collect_env.py",
+     "line": 96,
+     "class": "command-injection",
+     "family": "shell-true",
+     "score": 20.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/model_executor/model_loader/weight_utils.py",
+     "line": 109,
+     "class": "unsafe-deserialization",
+     "family": "torch-load",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/multimodal/image.py",
+     "line": 152,
+     "class": "unsafe-deserialization",
+     "family": "torch-load",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/transformers_utils/config.py",
+     "line": 632,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/utils.py",
+     "line": 2437,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/v1/serial_utils.py",
+     "line": 269,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 18.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "csrc/quantization/machete/generate.py",
+     "line": 384,
+     "class": "template-injection",
+     "family": "jinja-string",
+     "score": 14.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "vllm/v1/serial_utils.py",
+     "line": 271,
+     "class": "unsafe-deserialization",
+     "family": "pickle",
+     "score": 13.333,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "setup.py",
+     "line": 77,
+     "class": "ssrf",
+     "family": "urlopen",
+     "score": 10.0,
+     "why": "param-in-sink"
+    },
+    {
+     "file": "tools/check_spdx_header.py",
+     "line": 10,
+     "class": "path-traversal",
+     "family": "fs-open",
+     "score": 10.0,
+     "why": "path-hint+param-in-sink"
+    }
+   ],
+   "n_findings_total": 185,
+   "budget": {
+    "seconds": 93.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "rankbase heuristic"
+  }
+ }
+}

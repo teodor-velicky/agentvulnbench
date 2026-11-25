@@ -1,0 +1,149 @@
+{
+ "ag2-ghsa-2h4w": {
+  "url": "https://codeload.github.com/ag2ai/ag2/tar.gz/f8dc76beb237ee94a2d559356abb6335787156d9",
+  "vuln_sha": "f8dc76beb237ee94a2d559356abb6335787156d9",
+  "tarball_sha256": "bec208fe366a6f4c6a2a0909e12ee40b00b5273b06a471afdce61a6aa4eb9a21",
+  "extracted": 1704,
+  "skipped": 0
+ },
+ "agno-ghsa-m4w4": {
+  "url": "https://codeload.github.com/agno-agi/agno/tar.gz/ea35f13518be03ef38a41a64665fdc270b9d12d3",
+  "vuln_sha": "ea35f13518be03ef38a41a64665fdc270b9d12d3",
+  "tarball_sha256": "5e43f04fa0652c8acd29f208fde2e9d25aaecf1af53f3ad0b53f9e6cb5931622",
+  "extracted": 4416,
+  "skipped": 0
+ },
+ "bentoml-ghsa-hvj5": {
+  "url": "https://codeload.github.com/bentoml/BentoML/tar.gz/f5c332237b72eb102b9c88f993fc1b6033ef04d2",
+  "vuln_sha": "f5c332237b72eb102b9c88f993fc1b6033ef04d2",
+  "tarball_sha256": "39de6f19ae2a10ec2433d3d3d2070f2d77368c0b48998841e089c7b9e76092d0",
+  "extracted": 1423,
+  "skipped": 0
+ },
+ "bentoml-ghsa-mrmq": {
+  "url": "https://codeload.github.com/bentoml/BentoML/tar.gz/c8ffb58d936d2ba998d1b49d87c665768f2f6f73",
+  "vuln_sha": "c8ffb58d936d2ba998d1b49d87c665768f2f6f73",
+  "tarball_sha256": "9406e7a2cfeb52ee02858c3180ed4abd9d56029a9edfba5424d52bbcd7773d20",
+  "extracted": 1077,
+  "skipped": 0
+ },
+ "langchain-core-ghsa-6qv9": {
+  "url": "https://codeload.github.com/langchain-ai/langchain/tar.gz/b7d1831f9d3560ed4fb45134861eef3f4544eff3",
+  "vuln_sha": "b7d1831f9d3560ed4fb45134861eef3f4544eff3",
+  "tarball_sha256": "28b57a5cb3f9e58a961b6f69d3e1103990c261b0ba534a52eb0f5b4f6beb4297",
+  "extracted": 3491,
+  "skipped": 0
+ },
+ "langchain-core-ghsa-c67j": {
+  "url": "https://codeload.github.com/langchain-ai/langchain/tar.gz/6a416c618655102847a59cae280348c0712cf45c",
+  "vuln_sha": "6a416c618655102847a59cae280348c0712cf45c",
+  "tarball_sha256": "b814e0d2b3eb814a5d4f4b97bb3b73c8de49cc9e8ad03ad15198d1a382781c36",
+  "extracted": 3518,
+  "skipped": 0
+ },
+ "langchainjs-ghsa-gf3v": {
+  "url": "https://codeload.github.com/langchain-ai/langchainjs/tar.gz/e2ed40729c54d132b91b7abecfb787fe5f09461e",
+  "vuln_sha": "e2ed40729c54d132b91b7abecfb787fe5f09461e",
+  "tarball_sha256": "2e1dd0a9034a0d6f13964004d14ac00e782795a8c44ded4248aac04feac949db",
+  "extracted": 4081,
+  "skipped": 0
+ },
+ "langchainjs-ghsa-r399": {
+  "url": "https://codeload.github.com/langchain-ai/langchainjs/tar.gz/8b3e611a6caefc3c17dac0d721b2f72279d3ef59",
+  "vuln_sha": "8b3e611a6caefc3c17dac0d721b2f72279d3ef59",
+  "tarball_sha256": "fe2e4ac566ad2e987dec2749f471dc17290455a0a1f1dcfbf3c67ec5ec740ffa",
+  "extracted": 4050,
+  "skipped": 0
+ },
+ "langflow-ghsa-rvqx": {
+  "url": "https://codeload.github.com/langflow-ai/langflow/tar.gz/e1ee081d3223bd2150425ddb9487b5e9f4ccff26",
+  "vuln_sha": "e1ee081d3223bd2150425ddb9487b5e9f4ccff26",
+  "tarball_sha256": "dcfb51c0343207e950ac381c85a3c608f2ce9d5540c4084924cd6e925033346d",
+  "extracted": 3325,
+  "skipped": 0
+ },
+ "langgraph-ghsa-7p73": {
+  "url": "https://codeload.github.com/langchain-ai/langgraph/tar.gz/7d3f0089aad852d324d282f86ef7426e35ba87c7",
+  "vuln_sha": "7d3f0089aad852d324d282f86ef7426e35ba87c7",
+  "tarball_sha256": "397e8461f74385aa8b9a4fafc22ca96242dbe4fc0a4c371290c93562664374f0",
+  "extracted": 1201,
+  "skipped": 0
+ },
+ "litellm-ghsa-7488": {
+  "url": "https://codeload.github.com/BerriAI/litellm/tar.gz/70a986e6893b04adb9caf3413dd358c8a17d44b2",
+  "vuln_sha": "70a986e6893b04adb9caf3413dd358c8a17d44b2",
+  "tarball_sha256": "d7751aa68ed5df7a07535a3a2fa0716f11a737190bc4ae2ef83d3fb484ca5f63",
+  "extracted": 8314,
+  "skipped": 0
+ },
+ "llama-index-ghsa-wvpx": {
+  "url": "https://codeload.github.com/run-llama/llama_index/tar.gz/6882171a95db8dbaa65295c5b750d08cda970db4",
+  "vuln_sha": "6882171a95db8dbaa65295c5b750d08cda970db4",
+  "tarball_sha256": "61f0f7608aca01e89fc65e4b271c72fbb9e5df6a38d1526d9d055ae39b831677",
+  "extracted": 12471,
+  "skipped": 0
+ },
+ "mcp-filesystem-ghsa-hc55": {
+  "url": "https://codeload.github.com/modelcontextprotocol/servers/tar.gz/b7c48c79ee4096c1d3fdebe0089d81122d6cc051",
+  "vuln_sha": "b7c48c79ee4096c1d3fdebe0089d81122d6cc051",
+  "tarball_sha256": "cc7bfd757532ae5b2215ea647a2285f1061dd07ce70fefad66764f259204e365",
+  "extracted": 94,
+  "skipped": 0
+ },
+ "mcp-inspector-ghsa-7f8r": {
+  "url": "https://codeload.github.com/modelcontextprotocol/inspector/tar.gz/03edbb01ce06f020314582384fbe3f486510c0d0",
+  "vuln_sha": "03edbb01ce06f020314582384fbe3f486510c0d0",
+  "tarball_sha256": "7cc5e87d8b8f8c9b81fa58dce60ca929981353d214f1e0ea4e82ce7a1d60bb0e",
+  "extracted": 141,
+  "skipped": 0
+ },
+ "mcp-python-sdk-ghsa-9h52": {
+  "url": "https://codeload.github.com/modelcontextprotocol/python-sdk/tar.gz/fa851d93a2036a37cce73e098f7dbc80a6c48765",
+  "vuln_sha": "fa851d93a2036a37cce73e098f7dbc80a6c48765",
+  "tarball_sha256": "f56d480d51d4d4db0b484dc308daf983d2066f041dddeb5c494baa6ac849f5cc",
+  "extracted": 509,
+  "skipped": 0
+ },
+ "mcp-python-sdk-ghsa-qx49": {
+  "url": "https://codeload.github.com/modelcontextprotocol/python-sdk/tar.gz/92120b4b0f50385af096592d7cee932fc1d994e7",
+  "vuln_sha": "92120b4b0f50385af096592d7cee932fc1d994e7",
+  "tarball_sha256": "6d6159fea52d6be5c60c961781c8761cd98a21b733963ff0861075cfe6eb1d98",
+  "extracted": 556,
+  "skipped": 0
+ },
+ "mcp-server-git-ghsa-5cgr": {
+  "url": "https://codeload.github.com/modelcontextprotocol/servers/tar.gz/f1f6f3473de4569ce6ff2bd1c0200e92785524b0",
+  "vuln_sha": "f1f6f3473de4569ce6ff2bd1c0200e92785524b0",
+  "tarball_sha256": "4fffdbe36b070faa19aa933ea0c2f34a8f114900bc8858930225dc9314117182",
+  "extracted": 105,
+  "skipped": 0
+ },
+ "mcp-server-git-ghsa-6hqx": {
+  "url": "https://codeload.github.com/modelcontextprotocol/servers/tar.gz/b71b3da5a157a3edfa09693cc0c88d81f5264b16",
+  "vuln_sha": "b71b3da5a157a3edfa09693cc0c88d81f5264b16",
+  "tarball_sha256": "e238dd692484a98551ca2faf5f7cf4de8f872abbc119d2d026a170302fef50fa",
+  "extracted": 485,
+  "skipped": 0
+ },
+ "mcp-server-git-ghsa-vjqx": {
+  "url": "https://codeload.github.com/modelcontextprotocol/servers/tar.gz/dcb47d2d94a3a33340053d2df550ae68d2795a3f",
+  "vuln_sha": "dcb47d2d94a3a33340053d2df550ae68d2795a3f",
+  "tarball_sha256": "446caec2a917e60fc46abe1313fa36769cdfa3bc49e3260eab326439ddbd1230",
+  "extracted": 154,
+  "skipped": 0
+ },
+ "smolagents-ghsa-6v92": {
+  "url": "https://codeload.github.com/huggingface/smolagents/tar.gz/41b1d7fd3034f386f9d1e64d082a16956bded0e8",
+  "vuln_sha": "41b1d7fd3034f386f9d1e64d082a16956bded0e8",
+  "tarball_sha256": "f5d5750bd9bc950fb1a7e51a11dde156ee12fef643de2052f3aa2fa185e6dbac",
+  "extracted": 175,
+  "skipped": 0
+ },
+ "vllm-ghsa-hjq4": {
+  "url": "https://codeload.github.com/vllm-project/vllm/tar.gz/9420a1fc30af1a632bbc2c66eb8668f3af41f026",
+  "vuln_sha": "9420a1fc30af1a632bbc2c66eb8668f3af41f026",
+  "tarball_sha256": "9229db8fdf4990ad75a845a8f76c4cc4f765054eada0aa0f64222e7a43546cc4",
+  "extracted": 2625,
+  "skipped": 0
+ }
+}

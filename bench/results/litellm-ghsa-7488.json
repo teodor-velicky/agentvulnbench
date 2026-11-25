@@ -1,0 +1,229 @@
+{
+  "case": "litellm-ghsa-7488",
+  "kbc_id": "kbc-ghsa-7488-6r32-c95q",
+  "advisory_url": "https://github.com/advisories/GHSA-7488-6r32-c95q",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T04:21:56+00:00",
+  "trials_per_arm": 5,
+  "target_network": "internal",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_litellm-ghsa-7488:vuln",
+      "image_id": "sha256:7a0332d8ee6d7ac7927515c0bf969034480d8f04542ee0b0a48bd2395bc0cf6f",
+      "sha": "70a986e6893b04adb9caf3413dd358c8a17d44b2",
+      "sha_verified": true,
+      "build_seconds": 5.3
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_litellm-ghsa-7488:fix",
+      "image_id": "sha256:a5d8a65fbd17748b5a9f2835069d5a3ca657c2e9770cd4de2cb6495d200268d3",
+      "sha": "73869f0faf7d11ee21adcb5f91b8c33a340b6c2c",
+      "sha_verified": true,
+      "build_seconds": 88.0
+    }
+  },
+  "network": {
+    "name": "pitsense_rd_bench_net_litellm-ghsa-7488",
+    "internal": true
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBfc7dfc12e75eeb6e",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_attack_1_8aee0e",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":fals\ntools/call 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "save_note ran via the gateway without a LiteLLM key",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5ccaceab7975b344",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_attack_2_6384be",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":fals\ntools/call 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "save_note ran via the gateway without a LiteLLM key",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4ea2b019dc673eee",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_attack_3_aebf65",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":fals\ntools/call 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "save_note ran via the gateway without a LiteLLM key",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB20655983a30673d5",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_attack_4_11a534",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":fals\ntools/call 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "save_note ran via the gateway without a LiteLLM key",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4979251ae12d7098",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_attack_5_d9b043",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":fals\ntools/call 200 event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"saved\"}],\"structuredContent\":{\"result\":\"saved\"},\"isError\":false}}",
+          "oracle_rc": 0,
+          "oracle_out": "save_note ran via the gateway without a LiteLLM key",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB204dcd87902fd683",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_control_1_f45135",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB8d404cda773e0486",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_control_2_2d162c",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB035cf5f62b196794",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_control_3_9b42bd",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB3b44ba40105a58f4",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_control_4_ee8030",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB47a3334d05e1c4fa",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_control_5_35e7d4",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBe8ca568baaaa3df4",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_fix_1_c46262",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBbc0a24fb4a6e3672",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_fix_2_ec48b3",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB97ae93184eb0314a",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_fix_3_3ca37e",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBb808533a66e18888",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_fix_4_ff47cc",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB855e686b419e8f09",
+          "container": "pitsense_rd_bench_litellm-ghsa-7488_fix_5_7a1cc4",
+          "network_mode": "pitsense_rd_bench_net_litellm-ghsa-7488",
+          "deliver_rc": 0,
+          "deliver_tail": "initialize 500 {\"error\":\"MCP request failed\",\"details\":\"\"}",
+          "oracle_rc": 1,
+          "oracle_out": "tool never ran",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T04:31:55+00:00"
+}

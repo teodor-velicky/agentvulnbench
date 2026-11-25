@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-inspector-ghsa-7f8r",
+  "version": "1",
+  "title": "MCP Inspector proxy /stdio runs arbitrary local commands without authentication",
+  "kbc_id": "kbc-ghsa-7f8r-222p-6f5g",
+  "ghsa": "GHSA-7f8r-222p-6f5g",
+  "cve": "CVE-2025-49596",
+  "advisory_url": "https://github.com/advisories/GHSA-7f8r-222p-6f5g",
+  "repo": "https://github.com/modelcontextprotocol/inspector",
+  "vuln_sha": "03edbb01ce06f020314582384fbe3f486510c0d0",
+  "fix_sha": "50df0e1ec488f3983740b4d28d2a968f12eb8979",
+  "locator": {"file": "server/src/index.ts", "line": 108, "symbol": "createTransport"},
+  "rd_class": "mcp-stdio-cmd-exec",
+  "attacker": "malicious-web-content",
+  "attacker_story": "A page the victim visits issues a cross-origin GET to the Inspector proxy on loopback; the proxy's /stdio endpoint spawns the command/args from the query with no auth or origin check, so the attacker runs an arbitrary local command.",
+  "language": "typescript",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["node", "--import", "tsx", "/case/driver.mjs", "{input}", "{nonce}"], "timeout": 120},
+  "oracle": {"kind": "canary-file", "command": ["node", "/case/oracle.mjs", "{nonce}"],
+             "description": "the proxy spawned the attacker command, which wrote /tmp/avb_canary_<nonce> containing pwned-<nonce>"}
+}

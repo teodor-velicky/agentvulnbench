@@ -1,0 +1,263 @@
+{
+  "schema": "chainlab-proof/0",
+  "finding_id": "praisonai-codeagent-ghsa-2xv2-w8cq-5gxw",
+  "sink": "praisonaiagents/agent/code_agent.py:CodeAgent._execute_python -> subprocess.run([python, tmp], env=os.environ.copy()) (no sandbox)",
+  "sink_class": "code-exec",
+  "network": "none",
+  "chainlab_cve": "CVE-2026-61447",
+  "chainlab_ghsa": "GHSA-2xv2-w8cq-5gxw",
+  "chainlab_advisory_url": "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-2xv2-w8cq-5gxw",
+  "chainlab_rd_class": "prompt-injection-to-tool",
+  "chainlab_attacker": "untrusted-llm-input",
+  "chainlab_scripted_model": {
+    "interface": "a fake litellm module plugged into CodeAgent.litellm; its completion() returns the attacker-chosen code as response.choices[0].message.content -- the framework's own LLM call site",
+    "plugged_into": "agent._litellm = <fake litellm>; code = agent.generate(prompt); agent.execute(code)",
+    "behavior": "returns the fixture code verbatim, ignoring the prompt; proves the framework runs model-authored code with no enforced sandbox independent of model behaviour",
+    "may_assume": "that some untrusted content could make a real code-writing model emit this completion -- in-shape output for a CodeAgent, i.e. a block of Python the agent is built to execute; nothing more",
+    "may_not_assume": "no privileged config (sandbox is left at its default True -- the advisory's point is that it is ignored), no network, no attacker code already on disk; only that the model's output reaches execute()"
+  },
+  "chainlab_framework": {
+    "name": "praisonaiagents",
+    "vuln_version": "1.6.77",
+    "fix_version": "1.6.78",
+    "repo": "https://github.com/MervinPraison/PraisonAI"
+  },
+  "harness_version": "0.1.0",
+  "spec_version": "1",
+  "started_utc": "2026-11-25T05:07:28+00:00",
+  "trials_per_arm": 5,
+  "versions": {
+    "praisonaiagents_vuln": "1.6.77",
+    "praisonaiagents_fix": "1.6.78",
+    "image_vuln": "sha256:093235212a2cf699e5e00a2c308a9e8920b2760dbd7682fb60864a6802fee34e",
+    "image_fix": "sha256:2d15c615cc0d9d33a490157a1e6a32a3cc26948689697602608dcd46a048c71c",
+    "scripted_model_interface": "a fake litellm module plugged into CodeAgent.litellm; its completion() returns the attacker-chosen code as response.choices[0].message.content -- the framework's own LLM call site"
+  },
+  "chainlab_images": {
+    "vuln": {
+      "tag": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw:vuln",
+      "image_id": "sha256:093235212a2cf699e5e00a2c308a9e8920b2760dbd7682fb60864a6802fee34e",
+      "version": "1.6.77",
+      "version_verified": true,
+      "build_seconds": 34.8
+    },
+    "fix": {
+      "tag": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw:fix",
+      "image_id": "sha256:2d15c615cc0d9d33a490157a1e6a32a3cc26948689697602608dcd46a048c71c",
+      "version": "1.6.78",
+      "version_verified": true,
+      "build_seconds": 35.3
+    }
+  },
+  "arms": {
+    "attack": {
+      "trials": 5,
+      "canary_hits": 5,
+      "exfil": 0
+    },
+    "control": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    },
+    "fix": {
+      "trials": 5,
+      "canary_hits": 0,
+      "exfil": 0
+    }
+  },
+  "chainlab_arms_detail": {
+    "attack": {
+      "image": "vuln",
+      "fixture": "attack",
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB91e109b00b9137e8",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_attack_1_9d62c7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': '', 'stderr': '', 'return_code': 0, 'execution_time': 0.02618098258972168}",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> model-authored code executed on host",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB552c9256a3610d0f",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_attack_2_17927e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': '', 'stderr': '', 'return_code': 0, 'execution_time': 0.024662494659423828}",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> model-authored code executed on host",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBdc2206de7230f406",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_attack_3_9926fa",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': '', 'stderr': '', 'return_code': 0, 'execution_time': 0.02795243263244629}",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> model-authored code executed on host",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB35cba07ddc49d319",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_attack_4_516c08",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': '', 'stderr': '', 'return_code': 0, 'execution_time': 0.029021024703979492}",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> model-authored code executed on host",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB1c8ce823ca1a517b",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_attack_5_b00e5c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': '', 'stderr': '', 'return_code': 0, 'execution_time': 0.03366804122924805}",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce -> model-authored code executed on host",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "fixture": "control",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBdcfae49eb3ef514b",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_control_1_fa5fef",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': 'hello from the code agent\\n', 'stderr': '', 'return_code': 0, 'execution_time': 0.030684947967529297}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB1a298d2d81da3e12",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_control_2_a88945",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': 'hello from the code agent\\n', 'stderr': '', 'return_code': 0, 'execution_time': 0.06865191459655762}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB46997935e2e498b6",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_control_3_6bdb51",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': 'hello from the code agent\\n', 'stderr': '', 'return_code': 0, 'execution_time': 0.024790048599243164}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB2e1ced02961e4db7",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_control_4_e04c65",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': 'hello from the code agent\\n', 'stderr': '', 'return_code': 0, 'execution_time': 0.02750110626220703}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBfbd38d6ae5f01f2d",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_control_5_88357a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "execute -> {'stdout': 'hello from the code agent\\n', 'stderr': '', 'return_code': 0, 'execution_time': 0.03386235237121582}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "fixture": "attack",
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBd7058744efd9d6b9",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_fix_1_8b573e",
+          "network_mode": "none",
+          "deliver_rc": 1,
+          "deliver_tail": "_execute_python(code, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/agent/code_agent.py\", line 260, in _execute_python\n    result = execute_code(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/approval/__init__.py\", line 202, in wrapper\n    raise PermissionError(f\"Execution of {tool_name} denied: {decision.reason}\")\nPermissionError: Execution of execute_code denied: User denied",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBcb96653b763cbeff",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_fix_2_9e041b",
+          "network_mode": "none",
+          "deliver_rc": 1,
+          "deliver_tail": "_execute_python(code, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/agent/code_agent.py\", line 260, in _execute_python\n    result = execute_code(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/approval/__init__.py\", line 202, in wrapper\n    raise PermissionError(f\"Execution of {tool_name} denied: {decision.reason}\")\nPermissionError: Execution of execute_code denied: User denied",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB930cf21ad99c2d7a",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_fix_3_97295c",
+          "network_mode": "none",
+          "deliver_rc": 1,
+          "deliver_tail": "_execute_python(code, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/agent/code_agent.py\", line 260, in _execute_python\n    result = execute_code(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/approval/__init__.py\", line 202, in wrapper\n    raise PermissionError(f\"Execution of {tool_name} denied: {decision.reason}\")\nPermissionError: Execution of execute_code denied: User denied",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBcdd3e671ab7ab59a",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_fix_4_d62405",
+          "network_mode": "none",
+          "deliver_rc": 1,
+          "deliver_tail": "_execute_python(code, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/agent/code_agent.py\", line 260, in _execute_python\n    result = execute_code(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/approval/__init__.py\", line 202, in wrapper\n    raise PermissionError(f\"Execution of {tool_name} denied: {decision.reason}\")\nPermissionError: Execution of execute_code denied: User denied",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB79d4dd9e9de6da41",
+          "container": "pitsense_rd_chainlab_praisonai-codeagent-ghsa-2xv2-w8cq-5gxw_fix_5_989ef2",
+          "network_mode": "none",
+          "deliver_rc": 1,
+          "deliver_tail": "_execute_python(code, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/agent/code_agent.py\", line 260, in _execute_python\n    result = execute_code(\n             ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/praisonaiagents/approval/__init__.py\", line 202, in wrapper\n    raise PermissionError(f\"Execution of {tool_name} denied: {decision.reason}\")\nPermissionError: Execution of execute_code denied: User denied",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file -> no code execution",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "fix_patches_claimed_sink": true,
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T05:09:28+00:00"
+}

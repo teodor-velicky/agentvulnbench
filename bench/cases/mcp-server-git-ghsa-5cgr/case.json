@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-server-git-ghsa-5cgr",
+  "version": "1",
+  "title": "mcp-server-git git_init tool escapes the --repository confinement (creates repos at any path)",
+  "kbc_id": "kbc-ghsa-5cgr-j3jf-jw3v",
+  "ghsa": "GHSA-5cgr-j3jf-jw3v",
+  "cve": "CVE-2025-68143",
+  "advisory_url": "https://github.com/advisories/GHSA-5cgr-j3jf-jw3v",
+  "repo": "https://github.com/modelcontextprotocol/servers",
+  "vuln_sha": "f1f6f3473de4569ce6ff2bd1c0200e92785524b0",
+  "fix_sha": "eac56e7bcde48fb64d5a973924d05d69a7d876e6",
+  "locator": {"file": "src/git/src/mcp_server_git/server.py", "line": 188, "symbol": "git_init"},
+  "rd_class": "path-traversal",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "The user granted the agent one repository via --repository /srv/repo; a prompt-injected model calls git_init with an absolute path outside it. The scripted MCP host forwards the model's tool call verbatim over stdio.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "a .git directory was created at /srv/outside/<nonce>, outside the server's --repository confinement"}
+}

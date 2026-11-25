@@ -1,0 +1,2 @@
+{"repo_config": "[user]\n\tname = avb-{{NONCE}}\n\temail = avb@example.test\n",
+ "call": {"name": "git_status", "arguments": {"repo_path": "/srv/repo"}}}

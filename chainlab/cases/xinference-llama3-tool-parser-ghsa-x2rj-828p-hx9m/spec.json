@@ -1,0 +1,41 @@
+{
+  "schema": "chainlab-case/0",
+  "id": "xinference-llama3-tool-parser-ghsa-x2rj-828p-hx9m",
+  "version": "1",
+  "title": "Xinference Llama3 tool-call parser eval()s model output (serving-layer RCE)",
+  "cve": "CVE-2026-61539",
+  "ghsa": "GHSA-x2rj-828p-hx9m",
+  "advisory_url": "https://github.com/xorbitsai/inference/security/advisories/GHSA-x2rj-828p-hx9m",
+  "framework": {
+    "name": "xinference",
+    "vuln_version": "2.5.0",
+    "fix_version": "2.7.0",
+    "repo": "https://github.com/xorbitsai/inference"
+  },
+  "sink": "xinference/model/llm/tool_parsers/llama3_tool_parser.py:Llama3ToolParser.extract_tool_calls -> eval(model_output, {}, {})",
+  "sink_class": "code-exec",
+  "rd_class": "prompt-injection-to-tool",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "Xinference serves models over an OpenAI-compatible /v1/chat/completions API (unauthenticated by default). When a request carries a tools field, the non-streaming Transformers path calls _post_process_completion, which hands the model's completion to the Llama3 tool-call parser. In 2.5.0 Llama3ToolParser.extract_tool_calls parses that completion with eval(model_output, {}, {}) -- so any Python expression the model emits runs on the server. A prompt-injected or adversarially-steered model that returns __import__('os').system(...) achieves remote code execution in the serving layer. No model is needed to prove it: the scripted model stands in for the completion the injection would elicit; the finding is that the framework eval()s model output with no guard (GHSA-x2rj-828p-hx9m, fixed in 2.7.0 by switching to json.loads / ast.literal_eval, commit 1b3d220f).",
+  "scripted_model": {
+    "interface": "the raw model completion string fed to Llama3ToolParser.extract_tool_calls (the framework's own tool-call parsing entry point for Transformers-backend chat results)",
+    "plugged_into": "Llama3ToolParser().extract_tool_calls(<scripted model output>)",
+    "behavior": "returns the attacker-chosen completion verbatim; the parser eval()s it. Proves the serving framework lacks a guard independent of which model produced the text.",
+    "may_assume": "that some untrusted prompt could steer a real model into emitting this completion -- an in-shape Llama3 tool-call payload, i.e. a Python expression, which is exactly what this parser eval()s; nothing more",
+    "may_not_assume": "no auth bypass beyond the documented default (auth off by default per the advisory), no network, no attacker-controlled config or secret; only that the model's text reaches the parser"
+  },
+  "injected_content": "fixtures/attack.txt",
+  "benign_content": "fixtures/control.txt",
+  "canary": {
+    "kind": "marker",
+    "mechanism": "the eval'd expression runs __import__('os').system('echo <nonce> > /tmp/chainlab_canary'); oracle reads the file and checks the per-trial nonce"
+  },
+  "build": {"dockerfile": "Dockerfile", "version_arg": "PKG_VERSION", "context": "."},
+  "run": {
+    "network": "none",
+    "driver": ["python", "-I", "/case/driver.py", "{arm}", "{nonce}"],
+    "oracle": ["python", "-I", "/case/oracle.py", "{nonce}"],
+    "timeout": 120
+  },
+  "expect": {"attack": 5, "control": 0, "fix": 0}
+}

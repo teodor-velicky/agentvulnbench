@@ -1,0 +1,225 @@
+{
+  "case": "ag2-ghsa-2h4w",
+  "kbc_id": "kbc-ghsa-2h4w-29cv-2cmv",
+  "advisory_url": "https://github.com/advisories/GHSA-2h4w-29cv-2cmv",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T04:36:54+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_ag2-ghsa-2h4w:vuln",
+      "image_id": "sha256:dd8cf81a8d4a206ea1a89210efa92ad38e82fc10492a7bd739c203738f6efb0f",
+      "sha": "f8dc76beb237ee94a2d559356abb6335787156d9",
+      "sha_verified": true,
+      "build_seconds": 7.3
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_ag2-ghsa-2h4w:fix",
+      "image_id": "sha256:3e69f670cf1a515ef7044a46cc73b85cb29264c5dae761ed18a6d78813c5bc45",
+      "sha": "3cd86726bb731eb11d6270f0ef9e50e42b5abb39",
+      "sha_verified": true,
+      "build_seconds": 5.8
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBc444a8677f1bc65b",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_attack_1_1e9f33",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "",
+          "oracle_rc": 0,
+          "oracle_out": "/tmp/avb_canary_PSBc444a8677f1bc65b created",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB79c2824d79732f2c",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_attack_2_7a5d2b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "",
+          "oracle_rc": 0,
+          "oracle_out": "/tmp/avb_canary_PSB79c2824d79732f2c created",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBdc8394c07697ee76",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_attack_3_c8214f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "",
+          "oracle_rc": 0,
+          "oracle_out": "/tmp/avb_canary_PSBdc8394c07697ee76 created",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB16d5128cb6a98dfd",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_attack_4_c38888",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "",
+          "oracle_rc": 0,
+          "oracle_out": "/tmp/avb_canary_PSB16d5128cb6a98dfd created",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB9aaa9eb99d11a397",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_attack_5_57b0a4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "",
+          "oracle_rc": 0,
+          "oracle_out": "/tmp/avb_canary_PSB9aaa9eb99d11a397 created",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBa09975ccc434d223",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_control_1_ed4125",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ls: cannot access '/tmp/avb_canary_PSBa09975ccc434d223': No such file or directory\n[exit code: 2]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB9fb16fa98125f82e",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_control_2_e8795a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ls: cannot access '/tmp/avb_canary_PSB9fb16fa98125f82e': No such file or directory\n[exit code: 2]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB45fd88b891eda04b",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_control_3_9e0999",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ls: cannot access '/tmp/avb_canary_PSB45fd88b891eda04b': No such file or directory\n[exit code: 2]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB8eea27ac8bdf8b27",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_control_4_86ed64",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ls: cannot access '/tmp/avb_canary_PSB8eea27ac8bdf8b27': No such file or directory\n[exit code: 2]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBb4a698c7a80ba604",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_control_5_792bed",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ls: cannot access '/tmp/avb_canary_PSBb4a698c7a80ba604': No such file or directory\n[exit code: 2]",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBf3b16ffbc227c188",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_fix_1_5494fa",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Command not allowed (shell syntax is not available in restricted mode): 'ls /home/app/ws\\ntouch /tmp/avb_canary_PSBf3b16ffbc227c188'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB67f58e3853098222",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_fix_2_3b38ad",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Command not allowed (shell syntax is not available in restricted mode): 'ls /home/app/ws\\ntouch /tmp/avb_canary_PSB67f58e3853098222'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd45fbf2a2c166679",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_fix_3_f60361",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Command not allowed (shell syntax is not available in restricted mode): 'ls /home/app/ws\\ntouch /tmp/avb_canary_PSBd45fbf2a2c166679'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB95fc0004fcd9f0bd",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_fix_4_476de2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Command not allowed (shell syntax is not available in restricted mode): 'ls /home/app/ws\\ntouch /tmp/avb_canary_PSB95fc0004fcd9f0bd'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBc7108495bcdaf8e0",
+          "container": "pitsense_rd_bench_ag2-ghsa-2h4w_fix_5_e14fa6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "Command not allowed (shell syntax is not available in restricted mode): 'ls /home/app/ws\\ntouch /tmp/avb_canary_PSBc7108495bcdaf8e0'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T04:38:20+00:00"
+}

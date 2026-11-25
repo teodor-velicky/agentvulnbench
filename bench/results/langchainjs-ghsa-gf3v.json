@@ -1,0 +1,225 @@
+{
+  "case": "langchainjs-ghsa-gf3v",
+  "kbc_id": "kbc-ghsa-gf3v-fwqg-4vh7",
+  "advisory_url": "https://github.com/advisories/GHSA-gf3v-fwqg-4vh7",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T02:32:18+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langchainjs-ghsa-gf3v:vuln",
+      "image_id": "sha256:e64f9f55d1606fa05ca8e71dd8c8b799618656dda3043284140343e33b3c13bd",
+      "sha": "e2ed40729c54d132b91b7abecfb787fe5f09461e",
+      "sha_verified": true,
+      "build_seconds": 67.1
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langchainjs-ghsa-gf3v:fix",
+      "image_id": "sha256:421ed7103df610f65e5675de35f628e05e6b957b3814ba968a006a7dee91eb86",
+      "sha": "d5e3db0d01ab321ec70a875805b2f74aefdadf9d",
+      "sha_verified": true,
+      "build_seconds": 58.6
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBffbffd6f413ecce6",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_attack_1_7090d1",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://127.0.0.1:9999/PSBffbffd6f413ecce6\",\"internal-admin-data\"]]",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB26245c3a725dd944",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_attack_2_7e23b1",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://127.0.0.1:9999/PSB26245c3a725dd944\",\"internal-admin-data\"]]",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB55750dfd46fb64f6",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_attack_3_d923de",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://127.0.0.1:9999/PSB55750dfd46fb64f6\",\"internal-admin-data\"]]",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB5cd31d37f96f654d",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_attack_4_99f0a9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://127.0.0.1:9999/PSB5cd31d37f96f654d\",\"internal-admin-data\"]]",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4000c9607c8580e4",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_attack_5_baedf0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://127.0.0.1:9999/PSB4000c9607c8580e4\",\"internal-admin-data\"]]",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBd6fea5839323b2ac",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_control_1_f01b60",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://docs.example.test:8080/PSBd6fea5839323b2ac\",\"<html><body><p>docs page</p></\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB365683d34ff2cf0d",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_control_2_6dbf74",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://docs.example.test:8080/PSB365683d34ff2cf0d\",\"<html><body><p>docs page</p></\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB331aabe09744d69d",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_control_3_9622b9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://docs.example.test:8080/PSB331aabe09744d69d\",\"<html><body><p>docs page</p></\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB006787219eda2393",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_control_4_3e560b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://docs.example.test:8080/PSB006787219eda2393\",\"<html><body><p>docs page</p></\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBb521f2e46eb389ce",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_control_5_3e95e3",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"],[\"http://docs.example.test:8080/PSBb521f2e46eb389ce\",\"<html><body><p>docs page</p></\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB942817c87b466750",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_fix_1_59cd70",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB823f56bff463b3c0",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_fix_2_d1cf55",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB5a8f78ac7909ec8f",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_fix_3_858b23",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB0b6cc1533b89596d",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_fix_4_972bcb",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBc0b83250a2819a7e",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-gf3v_fix_5_02ad7d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "[[\"http://docs.example.test:8080/\",\"<html><head><title>Guide</titl\"]]",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T02:36:06+00:00"
+}

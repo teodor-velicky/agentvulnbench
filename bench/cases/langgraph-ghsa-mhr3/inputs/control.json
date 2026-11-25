@@ -1,0 +1,1 @@
+{"_comment": "benign msgpack-encoded cache value the victim reads back normally. trial {{NONCE}}", "kind": "benign"}

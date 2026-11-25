@@ -1,0 +1,225 @@
+{
+  "case": "mcp-filesystem-ghsa-hc55",
+  "kbc_id": "kbc-ghsa-hc55-p739-j48w",
+  "advisory_url": "https://github.com/advisories/GHSA-hc55-p739-j48w",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T00:06:00+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55:vuln",
+      "image_id": "sha256:3eaede82b47d0298065d4683a29215e48c7cf15e58e24666e5873c9263fe9502",
+      "sha": "b7c48c79ee4096c1d3fdebe0089d81122d6cc051",
+      "sha_verified": true,
+      "build_seconds": 4.2
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55:fix",
+      "image_id": "sha256:a5f43d87eb5d5e827d7438869a7503286401bbf5f7b98c42a1d002e80a5109d3",
+      "sha": "d00c60df9d74dba8a3bb13113f8904407cda594f",
+      "sha_verified": true,
+      "build_seconds": 6.1
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBc356f15738820f52",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_attack_1_e556c5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed_private/pwned.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 0,
+          "oracle_out": "nonce written outside allowed dir",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB48e77b99c2dba12c",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_attack_2_ed298e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed_private/pwned.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 0,
+          "oracle_out": "nonce written outside allowed dir",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB090863b0b1d97f17",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_attack_3_8eb27c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed_private/pwned.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 0,
+          "oracle_out": "nonce written outside allowed dir",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd1b53b883b3901c3",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_attack_4_4bf07f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed_private/pwned.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 0,
+          "oracle_out": "nonce written outside allowed dir",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBd06d04bb5708b308",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_attack_5_2fe595",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed_private/pwned.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 0,
+          "oracle_out": "nonce written outside allowed dir",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB4fd884342d5ece5c",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_control_1_f4c1ee",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed/notes.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB1e35876cc1bb18bd",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_control_2_2627fb",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed/notes.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB474ef4a3b7fbb42b",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_control_3_b35069",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed/notes.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBf615611af35d7b73",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_control_4_fc0671",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed/notes.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8a0d8a21ae920e79",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_control_5_5782fe",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Successfully wrote to /srv/allowed/notes.txt\"}]},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBebb6b7fc92e89b9c",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_fix_1_2432bb",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Error: Access denied - path outside allowed directories: /srv/allowed_private/pwned.txt not in /srv/allowed\"}],\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB811152ff086fc0a8",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_fix_2_f3422e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Error: Access denied - path outside allowed directories: /srv/allowed_private/pwned.txt not in /srv/allowed\"}],\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB6f94311f30d2dba1",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_fix_3_702cca",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Error: Access denied - path outside allowed directories: /srv/allowed_private/pwned.txt not in /srv/allowed\"}],\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBa83ece6f9196b135",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_fix_4_a154ae",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Error: Access denied - path outside allowed directories: /srv/allowed_private/pwned.txt not in /srv/allowed\"}],\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB048cb4f2def1aba4",
+          "container": "pitsense_rd_bench_mcp-filesystem-ghsa-hc55_fix_5_daf3f9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"Error: Access denied - path outside allowed directories: /srv/allowed_private/pwned.txt not in /srv/allowed\"}],\"isError\":true},\"jsonrpc\":\"2.0\",\"id\":2}\nSecure MCP Filesystem Server running on stdio\nAllowed directories: [ '/srv/allowed' ]",
+          "oracle_rc": 1,
+          "oracle_out": "allowed_private untouched",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T00:07:09+00:00"
+}

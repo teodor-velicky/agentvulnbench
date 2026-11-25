@@ -1,0 +1,415 @@
+{
+ "schema": "avb-attempt/0",
+ "tool": "pitsense",
+ "meta": {
+  "tool_version": "PitSense engine (Hunt) 5ae65df97c1dca8f2595c3a8acfd0662a9cf8d0d pitsense 0.1.0",
+  "backend": "deterministic-stub",
+  "cost_usd": 0.0,
+  "stages": "surface_map -> reachability -> G1-G5 triage (no dedup, no proof)",
+  "ranking": "QUALIFIES then DOWNGRADE, surface-map order; REJECT dropped"
+ },
+ "cases": {
+  "agno-ghsa-m4w4": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 123.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "bentoml-ghsa-hvj5": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 36.3,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "bentoml-ghsa-mrmq": {
+   "locate": [
+    {
+     "file": "src/bentoml/_internal/cloud/bento.py",
+     "line": 409,
+     "class": "path-traversal",
+     "engine_class": "path-traversal",
+     "candidate": "c34",
+     "verdict": "QUALIFIES",
+     "failed_gate": null
+    }
+   ],
+   "n_findings_total": 1,
+   "budget": {
+    "seconds": 40.5,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchain-core-ghsa-c67j": {
+   "locate": [
+    {
+     "file": "libs/standard-tests/langchain_tests/unit_tests/chat_models.py",
+     "line": 908,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c14",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 1,
+   "budget": {
+    "seconds": 102.2,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchainjs-ghsa-gf3v": {
+   "locate": [
+    {
+     "file": "environment_tests/test-exports-bun/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c1",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c2",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c3",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/index.ts",
+     "line": 25,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c4",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-bun/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c5",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 24,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c6",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-cjs/src/index.ts",
+     "line": 30,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c7",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/import.cjs",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c9",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/require.cjs",
+     "line": 17,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c10",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 17,
+   "budget": {
+    "seconds": 127.2,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langchainjs-ghsa-r399": {
+   "locate": [
+    {
+     "file": "environment_tests/test-exports-bun/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c2",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-esbuild/src/index.js",
+     "line": 19,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c9",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "environment_tests/test-exports-tsc/main.ts",
+     "line": 5,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c15",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "libs/langchain-community/src/vectorstores/azion_edgesql.ts",
+     "line": 467,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c22",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "libs/langchain-standard-tests/src/unit_tests/chat_models.ts",
+     "line": 88,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c24",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 5,
+   "budget": {
+    "seconds": 114.5,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "langflow-ghsa-rvqx": {
+   "locate": [
+    {
+     "file": "src/backend/base/langflow/components/embeddings/ollama.py",
+     "line": 104,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/components/models/ollama.py",
+     "line": 188,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c15",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/components/processing/llm_router.py",
+     "line": 88,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c18",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/searxng.py",
+     "line": 65,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c25",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/core/celeryconfig.py",
+     "line": 14,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c28",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/load/utils.py",
+     "line": 29,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c37",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/load/utils.py",
+     "line": 94,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c38",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/schema/table.py",
+     "line": 112,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c39",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/backend/base/langflow/services/settings/constants.py",
+     "line": 2,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c44",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    },
+    {
+     "file": "src/frontend/src/components/core/parameterRenderComponent/components/textAreaComponent/index.tsx",
+     "line": 18,
+     "class": "secret-handling",
+     "engine_class": "secret-handling",
+     "candidate": "c59",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 10,
+   "budget": {
+    "seconds": 115.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "llama-index-ghsa-wvpx": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 554.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 2.3,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "locate": [
+    {
+     "file": "cli/src/transport.ts",
+     "line": 50,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c1",
+     "verdict": "QUALIFIES",
+     "failed_gate": null
+    },
+    {
+     "file": "server/src/index.ts",
+     "line": 108,
+     "class": "code-injection",
+     "engine_class": "code-exec",
+     "candidate": "c7",
+     "verdict": "QUALIFIES",
+     "failed_gate": null
+    },
+    {
+     "file": "server/src/index.ts",
+     "line": 126,
+     "class": "ssrf",
+     "engine_class": "ssrf-url-fetch",
+     "candidate": "c8",
+     "verdict": "DOWNGRADE",
+     "failed_gate": "G3"
+    }
+   ],
+   "n_findings_total": 3,
+   "budget": {
+    "seconds": 6.0,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 7.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 2.6,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 4.7,
+    "tokens": 0,
+    "usd": 0
+   }
+  },
+  "smolagents-ghsa-6v92": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 4.8,
+    "tokens": 0,
+    "usd": 0
+   }
+  }
+ }
+}

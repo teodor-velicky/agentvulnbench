@@ -1,0 +1,225 @@
+{
+  "case": "langchainjs-ghsa-r399",
+  "kbc_id": "kbc-ghsa-r399-636x-v7f6",
+  "advisory_url": "https://github.com/advisories/GHSA-r399-636x-v7f6",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T01:29:21+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langchainjs-ghsa-r399:vuln",
+      "image_id": "sha256:42c26c30d79ab9d9b04c96b51cc195c943eec0a868b04832e4f919ba4ce3f27f",
+      "sha": "8b3e611a6caefc3c17dac0d721b2f72279d3ef59",
+      "sha_verified": true,
+      "build_seconds": 44.6
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langchainjs-ghsa-r399:fix",
+      "image_id": "sha256:3a64e47d0b1aee2601dd6208c15a2f8b341bfc151898034319ba82b46b1b2f31",
+      "sha": "e5063f9c6e9989ea067dfdff39262b9e7b6aba62",
+      "sha_verified": true,
+      "build_seconds": 43.3
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB95f4e153a7b888e5",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_attack_1_097f7c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":\"sk-PSB95f4e153a7b888e5-live\"}}",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB9b6e1211e63bc80f",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_attack_2_d7d3af",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":\"sk-PSB9b6e1211e63bc80f-live\"}}",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBaff4b239b93176a8",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_attack_3_1113fd",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":\"sk-PSBaff4b239b93176a8-live\"}}",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB29633cf871673ee9",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_attack_4_1bef0d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":\"sk-PSB29633cf871673ee9-live\"}}",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB9acfe5cc44f0b051",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_attack_5_5f505c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":\"sk-PSB9acfe5cc44f0b051-live\"}}",
+          "oracle_rc": 0,
+          "oracle_out": "env secret leaked into restored message",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB7aa14c95e5fbf5d9",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_control_1_9befe8",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"query\":\"weather PSB7aa14c95e5fbf5d9\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB328036a8918831f2",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_control_2_69a55b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"query\":\"weather PSB328036a8918831f2\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf2c6359b12a37655",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_control_3_ce0b24",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"query\":\"weather PSBf2c6359b12a37655\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB83bf2145836c1165",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_control_4_f66084",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"query\":\"weather PSB83bf2145836c1165\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8afa96b0fb4a11c8",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_control_5_5afe4c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"query\":\"weather PSB8afa96b0fb4a11c8\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB74e42689c34535a1",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_fix_1_eff9ff",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"lc\":1,\"type\":\"secret\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB7b0dbd503e068734",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_fix_2_b0d909",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"lc\":1,\"type\":\"secret\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4966fcc8e555db64",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_fix_3_96fa3b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"lc\":1,\"type\":\"secret\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBe1e873d27c2a2940",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_fix_4_b7a18e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"lc\":1,\"type\":\"secret\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB6b29a67790f7c299",
+          "container": "pitsense_rd_bench_langchainjs-ghsa-r399_fix_5_f73298",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"function_call\":{\"name\":\"lookup\",\"arguments\":{\"lc\":1,\"type\":\"secret\",\"id\":[\"AVB_APP_SECRET\"]}}}",
+          "oracle_rc": 1,
+          "oracle_out": "no secret in output",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T01:32:18+00:00"
+}

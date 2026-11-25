@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=AVB Scheme Runner
+Exec=/home/app/bin/avb-runner %u
+Terminal=false
+NoDisplay=true
+MimeType=x-scheme-handler/avbexec;

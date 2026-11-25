@@ -1,0 +1,225 @@
+{
+  "case": "mcp-server-git-ghsa-vjqx",
+  "kbc_id": "kbc-ghsa-vjqx-cfc4-9h6v",
+  "advisory_url": "https://github.com/advisories/GHSA-vjqx-cfc4-9h6v",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T01:20:03+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx:vuln",
+      "image_id": "sha256:bfa0243cd57948ed10dd6bda9152e39c8b343116a5c06d7298456bc3fa2fdb1f",
+      "sha": "dcb47d2d94a3a33340053d2df550ae68d2795a3f",
+      "sha_verified": true,
+      "build_seconds": 5.0
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx:fix",
+      "image_id": "sha256:e7e5c2c9305aa2fe1f6bdb83ac78df5f392fe8c3c5058faeeefab667ad3dbfff",
+      "sha": "862e717ff714987bd5577318df09858e14883863",
+      "sha_verified": true,
+      "build_seconds": 5.7
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB0e33b90da953a23e",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_attack_1_fdb5c7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "out-of-bounds path staged in /srv/repo index: ../outside/PSB0e33b90da953a23e.txt",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB4067ab674105f565",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_attack_2_202e6a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "out-of-bounds path staged in /srv/repo index: ../outside/PSB4067ab674105f565.txt",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB75822f1fa085b004",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_attack_3_813293",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "out-of-bounds path staged in /srv/repo index: ../outside/PSB75822f1fa085b004.txt",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB2a53172d58692fbe",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_attack_4_d3af28",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "out-of-bounds path staged in /srv/repo index: ../outside/PSB2a53172d58692fbe.txt",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4da14399638c151e",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_attack_5_db99cd",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 0,
+          "oracle_out": "out-of-bounds path staged in /srv/repo index: ../outside/PSB4da14399638c151e.txt",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB002088b3b8aec9e4",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_control_1_e0a831",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB2db2d12ad30f4371",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_control_2_831e51",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBa8c177e5cfcf9376",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_control_3_1f8d49",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB85d3045c9b329e89",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_control_4_abdd4c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB84d3e3988a196dfb",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_control_5_9ef2cc",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Files staged successfully\"}], \"isError\": false}}",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB91bc0c74f914b59e",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_fix_1_f11a83",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Cmd('git') failed due to: exit code(128)\\n  cmdline: git add -- ../outside/PSB91bc0c74f914b59e.txt\\n  stderr: 'fatal: ../outside/PSB91bc0c74f914b59e.txt: '../outside/PSB91bc0c74f914b59e.txt' is outside repository at '/srv/r",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB0d2bd9051fb8ab7d",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_fix_2_58f035",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Cmd('git') failed due to: exit code(128)\\n  cmdline: git add -- ../outside/PSB0d2bd9051fb8ab7d.txt\\n  stderr: 'fatal: ../outside/PSB0d2bd9051fb8ab7d.txt: '../outside/PSB0d2bd9051fb8ab7d.txt' is outside repository at '/srv/r",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB1df8019b0fc87adb",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_fix_3_d395b1",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Cmd('git') failed due to: exit code(128)\\n  cmdline: git add -- ../outside/PSB1df8019b0fc87adb.txt\\n  stderr: 'fatal: ../outside/PSB1df8019b0fc87adb.txt: '../outside/PSB1df8019b0fc87adb.txt' is outside repository at '/srv/r",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB6346883065f9c2b2",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_fix_4_803226",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Cmd('git') failed due to: exit code(128)\\n  cmdline: git add -- ../outside/PSB6346883065f9c2b2.txt\\n  stderr: 'fatal: ../outside/PSB6346883065f9c2b2.txt: '../outside/PSB6346883065f9c2b2.txt' is outside repository at '/srv/r",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB7bb6d959be60d9e9",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-vjqx_fix_5_0b27b5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"type\": \"text\", \"text\": \"Cmd('git') failed due to: exit code(128)\\n  cmdline: git add -- ../outside/PSB7bb6d959be60d9e9.txt\\n  stderr: 'fatal: ../outside/PSB7bb6d959be60d9e9.txt: '../outside/PSB7bb6d959be60d9e9.txt' is outside repository at '/srv/r",
+          "oracle_rc": 1,
+          "oracle_out": "no out-of-bounds entry in index",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T01:21:44+00:00"
+}

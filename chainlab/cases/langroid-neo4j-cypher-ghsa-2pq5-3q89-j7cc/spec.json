@@ -1,0 +1,41 @@
+{
+  "schema": "chainlab-case/0",
+  "id": "langroid-neo4j-cypher-ghsa-2pq5-3q89-j7cc",
+  "version": "1",
+  "title": "Langroid Neo4jChatAgent runs LLM-generated Cypher on the RAG (read) path with no validation (prompt-to-Cypher injection)",
+  "cve": "CVE-2026-55615",
+  "ghsa": "GHSA-2pq5-3q89-j7cc",
+  "advisory_url": "https://github.com/langroid/langroid/security/advisories/GHSA-2pq5-3q89-j7cc",
+  "framework": {
+    "name": "langroid",
+    "vuln_version": "0.65.4",
+    "fix_version": "0.65.5",
+    "repo": "https://github.com/langroid/langroid"
+  },
+  "sink": "langroid/agent/special/neo4j/neo4j_chat_agent.py:Neo4jChatAgent.cypher_retrieval_tool -> read_query -> neo4j session.run(<llm_cypher>) (auto-commit; no read-only/validation gate)",
+  "sink_class": "sql-cypher-injection",
+  "rd_class": "prompt-injection-to-tool",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "An app builds a Langroid Neo4jChatAgent for graph RAG: the LLM emits a CypherRetrievalTool whose cypher_query is run against Neo4j to fetch context. In 0.65.4 the retrieval (read) handler passes the model's Cypher straight to read_query -> session.run(query), an AUTO-COMMIT transaction, with NO validation -- so a prompt injection (in the user turn, a tool result, or graph data the agent reads back via RAG) that steers the model into emitting a write/destructive Cypher (CREATE/MERGE/DELETE, or LOAD CSV / apoc.* / dbms.* for file/network/OS when those procedures are enabled) is executed verbatim. The read tool, meant for read-only RAG, performs arbitrary writes and (config-conditional) RCE. No model is needed to prove it: the scripted model stands in for the completion the injection would elicit; the finding is that the framework routes LLM Cypher to the DB with no read-only gate. GHSA-2pq5-3q89-j7cc mirrors the SQLChatAgent prompt-to-SQL bug CVE-2026-25879. Fixed in 0.65.5 by validate_cypher_query (cypher_validator.py): the retrieval path is restricted to read-only Cypher and both paths reject LOAD CSV / apoc.* / dbms.* / CALL db.* unless allow_dangerous_operations=True (default False).",
+  "scripted_model": {
+    "interface": "langroid's own MockLM (a LanguageModel, type=mock) set as the agent's llm via Neo4jChatAgentConfig.llm=MockLMConfig(default_response=<tool-call JSON>) -- the framework's real LLM interface",
+    "plugged_into": "agent.llm_response(prompt) -> MockLM emits the CypherRetrievalTool JSON; agent.agent_response(llm_msg) -> the framework parses the tool and runs cypher_retrieval_tool (the sink)",
+    "behavior": "returns the fixture tool-call verbatim, ignoring the prompt; proves the framework runs model-authored Cypher on the read path with no read-only gate, independent of model behaviour",
+    "may_assume": "that some untrusted content could make a real graph-RAG model emit this completion -- in-shape output for a Neo4jChatAgent, i.e. a cypher_retrieval_tool call carrying a Cypher query; nothing more",
+    "may_not_assume": "no privileged config (allow_dangerous_operations is left at its default False -- the advisory's point is that the read path still executes writes), no network, no attacker already on the DB; only that the model's tool call reaches the retrieval handler. The retrieval handler's pre-checks (schema fetched, database has data) model an ordinary RAG session and are set to their normal in-session state, not an attacker privilege."
+  },
+  "injected_content": "fixtures/attack.txt",
+  "benign_content": "fixtures/control.txt",
+  "canary": {
+    "kind": "db-effect",
+    "mechanism": "a loopback Neo4j-compatible server (memgraph, bolt 127.0.0.1:7687) runs inside the same --network none container. The attack Cypher, routed through the READ handler, CREATEs a node (:ChainlabCanary {nonce:<nonce>}); the oracle opens its own bolt session and checks that a ChainlabCanary node with the per-trial nonce exists -- a real database side effect, never a string-shape check."
+  },
+  "build": {"dockerfile": "Dockerfile", "version_arg": "PKG_VERSION", "context": "."},
+  "run": {
+    "network": "none",
+    "driver": ["/opt/venv/bin/python", "-I", "/case/driver.py", "{arm}", "{nonce}"],
+    "oracle": ["/opt/venv/bin/python", "-I", "/case/oracle.py", "{nonce}"],
+    "timeout": 180
+  },
+  "expect": {"attack": 5, "control": 0, "fix": 0}
+}

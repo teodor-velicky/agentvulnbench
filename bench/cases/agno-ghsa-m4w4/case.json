@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "agno-ghsa-m4w4",
+  "version": "1",
+  "title": "agno run_function_calls eval()s the field_type string from a get_user_input tool schema",
+  "kbc_id": "kbc-ghsa-m4w4-3r8h-jw98",
+  "ghsa": "GHSA-m4w4-3r8h-jw98",
+  "cve": "CVE-2026-35002",
+  "advisory_url": "https://github.com/advisories/GHSA-m4w4-3r8h-jw98",
+  "repo": "https://github.com/agno-agi/agno",
+  "vuln_sha": "ea35f13518be03ef38a41a64665fdc270b9d12d3",
+  "fix_sha": "cbf675521d4d2281925a051784a3b94172e56416",
+  "locator": {"file": "libs/agno/agno/models/base.py", "line": 2034, "symbol": "run_function_calls"},
+  "rd_class": "code-injection",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "A model emits a get_user_input tool call whose user_input_fields[].field_type is attacker-chosen; agno eval()s that string while building the human-in-the-loop input schema.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "eval of the field_type string ran os.system and wrote the per-trial nonce to /tmp/avbcanary"}
+}

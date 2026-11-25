@@ -1,0 +1,229 @@
+{
+  "case": "bentoml-ghsa-hvj5",
+  "kbc_id": "kbc-ghsa-hvj5-mvw9-93j3",
+  "advisory_url": "https://github.com/advisories/GHSA-hvj5-mvw9-93j3",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T00:00:15+00:00",
+  "trials_per_arm": 5,
+  "target_network": "internal",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_bentoml-ghsa-hvj5:vuln",
+      "image_id": "sha256:7273525df21d613b6eec5c398035c87ff6c0185544e078e727d3f29150ec8119",
+      "sha": "f5c332237b72eb102b9c88f993fc1b6033ef04d2",
+      "sha_verified": true,
+      "build_seconds": 18.4
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_bentoml-ghsa-hvj5:fix",
+      "image_id": "sha256:e2aa663d1005757146280abe83332e41b71b905964d5e8507a0f7c4d52c5096c",
+      "sha": "fd70379733c57c6368cc022ac1f841b7b426db7b",
+      "sha_verified": true,
+      "build_seconds": 17.1
+    }
+  },
+  "network": {
+    "name": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+    "internal": true
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBe213eb420e7b1560",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_attack_1_9e560f",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "400 b'{\"error\":\"1 validation error for Input\",\"detail\":[{\"type\":\"model_type\",\"loc\":[],\"msg\":\"Input should be a valid dictionary or instance of Input\",\"input\":0,\"ctx\":{\"class_name\":\"Input\"},\"url\":\"https://er'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5e6511cf5960c3ad",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_attack_2_91596c",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "400 b'{\"error\":\"1 validation error for Input\",\"detail\":[{\"type\":\"model_type\",\"loc\":[],\"msg\":\"Input should be a valid dictionary or instance of Input\",\"input\":0,\"ctx\":{\"class_name\":\"Input\"},\"url\":\"https://er'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB977c25ede110815a",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_attack_3_04b76e",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "400 b'{\"error\":\"1 validation error for Input\",\"detail\":[{\"type\":\"model_type\",\"loc\":[],\"msg\":\"Input should be a valid dictionary or instance of Input\",\"input\":0,\"ctx\":{\"class_name\":\"Input\"},\"url\":\"https://er'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB4276974d4a002bf5",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_attack_4_547020",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "400 b'{\"error\":\"1 validation error for Input\",\"detail\":[{\"type\":\"model_type\",\"loc\":[],\"msg\":\"Input should be a valid dictionary or instance of Input\",\"input\":0,\"ctx\":{\"class_name\":\"Input\"},\"url\":\"https://er'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBec7253e62b826a97",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_attack_5_514f5a",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "400 b'{\"error\":\"1 validation error for Input\",\"detail\":[{\"type\":\"model_type\",\"loc\":[],\"msg\":\"Input should be a valid dictionary or instance of Input\",\"input\":0,\"ctx\":{\"class_name\":\"Input\"},\"url\":\"https://er'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB2c6feabb9b49e196",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_control_1_34f199",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'echo PSB2c6feabb9b49e196 > /tmp/pitsense_canary'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBdfaea1424ae338be",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_control_2_662a38",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'echo PSBdfaea1424ae338be > /tmp/pitsense_canary'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4bafaf7e61e23a4e",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_control_3_7cac27",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'echo PSB4bafaf7e61e23a4e > /tmp/pitsense_canary'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd0ee83c14e2de90e",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_control_4_fd1945",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'echo PSBd0ee83c14e2de90e > /tmp/pitsense_canary'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB91fcb4149b08d1e2",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_control_5_668476",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'echo PSB91fcb4149b08d1e2 > /tmp/pitsense_canary'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB2c96d4d104e14bcc",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_fix_1_7e17ba",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "415 b'{\"error\":\"BentoService error handling API request: Pickle media type is not allowed for main service\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB406592604105fe23",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_fix_2_2671c4",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "415 b'{\"error\":\"BentoService error handling API request: Pickle media type is not allowed for main service\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf4b52433145cc599",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_fix_3_1f23b3",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "415 b'{\"error\":\"BentoService error handling API request: Pickle media type is not allowed for main service\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB4a802dbe80eb7a07",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_fix_4_0dbfc6",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "415 b'{\"error\":\"BentoService error handling API request: Pickle media type is not allowed for main service\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4e0a682770e8aa96",
+          "container": "pitsense_rd_bench_bentoml-ghsa-hvj5_fix_5_fde5f5",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-hvj5",
+          "deliver_rc": 0,
+          "deliver_tail": "415 b'{\"error\":\"BentoService error handling API request: Pickle media type is not allowed for main service\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T00:04:41+00:00"
+}

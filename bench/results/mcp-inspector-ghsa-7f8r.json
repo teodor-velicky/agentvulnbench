@@ -1,0 +1,225 @@
+{
+  "case": "mcp-inspector-ghsa-7f8r",
+  "kbc_id": "kbc-ghsa-7f8r-222p-6f5g",
+  "advisory_url": "https://github.com/advisories/GHSA-7f8r-222p-6f5g",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T01:41:21+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r:vuln",
+      "image_id": "sha256:4ea852172cbc8cee4ec60dae042a12fb5a9bd6769be4fa9681d90f8e2752b0a3",
+      "sha": "03edbb01ce06f020314582384fbe3f486510c0d0",
+      "sha_verified": true,
+      "build_seconds": 77.3
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r:fix",
+      "image_id": "sha256:33aea7182377c61a7cf42926c924f77c3832c3ac4c20fec44ba8f7b198083ca5",
+      "sha": "50df0e1ec488f3983740b4d28d2a968f12eb8979",
+      "sha_verified": true,
+      "build_seconds": 92.4
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB032a0848e6cf5d20",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_attack_1_fdc1a5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "\u2699\ufe0f Proxy server listening on port 6277\nNew STDIO connection request\nQuery parameters: {\"transportType\":\"stdio\",\"command\":\"sh\",\"args\":\"-c \\\"echo pwned-PSB032a0848e6cf5d20 > /tmp/avb_canary_PSB032a0848e6cf5d20\\\"\"}\nSTDIO transport: command=/usr/bin/sh, args=-c,echo pwned-PSB032a0848e6cf5d20 > /tmp/avb_canary_PSB032a0848e6cf5d20\nCreated server transport\nCreated client transport\nproxy /stdio HTTP 200",
+          "oracle_rc": 0,
+          "oracle_out": "command executed: canary written by spawned process",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB98afc505e55fb5e2",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_attack_2_c68121",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "\u2699\ufe0f Proxy server listening on port 6277\nNew STDIO connection request\nQuery parameters: {\"transportType\":\"stdio\",\"command\":\"sh\",\"args\":\"-c \\\"echo pwned-PSB98afc505e55fb5e2 > /tmp/avb_canary_PSB98afc505e55fb5e2\\\"\"}\nSTDIO transport: command=/usr/bin/sh, args=-c,echo pwned-PSB98afc505e55fb5e2 > /tmp/avb_canary_PSB98afc505e55fb5e2\nCreated server transport\nCreated client transport\nproxy /stdio HTTP 200",
+          "oracle_rc": 0,
+          "oracle_out": "command executed: canary written by spawned process",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB7c8f09babf677a8c",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_attack_3_8e4a72",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "\u2699\ufe0f Proxy server listening on port 6277\nNew STDIO connection request\nQuery parameters: {\"transportType\":\"stdio\",\"command\":\"sh\",\"args\":\"-c \\\"echo pwned-PSB7c8f09babf677a8c > /tmp/avb_canary_PSB7c8f09babf677a8c\\\"\"}\nSTDIO transport: command=/usr/bin/sh, args=-c,echo pwned-PSB7c8f09babf677a8c > /tmp/avb_canary_PSB7c8f09babf677a8c\nCreated server transport\nCreated client transport\nproxy /stdio HTTP 200",
+          "oracle_rc": 0,
+          "oracle_out": "command executed: canary written by spawned process",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd08c63006be092db",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_attack_4_b18fd7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "\u2699\ufe0f Proxy server listening on port 6277\nNew STDIO connection request\nQuery parameters: {\"transportType\":\"stdio\",\"command\":\"sh\",\"args\":\"-c \\\"echo pwned-PSBd08c63006be092db > /tmp/avb_canary_PSBd08c63006be092db\\\"\"}\nSTDIO transport: command=/usr/bin/sh, args=-c,echo pwned-PSBd08c63006be092db > /tmp/avb_canary_PSBd08c63006be092db\nCreated server transport\nCreated client transport\nproxy /stdio HTTP 200",
+          "oracle_rc": 0,
+          "oracle_out": "command executed: canary written by spawned process",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBcb535556be6d76ab",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_attack_5_83a2b0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "\u2699\ufe0f Proxy server listening on port 6277\nNew STDIO connection request\nQuery parameters: {\"transportType\":\"stdio\",\"command\":\"sh\",\"args\":\"-c \\\"echo pwned-PSBcb535556be6d76ab > /tmp/avb_canary_PSBcb535556be6d76ab\\\"\"}\nSTDIO transport: command=/usr/bin/sh, args=-c,echo pwned-PSBcb535556be6d76ab > /tmp/avb_canary_PSBcb535556be6d76ab\nCreated server transport\nCreated client transport\nproxy /stdio HTTP 200",
+          "oracle_rc": 0,
+          "oracle_out": "command executed: canary written by spawned process",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB8cc71ad595b9afb5",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_control_1_72df59",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "0)\n    at Socket.<anonymous> (/app/node_modules/@modelcontextprotocol/sdk/src/client/stdio.ts:162:26)\n    at Socket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB1d810b41f98e746f",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_control_2_f19948",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "0)\n    at Socket.<anonymous> (/app/node_modules/@modelcontextprotocol/sdk/src/client/stdio.ts:162:26)\n    at Socket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB03db4b11facc500e",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_control_3_018ce3",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "0)\n    at Socket.<anonymous> (/app/node_modules/@modelcontextprotocol/sdk/src/client/stdio.ts:162:26)\n    at Socket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBe0af235786804722",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_control_4_df064d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "0)\n    at Socket.<anonymous> (/app/node_modules/@modelcontextprotocol/sdk/src/client/stdio.ts:162:26)\n    at Socket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB226b3581d69c6d62",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_control_5_de0515",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "0)\n    at Socket.<anonymous> (/app/node_modules/@modelcontextprotocol/sdk/src/client/stdio.ts:162:26)\n    at Socket.emit (node:events:524:28)\n    at addChunk (node:internal/streams/readable:561:12)\n    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)\n    at Readable.push (node:internal/streams/readable:392:5)\n    at Pipe.onStreamRead (node:internal/stream_base_commons:191:23)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB6c617dfd2926b68e",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_fix_1_73a686",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "sion token: 972a7068148b9f64a4c656df6cc1b679892a5cd6415d386b91bda50f454a8b46\nUse this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n\ud83d\udd17 Open inspector with token pre-filled:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=972a7068148b9f64a4c656df6cc1b679892a5cd6415d386b91bda50f454a8b46\n   (Auto-open is disabled when authentication is enabled)\n\nproxy /stdio HTTP 401",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB447865ae9bd433f6",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_fix_2_3382de",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "sion token: db409ed9321c66df877327dc8386b51c43e17e5dfeff2993bc97286a19f2a5c5\nUse this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n\ud83d\udd17 Open inspector with token pre-filled:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=db409ed9321c66df877327dc8386b51c43e17e5dfeff2993bc97286a19f2a5c5\n   (Auto-open is disabled when authentication is enabled)\n\nproxy /stdio HTTP 401",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd52217042257214c",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_fix_3_3fa7ca",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "sion token: 600632c3954006dc6969eb46a0044a7be086791446c9d405598fa6433e7a7cef\nUse this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n\ud83d\udd17 Open inspector with token pre-filled:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=600632c3954006dc6969eb46a0044a7be086791446c9d405598fa6433e7a7cef\n   (Auto-open is disabled when authentication is enabled)\n\nproxy /stdio HTTP 401",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB3c55eb36d4d9a168",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_fix_4_d5ca8d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "sion token: c1f6f48cf8160d3d194be4a3fb627c7bda67a243e5d57495a80500dd3db0d173\nUse this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n\ud83d\udd17 Open inspector with token pre-filled:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=c1f6f48cf8160d3d194be4a3fb627c7bda67a243e5d57495a80500dd3db0d173\n   (Auto-open is disabled when authentication is enabled)\n\nproxy /stdio HTTP 401",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8c8d9d7073f21f4d",
+          "container": "pitsense_rd_bench_mcp-inspector-ghsa-7f8r_fix_5_605d15",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "sion token: 6cbe4602e93b1b8fb6fd95e14bf7104d05e55ca4d5b9b1a53b9eac057617226b\nUse this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth\n\n\ud83d\udd17 Open inspector with token pre-filled:\n   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=6cbe4602e93b1b8fb6fd95e14bf7104d05e55ca4d5b9b1a53b9eac057617226b\n   (Auto-open is disabled when authentication is enabled)\n\nproxy /stdio HTTP 401",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: command was not executed",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T01:46:09+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "langchainjs-ghsa-gf3v",
+  "version": "2",
+  "title": "langchainjs RecursiveUrlLoader fetches crawled links to internal addresses (SSRF)",
+  "kbc_id": "kbc-ghsa-gf3v-fwqg-4vh7",
+  "ghsa": "GHSA-gf3v-fwqg-4vh7",
+  "cve": "CVE-2026-26019",
+  "advisory_url": "https://github.com/advisories/GHSA-gf3v-fwqg-4vh7",
+  "repo": "https://github.com/langchain-ai/langchainjs",
+  "vuln_sha": "e2ed40729c54d132b91b7abecfb787fe5f09461e",
+  "fix_sha": "d5e3db0d01ab321ec70a875805b2f74aefdadf9d",
+  "locator": {"file": "libs/langchain-community/src/document_loaders/web/recursive_url.ts", "line": 145, "symbol": "RecursiveUrlLoader.getUrlAsDoc"},
+  "rd_class": "ssrf",
+  "attacker": "malicious-web-content",
+  "attacker_story": "An attacker publishes a page on a site the app ingests with RecursiveUrlLoader; a protocol-relative link on it makes the crawler fetch an internal-only address from the app's host.",
+  "language": "typescript",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none", "entrypoint": "node", "command": ["/case/sites.mjs"], "ready": ["node", "/case/ready.mjs"], "ready_timeout": 60},
+  "deliver": {"mode": "exec", "command": ["node", "--import", "/case/dns-stub.mjs", "--import", "tsx", "/case/driver.mjs", "{input}", "{nonce}"], "timeout": 120},
+  "oracle": {"kind": "listener-log", "command": ["node", "/case/oracle.mjs", "{nonce}"],
+             "description": "the loopback-only internal service on 127.0.0.1:9999 logged a request for /<nonce>; the inputs never send it a request themselves"}
+}

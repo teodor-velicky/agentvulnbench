@@ -1,0 +1,1252 @@
+{
+ "schema": "avb-attempt/0",
+ "tool": "semgrep",
+ "meta": {
+  "tool_version": "semgrep 1.184.0 (OSS CLI)",
+  "rules": {
+   "fetched_utc": "2026-11-25T03:52:40Z",
+   "source": "https://semgrep.dev/c/p/<pack>",
+   "sha256": {
+    "p-javascript.yaml": "745b13761f38588a36695be1da76b251369d4f6f61c22122a21e4386eae46b90",
+    "p-python.yaml": "de5bc79d074c3b4146338a0bf95830406f169bd91ac590a2f1ef111f162e23f5",
+    "p-security-audit.yaml": "6d2f9a77b0372395072aa859ffd47f57b5851e1511da72a6c1b7ff9898ee1313",
+    "p-typescript.yaml": "745b13761f38588a36695be1da76b251369d4f6f61c22122a21e4386eae46b90"
+   },
+   "superseded": {
+    "p-security-audit.yaml": {
+     "sha256": "4783ea9467af8baeb9d38cc9537dfe60bde84f4347f200e818011761dfe27b49",
+     "used_for": "the original 14-case scores",
+     "note": "registry pack changed upstream before the 21-case re-run; the old bytes were not archived and cannot be re-fetched"
+    }
+   }
+  },
+  "packs": {
+   "python": [
+    "p-python.yaml",
+    "p-security-audit.yaml"
+   ],
+   "typescript": [
+    "p-javascript.yaml",
+    "p-security-audit.yaml"
+   ],
+   "javascript": [
+    "p-javascript.yaml",
+    "p-security-audit.yaml"
+   ]
+  },
+  "ranking": "severity, confidence, path, line, rule"
+ },
+ "cases": {
+  "ag2-ghsa-2h4w": {
+   "locate": [
+    {
+     "file": "ag2/tools/skills/plugin.py",
+     "line": 7,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "ag2/streams/redis/serializer.py",
+     "line": 29,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "ag2/streams/redis/serializer.py",
+     "line": 36,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 3,
+   "budget": {
+    "seconds": 190.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "agno-ghsa-m4w4": {
+   "locate": [
+    {
+     "file": "cookbook/06_agent_os/middleware/agent_os_with_jwt_middleware.py",
+     "line": 88,
+     "class": "other",
+     "rule": "python.jwt.security.jwt-hardcode.jwt-python-hardcoded-secret",
+     "severity": "ERROR",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/06_agent_os/middleware/agent_os_with_jwt_middleware_cookies.py",
+     "line": 70,
+     "class": "other",
+     "rule": "python.jwt.security.jwt-hardcode.jwt-python-hardcoded-secret",
+     "severity": "ERROR",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/06_agent_os/middleware/custom_fastapi_app_with_jwt_middleware.py",
+     "line": 63,
+     "class": "other",
+     "rule": "python.jwt.security.jwt-hardcode.jwt-python-hardcoded-secret",
+     "severity": "ERROR",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/02_examples/other/speech_to_text/stt_workflow.py",
+     "line": 85,
+     "class": "ssrf",
+     "rule": "python.django.security.injection.ssrf.ssrf-injection-requests.ssrf-injection-requests",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_async.py",
+     "line": 32,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_async_responses.py",
+     "line": 37,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_stream.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_stream_async.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_toolkit.py",
+     "line": 38,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 117,
+   "budget": {
+    "seconds": 779.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 1 scan errors"
+  },
+  "bentoml-ghsa-hvj5": {
+   "locate": [
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 304,
+     "class": "unsafe-deserialization",
+     "rule": "python.django.security.audit.avoid-insecure-deserialization.avoid-insecure-deserialization",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 342,
+     "class": "unsafe-deserialization",
+     "rule": "python.django.security.audit.avoid-insecure-deserialization.avoid-insecure-deserialization",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/configuration/containers.py",
+     "line": 224,
+     "class": "other",
+     "rule": "python.lang.security.insecure-uuid-version.insecure-uuid-version",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/container/generate.py",
+     "line": 155,
+     "class": "other",
+     "rule": "python.jinja2.security.audit.missing-autoescape-disabled.missing-autoescape-disabled",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/tag.py",
+     "line": 134,
+     "class": "other",
+     "rule": "python.lang.security.insecure-uuid-version.insecure-uuid-version",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 186,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 189,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 195,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 198,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/jax.py",
+     "line": 72,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 29,
+   "budget": {
+    "seconds": 175.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 1 scan errors"
+  },
+  "bentoml-ghsa-mrmq": {
+   "locate": [
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 301,
+     "class": "unsafe-deserialization",
+     "rule": "python.django.security.audit.avoid-insecure-deserialization.avoid-insecure-deserialization",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/server/runner_app.py",
+     "line": 339,
+     "class": "unsafe-deserialization",
+     "rule": "python.django.security.audit.avoid-insecure-deserialization.avoid-insecure-deserialization",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/_bentoml_impl/docker.py",
+     "line": 39,
+     "class": "other",
+     "rule": "python.jinja2.security.audit.missing-autoescape-disabled.missing-autoescape-disabled",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/_bentoml_sdk/images.py",
+     "line": 170,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/_bentoml_sdk/models/huggingface.py",
+     "line": 97,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/bento/build_config.py",
+     "line": 516,
+     "class": "other",
+     "rule": "python.jinja2.security.audit.missing-autoescape-disabled.missing-autoescape-disabled",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 829,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 843,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 848,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 852,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms-md5.insecure-hash-algorithm-md5",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 40,
+   "budget": {
+    "seconds": 183.6,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "langchain-core-ghsa-6qv9": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 5,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 6,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 9,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/indexing/api.py",
+     "line": 46,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/core/langchain_core/indexing/api.py",
+     "line": 157,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/core/langchain_core/prompts/string.py",
+     "line": 106,
+     "class": "other",
+     "rule": "python.jinja2.security.audit.missing-autoescape-disabled.missing-autoescape-disabled",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/flare/base.py",
+     "line": 298,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/embeddings/cache.py",
+     "line": 38,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/cli/langchain_cli/utils/events.py",
+     "line": 47,
+     "class": "other",
+     "rule": "python.lang.security.audit.httpsconnection-detected.httpsconnection-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/cli/langchain_cli/utils/github.py",
+     "line": 18,
+     "class": "other",
+     "rule": "python.lang.security.audit.httpsconnection-detected.httpsconnection-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 10,
+   "budget": {
+    "seconds": 220.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "langchain-core-ghsa-c67j": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 5,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 6,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/output_parsers/xml.py",
+     "line": 9,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/core/langchain_core/indexing/api.py",
+     "line": 46,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/core/langchain_core/indexing/api.py",
+     "line": 157,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/chains/flare/base.py",
+     "line": 298,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/embeddings/cache.py",
+     "line": 38,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/cli/langchain_cli/utils/events.py",
+     "line": 47,
+     "class": "other",
+     "rule": "python.lang.security.audit.httpsconnection-detected.httpsconnection-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/cli/langchain_cli/utils/github.py",
+     "line": 18,
+     "class": "other",
+     "rule": "python.lang.security.audit.httpsconnection-detected.httpsconnection-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 9,
+   "budget": {
+    "seconds": 150.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "langchainjs-ghsa-gf3v": {
+   "locate": [
+    {
+     "file": "environment_tests/scripts/test-runner.ts",
+     "line": 66,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 1,
+   "budget": {
+    "seconds": 184.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 4 scan errors"
+  },
+  "langchainjs-ghsa-r399": {
+   "locate": [
+    {
+     "file": "environment_tests/scripts/test-runner.ts",
+     "line": 66,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 1,
+   "budget": {
+    "seconds": 126.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 4 scan errors"
+  },
+  "langflow-ghsa-rvqx": {
+   "locate": [
+    {
+     "file": "src/backend/base/langflow/components/tools/arxiv.py",
+     "line": 3,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/main.py",
+     "line": 171,
+     "class": "other",
+     "rule": "python.fastapi.security.wildcard-cors.wildcard-cors",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/backend/base/langflow/services/auth/utils.py",
+     "line": 397,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 158,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 159,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 184,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 204,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 144,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 145,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 152,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 29,
+   "budget": {
+    "seconds": 125.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 6 scan errors"
+  },
+  "langgraph-ghsa-7p73": {
+   "locate": [
+    {
+     "file": "libs/langgraph/langgraph/pregel/_algo.py",
+     "line": 1066,
+     "class": "other",
+     "rule": "python.lang.security.insecure-hash-algorithms.insecure-hash-algorithm-sha1",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "docs/overrides/main.html",
+     "line": 342,
+     "class": "other",
+     "rule": "generic.html-templates.security.var-in-href.var-in-href",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/memory/__init__.py",
+     "line": 582,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/serde/jsonplus.py",
+     "line": 221,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/serde/jsonplus.py",
+     "line": 242,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/analytics.py",
+     "line": 74,
+     "class": "other",
+     "rule": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/templates.py",
+     "line": 110,
+     "class": "other",
+     "rule": "python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/langgraph/langgraph/_internal/_cache.py",
+     "line": 31,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 8,
+   "budget": {
+    "seconds": 78.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "litellm-ghsa-7488": {
+   "locate": [
+    {
+     "file": ".github/workflows/run_llm_translation_tests.py",
+     "line": 95,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml-parse.use-defused-xml-parse",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": ".github/workflows/run_llm_translation_tests.py",
+     "line": 362,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml-parse.use-defused-xml-parse",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "Dockerfile",
+     "line": 14,
+     "class": "other",
+     "rule": "dockerfile.security.last-user-is-root.last-user-is-root",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "Dockerfile",
+     "line": 69,
+     "class": "other",
+     "rule": "dockerfile.security.last-user-is-root.last-user-is-root",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm-proxy-extras/litellm_proxy_extras/utils.py",
+     "line": 130,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.dangerous-subprocess-use-tainted-env-args.dangerous-subprocess-use-tainted-env-args",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm-proxy-extras/litellm_proxy_extras/utils.py",
+     "line": 291,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.dangerous-subprocess-use-tainted-env-args.dangerous-subprocess-use-tainted-env-args",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm/proxy/auth/handle_jwt.py",
+     "line": 130,
+     "class": "authz-bypass",
+     "rule": "python.jwt.security.unverified-jwt-decode.unverified-jwt-decode",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm/proxy/management_endpoints/ui_sso.py",
+     "line": 233,
+     "class": "authz-bypass",
+     "rule": "python.jwt.security.unverified-jwt-decode.unverified-jwt-decode",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm/proxy/management_endpoints/ui_sso.py",
+     "line": 3218,
+     "class": "authz-bypass",
+     "rule": "python.jwt.security.unverified-jwt-decode.unverified-jwt-decode",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "litellm/proxy/management_endpoints/ui_sso.py",
+     "line": 3412,
+     "class": "authz-bypass",
+     "rule": "python.jwt.security.unverified-jwt-decode.unverified-jwt-decode",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 25,
+   "budget": {
+    "seconds": 1176.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 75 scan errors"
+  },
+  "llama-index-ghsa-wvpx": {
+   "locate": [
+    {
+     "file": "llama-index-core/llama_index/core/storage/kvstore/postgres_kvstore.py",
+     "line": 187,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/storage/kvstore/postgres_kvstore.py",
+     "line": 194,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/storage/kvstore/postgres_kvstore.py",
+     "line": 266,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/storage/kvstore/postgres_kvstore.py",
+     "line": 308,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-core/llama_index/core/utilities/sql_wrapper.py",
+     "line": 220,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-integrations/readers/llama-index-readers-file/llama_index/readers/file/xml/base.py",
+     "line": 92,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml-parse.use-defused-xml-parse",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-integrations/storage/kvstore/llama-index-storage-kvstore-postgres/llama_index/storage/kvstore/postgres/base.py",
+     "line": 187,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-integrations/storage/kvstore/llama-index-storage-kvstore-postgres/llama_index/storage/kvstore/postgres/base.py",
+     "line": 194,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-integrations/storage/kvstore/llama-index-storage-kvstore-postgres/llama_index/storage/kvstore/postgres/base.py",
+     "line": 266,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "llama-index-integrations/storage/kvstore/llama-index-storage-kvstore-postgres/llama_index/storage/kvstore/postgres/base.py",
+     "line": 308,
+     "class": "other",
+     "rule": "python.sqlalchemy.security.audit.avoid-sqlalchemy-text.avoid-sqlalchemy-text",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 99,
+   "budget": {
+    "seconds": 269.3,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 39.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 32.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "locate": [
+    {
+     "file": "examples/snippets/clients/url_elicitation_client.py",
+     "line": 130,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 2,
+   "budget": {
+    "seconds": 48.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-python-sdk-ghsa-qx49": {
+   "locate": [
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "rule": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+     "severity": "ERROR",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 1,
+   "budget": {
+    "seconds": 32.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 34.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "mcp-server-git-ghsa-6hqx": {
+   "locate": [
+    {
+     "file": "scripts/gate-lease.mjs",
+     "line": 752,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/interface-diff.mjs",
+     "line": 311,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/pack-and-verify.mjs",
+     "line": 270,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/prepare-python-release.mjs",
+     "line": 128,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/smoke-servers.mjs",
+     "line": 190,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/smoke-servers.mjs",
+     "line": 461,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/smoke-servers.mjs",
+     "line": 461,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/smoke-servers.mjs",
+     "line": 461,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/smoke-servers.mjs",
+     "line": 461,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "scripts/validate-py.mjs",
+     "line": 99,
+     "class": "command-injection",
+     "rule": "javascript.lang.security.detect-child-process.detect-child-process",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 11,
+   "budget": {
+    "seconds": 36.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 6 scan errors"
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 39.5,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "smolagents-ghsa-6v92": {
+   "locate": [
+    {
+     "file": "src/smolagents/default_tools.py",
+     "line": 303,
+     "class": "other",
+     "rule": "python.lang.security.use-defused-xml.use-defused-xml",
+     "severity": "ERROR",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 889,
+     "class": "other",
+     "rule": "python.jinja2.security.audit.missing-autoescape-disabled.missing-autoescape-disabled",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 75,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 329,
+     "class": "unsafe-deserialization",
+     "rule": "python.lang.security.deserialization.pickle.avoid-pickle",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "src/smolagents/tools.py",
+     "line": 483,
+     "class": "code-injection",
+     "rule": "python.lang.security.audit.exec-detected.exec-detected",
+     "severity": "WARNING",
+     "confidence": "LOW"
+    },
+    {
+     "file": "examples/multiple_tools.py",
+     "line": 33,
+     "class": "other",
+     "rule": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+     "severity": "INFO",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "examples/multiple_tools.py",
+     "line": 161,
+     "class": "other",
+     "rule": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+     "severity": "INFO",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/smolagents/remote_executors.py",
+     "line": 262,
+     "class": "other",
+     "rule": "python.lang.security.audit.insecure-transport.requests.request-with-http.request-with-http",
+     "severity": "INFO",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 8,
+   "budget": {
+    "seconds": 56.3,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 0 scan errors"
+  },
+  "vllm-ghsa-hjq4": {
+   "locate": [
+    {
+     "file": "examples/online_serving/disagg_examples/disagg_proxy_demo.py",
+     "line": 106,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/engine/arg_utils.py",
+     "line": 1638,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/entrypoints/chat_utils.py",
+     "line": 358,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/entrypoints/openai/tool_parsers/hermes_tool_parser.py",
+     "line": 128,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/entrypoints/openai/tool_parsers/hermes_tool_parser.py",
+     "line": 329,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/entrypoints/openai/tool_parsers/jamba_tool_parser.py",
+     "line": 258,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/entrypoints/openai/tool_parsers/mistral_tool_parser.py",
+     "line": 291,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/spec_decode/draft_model_runner.py",
+     "line": 120,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/transformers_utils/tokenizer.py",
+     "line": 281,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "vllm/transformers_utils/tokenizers/mistral.py",
+     "line": 404,
+     "class": "other",
+     "rule": "python.lang.security.audit.logging.logger-credential-leak.python-logger-credential-disclosure",
+     "severity": "WARNING",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 58,
+   "budget": {
+    "seconds": 136.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "semgrep rc=0, 2 scan errors"
+  }
+ }
+}

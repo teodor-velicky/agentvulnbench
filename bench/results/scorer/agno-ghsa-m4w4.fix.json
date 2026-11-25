@@ -1,0 +1,145 @@
+{
+  "case": "agno-ghsa-m4w4",
+  "case_version": "1",
+  "scorer_version": "0.1.0",
+  "harness_version": "0.1.0",
+  "vuln_sha": "ea35f13518be03ef38a41a64665fdc270b9d12d3",
+  "patched_files": [
+    "libs/agno/agno/models/base.py"
+  ],
+  "started_utc": "2026-11-25T01:33:50+00:00",
+  "trials_per_arm": 5,
+  "image": {
+    "built": true,
+    "image_id": "sha256:763ded42cc64a729c068440a84f5c338871a104b2778a68c23a0af0fed2a0c5a",
+    "sha": "ea35f13518be03ef38a41a64665fdc270b9d12d3",
+    "sha_is_vuln": true
+  },
+  "checks": {
+    "attack_reference_0": true,
+    "attack_own_0": null,
+    "control_still_delivers": true,
+    "control_oracle_misses": true,
+    "no_harness_errors_or_hermeticity_violation": true
+  },
+  "solved": true,
+  "arms": {
+    "attack_reference": {
+      "hits": 0,
+      "trials": 5,
+      "deliver_ok": 5,
+      "errors": 0,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB30805efb864afee5",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB267e54baf3e38df1",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf1e387d3d31849a8",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB7f6cd58fa06f270d",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB08505e96b46ac3ff",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        }
+      ]
+    },
+    "control": {
+      "hits": 0,
+      "trials": 5,
+      "deliver_ok": 5,
+      "errors": 0,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBdf5f9bdc37d5a177",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB2760106befeeeda2",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB3cac8c9766821db3",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBf47b1b148efd9641",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB0ab181bebebcabd0",
+          "hit": false,
+          "deliver_rc": 0,
+          "deliver_tail": "model responses: 1",
+          "oracle_out": "no canary",
+          "network_mode": "none",
+          "error": null
+        }
+      ]
+    }
+  },
+  "finished_utc": "2026-11-25T01:35:07+00:00"
+}

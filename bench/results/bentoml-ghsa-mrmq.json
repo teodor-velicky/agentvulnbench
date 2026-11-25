@@ -1,0 +1,229 @@
+{
+  "case": "bentoml-ghsa-mrmq",
+  "kbc_id": "kbc-ghsa-mrmq-3q62-6cc8",
+  "advisory_url": "https://github.com/advisories/GHSA-mrmq-3q62-6cc8",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T02:23:01+00:00",
+  "trials_per_arm": 5,
+  "target_network": "internal",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_bentoml-ghsa-mrmq:vuln",
+      "image_id": "sha256:cb2a5e9b0176aff5d24362513643db29d599dbd6fd89b4a38515aa1129d4ba5c",
+      "sha": "c8ffb58d936d2ba998d1b49d87c665768f2f6f73",
+      "sha_verified": true,
+      "build_seconds": 59.8
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_bentoml-ghsa-mrmq:fix",
+      "image_id": "sha256:cdf10bb0c7d9b756912b59d9a4ebb366c8d3dd00bd9f63f88e33d2c5286e59d3",
+      "sha": "534c3584621da4ab954bdc3d814cc66b95ae5fb8",
+      "sha_verified": true,
+      "build_seconds": 54.0
+    }
+  },
+  "network": {
+    "name": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+    "internal": true
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB34c5d8b6e8cb1287",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_attack_1_b74a66",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'19'",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5e0833b121c86bc5",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_attack_2_5bcc76",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'19'",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB0c111fce9257d085",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_attack_3_31d38e",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'19'",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBb778b314374e6f2e",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_attack_4_a5538c",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'19'",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB25837a687c8f706a",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_attack_5_121873",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'19'",
+          "oracle_rc": 0,
+          "oracle_out": "internal service hit with nonce path",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB5bd8bf78ad4c004b",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_control_1_be77db",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'26'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB7440a0d71c9f5008",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_control_2_890341",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'26'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB9d19cf0655301975",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_control_3_4906ba",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'26'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB27d3c15ec956d395",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_control_4_9d14af",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'26'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBcabed472edccea46",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_control_5_95ec16",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'26'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB561ed3b5367ac5ba",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_fix_1_aaec16",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "500 b'{\"error\":\"An unexpected error has occurred, please check the server log.\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB3fb8d6afae31e1a0",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_fix_2_55af82",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "500 b'{\"error\":\"An unexpected error has occurred, please check the server log.\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB83fed62c000ee132",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_fix_3_415a75",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "500 b'{\"error\":\"An unexpected error has occurred, please check the server log.\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd07ee6bf9c55e2f5",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_fix_4_8bec54",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "500 b'{\"error\":\"An unexpected error has occurred, please check the server log.\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBc5cd7bc1a8f647e6",
+          "container": "pitsense_rd_bench_bentoml-ghsa-mrmq_fix_5_7a11b0",
+          "network_mode": "pitsense_rd_bench_net_bentoml-ghsa-mrmq",
+          "deliver_rc": 0,
+          "deliver_tail": "500 b'{\"error\":\"An unexpected error has occurred, please check the server log.\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "internal service received no requests",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T02:29:13+00:00"
+}

@@ -1,0 +1,1598 @@
+{
+ "schema": "avb-attempt/0",
+ "tool": "bandit",
+ "meta": {
+  "tool_version": "bandit 1.9.4",
+  "command": "bandit -r . -f json -q",
+  "ranking": "severity, confidence, path, line, test id"
+ },
+ "cases": {
+  "ag2-ghsa-2h4w": {
+   "locate": [
+    {
+     "file": "ag2/streams/redis/serializer.py",
+     "line": 36,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "test/agent/test_hitl.py",
+     "line": 601,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 76,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 89,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 103,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 123,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 124,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 141,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 150,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "test/acp/test_agent_cancel.py",
+     "line": 168,
+     "class": "other",
+     "rule": "B108:hardcoded_tmp_directory",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 8825,
+   "budget": {
+    "seconds": 152.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "agno-ghsa-m4w4": {
+   "locate": [
+    {
+     "file": "cookbook/01_demo/agents/sql/load_f1_data.py",
+     "line": 30,
+     "class": "other",
+     "rule": "B501:request_with_no_cert_validation",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_async.py",
+     "line": 32,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_async_responses.py",
+     "line": 37,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_stream.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_stream_async.py",
+     "line": 31,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/03_agents/human_in_the_loop/external_tool_execution_toolkit.py",
+     "line": 38,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "cookbook/scripts/cookbook_runner.py",
+     "line": 201,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/agno/agno/models/base.py",
+     "line": 398,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/agno/agno/tools/function.py",
+     "line": 581,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 19798,
+   "budget": {
+    "seconds": 317.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "bentoml-ghsa-hvj5": {
+   "locate": [
+    {
+     "file": "examples/pytorch_mnist/tests/conftest.py",
+     "line": 16,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/container/generate.py",
+     "line": 155,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/sentence-embedding/prepare_model.py",
+     "line": 17,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/sentence-embedding/service.py",
+     "line": 23,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/sentence-embedding/service.py",
+     "line": 26,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 189,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/_bentoml_impl/serde.py",
+     "line": 198,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/jax.py",
+     "line": 82,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/common/pytorch.py",
+     "line": 172,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/frameworks/tensorflow_v2.py",
+     "line": 387,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 1054,
+   "budget": {
+    "seconds": 38.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "bentoml-ghsa-mrmq": {
+   "locate": [
+    {
+     "file": "src/_bentoml_impl/docker.py",
+     "line": 39,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/_bentoml_sdk/images.py",
+     "line": 170,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/_bentoml_sdk/models/huggingface.py",
+     "line": 97,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/bento/build_config.py",
+     "line": 516,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 829,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 843,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 848,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 852,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 1008,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/bentoml/_internal/cloud/deployment.py",
+     "line": 1020,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 1103,
+   "budget": {
+    "seconds": 31.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "langchain-core-ghsa-6qv9": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/prompts/string.py",
+     "line": 106,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/core/langchain_core/language_models/base.py",
+     "line": 86,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/evaluation/loading.py",
+     "line": 84,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/langchain_v1/tests/unit_tests/agents/middleware/implementations/test_tool_emulator.py",
+     "line": 37,
+     "class": "command-injection",
+     "rule": "B307:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/huggingface/langchain_huggingface/chat_models/huggingface.py",
+     "line": 896,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/huggingface/langchain_huggingface/llms/huggingface_pipeline.py",
+     "line": 151,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/openai/langchain_openai/embeddings/base.py",
+     "line": 460,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/text-splitters/tests/integration_tests/test_text_splitter.py",
+     "line": 26,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/cli/langchain_cli/project_template/app/server.py",
+     "line": 21,
+     "class": "other",
+     "rule": "B104:hardcoded_bind_all_interfaces",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/memory/entity.py",
+     "line": 417,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 9331,
+   "budget": {
+    "seconds": 152.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "langchain-core-ghsa-c67j": {
+   "locate": [
+    {
+     "file": "libs/core/langchain_core/language_models/base.py",
+     "line": 86,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/evaluation/loading.py",
+     "line": 84,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/langchain_v1/tests/unit_tests/agents/middleware/implementations/test_tool_emulator.py",
+     "line": 39,
+     "class": "command-injection",
+     "rule": "B307:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/huggingface/langchain_huggingface/chat_models/huggingface.py",
+     "line": 1010,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/huggingface/langchain_huggingface/llms/huggingface_pipeline.py",
+     "line": 151,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/partners/openai/langchain_openai/embeddings/base.py",
+     "line": 467,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/text-splitters/tests/integration_tests/test_text_splitter.py",
+     "line": 26,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/cli/langchain_cli/project_template/app/server.py",
+     "line": 21,
+     "class": "other",
+     "rule": "B104:hardcoded_bind_all_interfaces",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/memory/entity.py",
+     "line": 417,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "libs/langchain/langchain_classic/memory/entity.py",
+     "line": 437,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 9901,
+   "budget": {
+    "seconds": 188.3,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "langchainjs-ghsa-gf3v": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 0.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "n/a: Bandit is Python-only (typescript case)"
+  },
+  "langchainjs-ghsa-r399": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 0.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "n/a: Bandit is Python-only (typescript case)"
+  },
+  "langflow-ghsa-rvqx": {
+   "locate": [
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 158,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 159,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 184,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/components/tools/python_code_structured_tool.py",
+     "line": 204,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 144,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 145,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 152,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/custom/code_parser/code_parser.py",
+     "line": 164,
+     "class": "command-injection",
+     "rule": "B307:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/helpers/flow.py",
+     "line": 207,
+     "class": "command-injection",
+     "rule": "B102:exec_used",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/backend/base/langflow/io/schema.py",
+     "line": 43,
+     "class": "command-injection",
+     "rule": "B307:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 2989,
+   "budget": {
+    "seconds": 94.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "langgraph-ghsa-7p73": {
+   "locate": [
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/serde/encrypted.py",
+     "line": 50,
+     "class": "other",
+     "rule": "B413:blacklist",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/checkpoint/langgraph/checkpoint/serde/jsonplus.py",
+     "line": 242,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/analytics.py",
+     "line": 74,
+     "class": "path-traversal",
+     "rule": "B310:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/cli/langgraph_cli/templates.py",
+     "line": 110,
+     "class": "path-traversal",
+     "rule": "B310:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/__init__.py",
+     "line": 99,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py",
+     "line": 104,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/shallow.py",
+     "line": 254,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/checkpoint/postgres/shallow.py",
+     "line": 615,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/store/postgres/aio.py",
+     "line": 244,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "libs/checkpoint-postgres/langgraph/store/postgres/base.py",
+     "line": 1085,
+     "class": "other",
+     "rule": "B608:hardcoded_sql_expressions",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    }
+   ],
+   "n_findings_total": 3152,
+   "budget": {
+    "seconds": 39.9,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "litellm-ghsa-7488": {
+   "locate": [
+    {
+     "file": "litellm/proxy/spend_tracking/spend_tracking_utils.py",
+     "line": 159,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "litellm/proxy/spend_tracking/spend_tracking_utils.py",
+     "line": 163,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/local_testing/test_ollama.py",
+     "line": 246,
+     "class": "other",
+     "rule": "B501:request_with_no_cert_validation",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/old_proxy_tests/tests/test_openai_exception_request.py",
+     "line": 10,
+     "class": "other",
+     "rule": "B501:request_with_no_cert_validation",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/proxy_unit_tests/test_prompt_test_endpoint.py",
+     "line": 44,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/store_model_in_db_tests/test_openai_error_handling.py",
+     "line": 109,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/test_entrypoint.py",
+     "line": 43,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "litellm/litellm_core_utils/get_blog_posts.py",
+     "line": 77,
+     "class": "other",
+     "rule": "B314:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "litellm/litellm_core_utils/prompt_templates/factory.py",
+     "line": 2911,
+     "class": "other",
+     "rule": "B314:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "litellm/llms/petals/completion/handler.py",
+     "line": 100,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 47271,
+   "budget": {
+    "seconds": 425.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "llama-index-ghsa-wvpx": {
+   "locate": [
+    {
+     "file": "llama-index-cli/llama_index/cli/rag/base.py",
+     "line": 202,
+     "class": "command-injection",
+     "rule": "B605:start_process_with_a_shell",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-cli/llama_index/cli/rag/base.py",
+     "line": 293,
+     "class": "command-injection",
+     "rule": "B605:start_process_with_a_shell",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-integrations/readers/llama-index-readers-docugami/llama_index/readers/docugami/base.py",
+     "line": 163,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-integrations/readers/llama-index-readers-papers/llama_index/readers/papers/arxiv/base.py",
+     "line": 26,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-integrations/readers/llama-index-readers-preprocess/llama_index/readers/preprocess/base.py",
+     "line": 120,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/command_line/rag.py",
+     "line": 186,
+     "class": "command-injection",
+     "rule": "B605:start_process_with_a_shell",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/command_line/rag.py",
+     "line": 277,
+     "class": "command-injection",
+     "rule": "B605:start_process_with_a_shell",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-legacy/llama_index/legacy/query_engine/cogniswitch_query_engine.py",
+     "line": 45,
+     "class": "other",
+     "rule": "B501:request_with_no_cert_validation",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-packs/llama-index-packs-docugami-kg-rag/llama_index/packs/docugami_kg_rag/helpers/indexing.py",
+     "line": 122,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "llama-index-packs/llama-index-packs-docugami-kg-rag/llama_index/packs/docugami_kg_rag/helpers/summaries.py",
+     "line": 69,
+     "class": "other",
+     "rule": "B324:hashlib",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 5253,
+   "budget": {
+    "seconds": 158.6,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "mcp-filesystem-ghsa-hc55": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 0.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "n/a: Bandit is Python-only (typescript case)"
+  },
+  "mcp-inspector-ghsa-7f8r": {
+   "locate": [],
+   "n_findings_total": 0,
+   "budget": {
+    "seconds": 0.0,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "n/a: Bandit is Python-only (typescript case)"
+  },
+  "mcp-python-sdk-ghsa-9h52": {
+   "locate": [
+    {
+     "file": "examples/snippets/clients/url_elicitation_client.py",
+     "line": 130,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 281,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 563,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 575,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 591,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 606,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 621,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 638,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 710,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 3136,
+   "budget": {
+    "seconds": 22.6,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "mcp-python-sdk-ghsa-qx49": {
+   "locate": [
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 48,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/mcp/cli/cli.py",
+     "line": 281,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "tests/server/fastmcp/test_server.py",
+     "line": 225,
+     "class": "other",
+     "rule": "B104:hardcoded_bind_all_interfaces",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "tests/server/fastmcp/test_server.py",
+     "line": 1538,
+     "class": "other",
+     "rule": "B104:hardcoded_bind_all_interfaces",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 579,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 591,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 607,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 622,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 637,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    },
+    {
+     "file": "tests/shared/test_streamable_http.py",
+     "line": 654,
+     "class": "other",
+     "rule": "B113:request_without_timeout",
+     "severity": "MEDIUM",
+     "confidence": "LOW"
+    }
+   ],
+   "n_findings_total": 3491,
+   "budget": {
+    "seconds": 25.1,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "mcp-server-git-ghsa-5cgr": {
+   "locate": [
+    {
+     "file": "scripts/release.py",
+     "line": 16,
+     "class": "command-injection",
+     "rule": "B404:blacklist",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 42,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 42,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 104,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 104,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 24,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 25,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 35,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 41,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 46,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 37,
+   "budget": {
+    "seconds": 3.7,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "mcp-server-git-ghsa-6hqx": {
+   "locate": [
+    {
+     "file": "src/fetch/tests/test_protocol.py",
+     "line": 843,
+     "class": "other",
+     "rule": "B104:hardcoded_bind_all_interfaces",
+     "severity": "MEDIUM",
+     "confidence": "MEDIUM"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 42,
+     "class": "command-injection",
+     "rule": "B404:blacklist",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 90,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 90,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/src/mcp_server_fetch/readability_js.py",
+     "line": 118,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/tests/harness.py",
+     "line": 200,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/tests/test_allowed_hosts.py",
+     "line": 57,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/tests/test_allowed_hosts.py",
+     "line": 80,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/tests/test_allowed_hosts.py",
+     "line": 113,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/fetch/tests/test_allowed_hosts.py",
+     "line": 119,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 1128,
+   "budget": {
+    "seconds": 6.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "mcp-server-git-ghsa-vjqx": {
+   "locate": [
+    {
+     "file": "scripts/release.py",
+     "line": 16,
+     "class": "command-injection",
+     "rule": "B404:blacklist",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 42,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 42,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 101,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 101,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 107,
+     "class": "command-injection",
+     "rule": "B603:subprocess_without_shell_equals_true",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "scripts/release.py",
+     "line": 107,
+     "class": "command-injection",
+     "rule": "B607:start_process_with_partial_path",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 39,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 40,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/git/tests/test_server.py",
+     "line": 50,
+     "class": "other",
+     "rule": "B101:assert_used",
+     "severity": "LOW",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 85,
+   "budget": {
+    "seconds": 4.2,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "smolagents-ghsa-6v92": {
+   "locate": [
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 889,
+     "class": "code-injection",
+     "rule": "B701:jinja2_autoescape_false",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/open_deep_research/run_gaia.py",
+     "line": 132,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/open_deep_research/run_gaia.py",
+     "line": 140,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/open_deep_research/run_gaia.py",
+     "line": 152,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/open_deep_research/scripts/visual_qa.py",
+     "line": 31,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/rag.py",
+     "line": 10,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/rag_using_chromadb.py",
+     "line": 21,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/rag_using_chromadb.py",
+     "line": 41,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "examples/smolagents_benchmark/run.py",
+     "line": 101,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "src/smolagents/agents.py",
+     "line": 1044,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 918,
+   "budget": {
+    "seconds": 8.8,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  },
+  "vllm-ghsa-hjq4": {
+   "locate": [
+    {
+     "file": "vllm/collect_env.py",
+     "line": 100,
+     "class": "command-injection",
+     "rule": "B602:subprocess_popen_with_shell_equals_true",
+     "severity": "HIGH",
+     "confidence": "HIGH"
+    },
+    {
+     "file": ".buildkite/nightly-benchmarks/scripts/download-tokenizer.py",
+     "line": 10,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/backend_request_func.py",
+     "line": 588,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/benchmark_dataset.py",
+     "line": 606,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/benchmark_prioritization.py",
+     "line": 113,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/benchmark_serving_structured_output.py",
+     "line": 214,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/benchmark_throughput.py",
+     "line": 203,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/benchmark_throughput.py",
+     "line": 355,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/kernels/benchmark_moe.py",
+     "line": 531,
+     "class": "other",
+     "rule": "B615:huggingface_unsafe_download",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    },
+    {
+     "file": "benchmarks/kernels/graph_machete_bench.py",
+     "line": 24,
+     "class": "unsafe-deserialization",
+     "rule": "B301:blacklist",
+     "severity": "MEDIUM",
+     "confidence": "HIGH"
+    }
+   ],
+   "n_findings_total": 7705,
+   "budget": {
+    "seconds": 123.7,
+    "tokens": 0,
+    "usd": 0
+   },
+   "note": "bandit rc=1, 0 file errors"
+  }
+ }
+}

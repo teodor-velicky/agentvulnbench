@@ -1,0 +1,58 @@
+{
+  "schema": "avb-case/0",
+  "id": "bentoml-ghsa-mrmq",
+  "version": "1",
+  "title": "BentoML downloads file-typed inputs from caller-supplied URLs with no destination check (SSRF)",
+  "kbc_id": "kbc-ghsa-mrmq-3q62-6cc8",
+  "ghsa": "GHSA-mrmq-3q62-6cc8",
+  "cve": "CVE-2025-54381",
+  "advisory_url": "https://github.com/advisories/GHSA-mrmq-3q62-6cc8",
+  "repo": "https://github.com/bentoml/BentoML",
+  "vuln_sha": "c8ffb58d936d2ba998d1b49d87c665768f2f6f73",
+  "fix_sha": "534c3584621da4ab954bdc3d814cc66b95ae5fb8",
+  "locator": {
+    "file": "src/_bentoml_impl/serde.py",
+    "line": 195,
+    "symbol": "MultipartSerde.ensure_file"
+  },
+  "rd_class": "ssrf",
+  "attacker": "remote-unauth",
+  "attacker_story": "Any client that can reach the HTTP port sends a URL string in place of a file for a Path-typed input; the server fetches it, reaching services only the server can see. No auth by default.",
+  "language": "python",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "sha_arg": "REPO_SHA"
+  },
+  "target": {
+    "network": "internal",
+    "command": [
+      "-c",
+      "python /case/listener.py & exec bentoml serve service:Files --working-dir /case --host \"$(hostname -i)\" --port 3000"
+    ],
+    "ready": [
+      "python",
+      "/case/ready.py"
+    ],
+    "ready_timeout": 120,
+    "entrypoint": "sh"
+  },
+  "deliver": {
+    "mode": "client",
+    "command": [
+      "python",
+      "/case/client.py",
+      "{input}",
+      "{nonce}",
+      "{target}"
+    ]
+  },
+  "oracle": {
+    "kind": "listener-log",
+    "command": [
+      "python",
+      "/case/oracle.py",
+      "{nonce}"
+    ],
+    "description": "the loopback-only service at 127.0.0.1:9999 inside the target logged a request for /<nonce>"
+  }
+}

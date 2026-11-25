@@ -1,0 +1,122 @@
+id,rd_class,attacker,rater1,rater2,adopted,basis,reason
+kbc-ghsa-2h4w-29cv-2cmv,allowlist-bypass,untrusted-llm-input,P2,P2,P2,agree,override: denylist vs sh -c newline: gate/executor differential
+kbc-ghsa-2jgc-f764-c5r2,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-2pc9-4j83-qjmr,code-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-33xw-247w-6hmc,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-35w5-fv47-8956,code-injection,untrusted-data-store,P4,P2,P2,adjudicated:r2,"AST allow-list checked the template, eval ran the substituted string: a gate/executor differential; nothing at rest is loaded as code"
+kbc-ghsa-3645-fxcv-hqr4,prompt-injection-to-tool,untrusted-llm-input,P1,P1,P1,agree,cell default
+kbc-ghsa-3769-jgqc-cxm7,sandbox-escape,remote-authed-user,P2,P2,P2,agree,override: caller options merged over NodeVM sandbox defaults
+kbc-ghsa-3f6c-7fw2-ppm4,ssrf,remote-unauth,P8,P8,P8,agree,cell default
+kbc-ghsa-3r68-hf9h-887v,authz-bypass,remote-authed-user,P6,none,none,adjudicated:r2,"authenticated client calls operator-disabled tools; missing guard is per-tool authorization at dispatch, not authentication or Origin binding; no host impact in the row"
+kbc-ghsa-46cm-pfwv-cgf8,template-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-4fc4-wcmh-4g86,mcp-stdio-cmd-exec,malicious-mcp-server,P6,P7,P7,adjudicated:r2,"row's entry is a malicious MCP server's OAuth redirect to /oauth/callback; impact is command exec on the client host (P7 sink). A web page could also navigate there (P6 reading), but the advisory frames the server"
+kbc-ghsa-4j8x-x6v7-w9rq,code-injection,remote-authed-user,P2,P2,P2,agree,override: authed user string spliced into Python run by the CSV agent gate
+kbc-ghsa-4v28-j6q3-5m4r,ssrf,remote-authed-user,P8,P8,P8,agree,cell default
+kbc-ghsa-53gh-p8jc-7rg8,code-injection,remote-authed-user,none,P4,none,adjudicated:r1:contested,attacker writes the proxy's own config; P4 is about third-party artefacts the server opens. Counting it would widen P4 to any config-driven import. Contested: P4 under a broad reading
+kbc-ghsa-5cgr-j3jf-jw3v,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-5h2m-4q8j-pqpj,token-passthrough,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-5r34-2g38-6569,ssrf,untrusted-llm-input,P8,P8,P8,agree,cell default
+kbc-ghsa-5xvg-pmgg-3mxr,prompt-injection-to-tool,untrusted-llm-input,P2,P2,P2,agree,override: regex denylist then Pyodide: gate/executor differential
+kbc-ghsa-6529-c226-h328,ssrf,remote-authed-user,P8,P8,P8,agree,cell default
+kbc-ghsa-6757-hggm-hp2w,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-6cr4-ccf3-x7h4,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-6g6r-q6gw-w8fg,dns-rebinding,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-6hqx-gqrx-c5r2,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-6qv9-48xg-fc7f,template-injection,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-6qxp-vccf-f47h,oauth-confused-deputy,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-6v92-r5mx-h5fx,sandbox-escape,untrusted-llm-input,P2,P2,P2,agree,cell default
+kbc-ghsa-6vmq-24h2-pj7j,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-6wvf-77m9-58rm,template-injection,remote-authed-user,none,P4,none,adjudicated:r1:contested,"template arrives in the request body and is rendered at once: request-time SSTI by an authed user, not an artefact at rest. Contested: P4 under a broad reading"
+kbc-ghsa-6x67-4w4w-9f3w,mcp-stdio-cmd-exec,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-6xcw-7xm6-48c6,sandbox-escape,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-6xpm-ggf7-wc3p,command-injection,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-7488-6r32-c95q,token-passthrough,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-7972-pg2x-xr59,code-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-79j6-g2m3-jgfw,prompt-injection-to-tool,untrusted-llm-input,P1,P1,P1,agree,cell default
+kbc-ghsa-7f8r-222p-6f5g,mcp-stdio-cmd-exec,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-7g3p-92qq-8wvh,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-7h8w-hj9j-8rjw,command-injection,remote-authed-user,none,none,none,agree,"authed user's path interpolated into a shell command: classic injection, no agent-specific guard"
+kbc-ghsa-7p73-8jqx-23r8,sql-injection,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-7ww9-85pg-cv4x,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-87qg-cmw8-jc5m,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-8fr4-5q9j-m8gm,code-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-8qpj-27x8-pwpq,sandbox-escape,remote-authed-user,P2,P2,P2,agree,override: weak-globals PythonREPL sandbox
+kbc-ghsa-8wv7-r664-7594,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-8x5v-cpv7-8jjp,ssrf,remote-authed-user,P8,P8,P8,agree,cell default
+kbc-ghsa-9h52-p55h-vw2f,dns-rebinding,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-9pq8-m8gp-4p53,sandbox-escape,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-9rwj-6rc7-p77c,sql-injection,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-9vjp-x34c-xg6v,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-c2jp-c369-7pvx,oauth-confused-deputy,remote-unauth,P7,none,P7,adjudicated:r1:contested,"kept on P7 for consistency with its chain successor rww4, which both raters put on P7; P7's guard list names browser-bound consent. Caveat: attacker is a malicious OAuth client at the proxy, not a malicious server"
+kbc-ghsa-c67j-w6g6-q2cm,unsafe-deserialization,untrusted-llm-input,P5,P5,P5,agree,cell default
+kbc-ghsa-c6xh-wv4j-ppv5,ssrf,remote-authed-user,P8,P8,P8,agree,cell default
+kbc-ghsa-cc5h-2pwp-pvcc,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-cf6m-vc3m-7cgm,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-cgcg-p68q-3w7v,prompt-injection-to-tool,untrusted-llm-input,P1,P1,P1,agree,cell default
+kbc-ghsa-ch89-h4r2-c8f8,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-f4p7-qx46-wc5j,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-fvww-7h3r-vfhp,authz-bypass,remote-authed-user,P6,none,none,adjudicated:r2,"auth decorator registered for '*' so an ownership check never ran: authorization logic between authenticated principals, no host impact"
+kbc-ghsa-fxc2-8m62-m85x,code-injection,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-g3r5-9h93-4j2c,command-injection,remote-authed-user,P3,none,P3,adjudicated:r1:contested,"entry, guard (containment checked then used: TOCTOU), sink (write outside root) and impact (code load on restart) match P3; only the attacker differs: an authed workflow author, not a model"
+kbc-ghsa-g9hg-qhmf-q45m,code-injection,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-gf3v-fwqg-4vh7,ssrf,malicious-web-content,P8,P8,P8,agree,cell default
+kbc-ghsa-gfq8-hmph-9gjv,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-gppg-gqw8-wh9g,code-injection,untrusted-data-store,P4,none,none,adjudicated:r2,"attacker must control the proxy's own secret value (environment/config), which the G1 rule and P4 both exclude; no third-party artefact"
+kbc-ghsa-gv7g-jm28-cr3m,sandbox-escape,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-gxmw-5f7x-6g22,path-traversal,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-h2g3-rwxm-xfm3,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-hc55-p739-j48w,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-hf3x-42qp-4rq6,path-traversal,malicious-web-content,P3,none,P3,adjudicated:r1:contested,"archive member names escape the staging root: P3's containment guard, file write sink; v1's own P3 checklist names archive members. Attacker is the archive author, not a model"
+kbc-ghsa-hgcf-4mq8-5266,ssrf,remote-authed-user,P8,P8,P8,agree,cell default
+kbc-ghsa-hhrp-gw25-jr43,unsafe-deserialization,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-hj4w-hm2g-p6w5,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-hjq4-87xh-g4fv,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-hvj5-mvw9-93j3,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-hvwj-8w5g-28rg,unsafe-deserialization,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-hw8v-xxg5-vvvx,sandbox-escape,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-hxmv-c4g6-5fqc,code-injection,library-caller,none,P4,P4,adjudicated:r2,"a crafted recipe directory's tools.py is exec_module()d at load without the opt-in that guards sibling autoload paths: third-party artefact trusted as code, misplaced guard"
+kbc-ghsa-j44m-5v8f-gc9c,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-jpw9-pfvf-9f58,authz-bypass,remote-authed-user,P6,none,none,adjudicated:r2,"session id served without checking the owning principal: cross-user session use among authenticated users, not network-position trust; no host impact"
+kbc-ghsa-jv9m-vf54-chjj,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-m4w4-3r8h-jw98,code-injection,untrusted-llm-input,P1,P1,P1,agree,cell default
+kbc-ghsa-mhr3-j7m5-c7c9,unsafe-deserialization,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-mrmq-3q62-6cc8,ssrf,remote-unauth,P8,P8,P8,agree,cell default
+kbc-ghsa-mrw7-hf4f-83pf,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,override: client prompt_embeds torch.load
+kbc-ghsa-pm7p-vphh-2cg7,command-injection,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-pvph-5j39-v8qc,dns-rebinding,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-pw38-xv9x-h8ch,code-injection,untrusted-llm-input,P1,P1,P1,agree,override: model-server output eval()d
+kbc-ghsa-q74p-4wrc-q7w6,allowlist-bypass,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-q978-78c7-phqw,command-injection,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-qh4c-xf7m-gxfc,ssrf,remote-unauth,P8,P8,P8,agree,cell default
+kbc-ghsa-qh6h-p6c9-ff54,path-traversal,library-caller,none,none,none,agree,library-caller attacker: outside the thesis attacker list
+kbc-ghsa-qrjx-72xx-xhmh,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-qx49-fqc8-xw99,oauth-confused-deputy,malicious-mcp-server,P7,P7,P7,agree,cell default
+kbc-ghsa-r399-636x-v7f6,unsafe-deserialization,untrusted-llm-input,P5,P5,P5,agree,cell default
+kbc-ghsa-rg5q-pp8p-f7jm,ssrf,remote-unauth,P8,P8,P8,agree,cell default
+kbc-ghsa-rh4j-5rhw-hr54,unsafe-deserialization,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-rvq5-wwqv-78pq,token-passthrough,remote-authed-user,P7,P7,P7,agree,cell default
+kbc-ghsa-rvqx-wpfh-mfx7,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-rwrf-2pqf-9j8j,ssrf,malicious-mcp-server,P7,P7,P7,agree,override: server-supplied schema $ref fetched by the client
+kbc-ghsa-rww4-4w9c-7733,oauth-confused-deputy,remote-unauth,P7,P7,P7,agree,cell default
+kbc-ghsa-v798-mcc6-2m3m,code-injection,remote-authed-user,P6,P2,P2,adjudicated:r2,authentication exists (P6's guard is present); the missing guard is a validator that itself execs the code it validates: P2's authed-user position. The Langflow chain therefore crosses P6 -> P2
+kbc-ghsa-vcc9-3xgm-p9v4,dns-rebinding,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-vj7q-gjh5-988w,dns-rebinding,malicious-web-content,P6,P6,P6,agree,cell default
+kbc-ghsa-vjqx-cfc4-9h6v,path-traversal,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-vv7q-7jx5-f767,ssrf,untrusted-llm-input,P8,P8,P8,agree,cell default
+kbc-ghsa-vwmf-pq79-vjvx,code-injection,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-w4fh-qvv9-3v23,token-passthrough,remote-authed-user,P7,P7,P7,agree,cell default
+kbc-ghsa-w66g-j6c4-hcfc,allowlist-bypass,untrusted-llm-input,P3,none,none,adjudicated:r2,"JQL project allowlist skipped: data-scope confinement in a SaaS query, not a filesystem root; impact is reading excluded data, not host impact"
+kbc-ghsa-w66g-j6c4-hcfc-b,allowlist-bypass,untrusted-llm-input,P3,none,none,adjudicated:r2,"CQL space allowlist skipped: same as the Jira half (data-scope, no host impact)"
+kbc-ghsa-w766-5x43-whvw,allowlist-bypass,untrusted-llm-input,P3,P3,P3,agree,cell default
+kbc-ghsa-w794-rj3p-xv45,mcp-stdio-cmd-exec,remote-authed-user,P6,P6,P6,agree,override: user-saved MCP stdio config spawned as-is by the control plane
+kbc-ghsa-wg86-r78f-74mp,sandbox-escape,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-wmjf-2m46-2352,authz-bypass,remote-unauth,P6,P6,P6,agree,cell default
+kbc-ghsa-wrwr-h859-xh2r,sandbox-escape,remote-authed-user,P2,none,none,adjudicated:r2:contested,"guard shape is a clean differential (validated a coerced copy, used the original), but the row documents prototype pollution only, no executor sink; would move to P2 if a pollution->exec gadget is shown"
+kbc-ghsa-wvpx-g427-q9wc,prompt-injection-to-tool,untrusted-llm-input,P2,P2,P2,agree,override: safe_exec restricted globals: incomplete gate before exec
+kbc-ghsa-wwqv-p2pp-99h5,unsafe-deserialization,untrusted-data-store,P4,P4,P4,agree,cell default
+kbc-ghsa-x39x-9qw5-ghrf,allowlist-bypass,malicious-web-content,P8,P8,P8,agree,override: allowed_domains check vs fetcher URL parser
+kbc-ghsa-x3m8-f7g5-qhm7,unsafe-deserialization,remote-unauth,P5,P5,P5,agree,cell default
+kbc-ghsa-x44h-65qv-cw74,ssrf,untrusted-llm-input,P8,P8,P8,agree,cell default
+kbc-ghsa-x6vm-w76m-8j7g,code-injection,remote-authed-user,P2,P2,P2,agree,override: regex validator vs Pyodide executor
+kbc-ghsa-xc48-889x-5qmw,allowlist-bypass,remote-authed-user,P2,P2,P2,agree,cell default
+kbc-ghsa-xjw9-4gw8-4rqx,sandbox-escape,untrusted-llm-input,P2,P2,P2,agree,cell default

@@ -1,0 +1,229 @@
+{
+  "case": "vllm-ghsa-hjq4",
+  "kbc_id": "kbc-ghsa-hjq4-87xh-g4fv",
+  "advisory_url": "https://github.com/advisories/GHSA-hjq4-87xh-g4fv",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T05:36:13+00:00",
+  "trials_per_arm": 5,
+  "target_network": "internal",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_vllm-ghsa-hjq4:vuln",
+      "image_id": "sha256:208cf4795f4b9ee61a6f1b52b663b1f6e65543cf3bec620866664741cb31dfdc",
+      "sha": "9420a1fc30af1a632bbc2c66eb8668f3af41f026",
+      "sha_verified": true,
+      "build_seconds": 50.9
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_vllm-ghsa-hjq4:fix",
+      "image_id": "sha256:00afeaa9a8a595331e6315ffc22e2c21afe6e098df1dc742234fb433359ff008",
+      "sha": "0d6e187e88874c39cda7409cf673f9e6546893e7",
+      "sha_verified": true,
+      "build_seconds": 69.8
+    }
+  },
+  "network": {
+    "name": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+    "internal": true
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB0d9479808a88ccb6",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_attack_1_ce18d6",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:38:57 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:39:01 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent rce",
+          "oracle_rc": 0,
+          "oracle_out": "victim ran the attacker's pickle payload",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB43bef58f19671999",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_attack_2_dbd5c8",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:39:56 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:40:00 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent rce",
+          "oracle_rc": 0,
+          "oracle_out": "victim ran the attacker's pickle payload",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBc99621d51efcec59",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_attack_3_8ae22b",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:40:47 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:40:49 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent rce",
+          "oracle_rc": 0,
+          "oracle_out": "victim ran the attacker's pickle payload",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBdd995a865f25ccdb",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_attack_4_66f4c9",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:41:33 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:41:36 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent rce",
+          "oracle_rc": 0,
+          "oracle_out": "victim ran the attacker's pickle payload",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB800ced7628d413a9",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_attack_5_247aea",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:42:21 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:42:25 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent rce",
+          "oracle_rc": 0,
+          "oracle_out": "victim ran the attacker's pickle payload",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBe75ff7d0f6fccae4",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_control_1_53c5dc",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:43:13 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:43:16 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent data",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBeb55ecff68912305",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_control_2_e613ee",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:44:00 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:44:02 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent data",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB4879ae8209b9dbff",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_control_3_c36113",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:44:39 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:44:41 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent data",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB19364f6019e6bc42",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_control_4_a856b9",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:45:28 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:45:31 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent data",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB4b9a6a8f533b10f5",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_control_5_034564",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 0,
+          "deliver_tail": "INFO 11-25 05:46:11 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:46:13 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\nsent data",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBdbf9ad2b54d0a1c7",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_fix_1_bf65c7",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 1,
+          "deliver_tail": "INFO 11-25 05:46:53 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:46:56 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\njoin/send failed: KV port not reachable from peer (fix binds loopback): ConnectionRefusedError: [Errno 111] Connection refused",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBa7a2a9022d43be50",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_fix_2_f17694",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 1,
+          "deliver_tail": "INFO 11-25 05:47:40 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:47:43 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\njoin/send failed: KV port not reachable from peer (fix binds loopback): ConnectionRefusedError: [Errno 111] Connection refused",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBb7b6eabaaf8fc49c",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_fix_3_24be95",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 1,
+          "deliver_tail": "INFO 11-25 05:48:19 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:48:21 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\njoin/send failed: KV port not reachable from peer (fix binds loopback): ConnectionRefusedError: [Errno 111] Connection refused",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB408086ce936383b9",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_fix_4_9b3733",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 1,
+          "deliver_tail": "INFO 11-25 05:48:58 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:49:00 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\njoin/send failed: KV port not reachable from peer (fix binds loopback): ConnectionRefusedError: [Errno 111] Connection refused",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB1554002c5657c7cb",
+          "container": "pitsense_rd_bench_vllm-ghsa-hjq4_fix_5_625b06",
+          "network_mode": "pitsense_rd_bench_net_vllm-ghsa-hjq4",
+          "deliver_rc": 1,
+          "deliver_tail": "INFO 11-25 05:49:36 [__init__.py:243] No platform detected, vLLM is running on UnspecifiedPlatform\nWARNING 11-25 05:49:38 [_custom_ops.py:21] Failed to import from vllm._C with ModuleNotFoundError(\"No module named 'vllm._C'\")\njoin/send failed: KV port not reachable from peer (fix binds loopback): ConnectionRefusedError: [Errno 111] Connection refused",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T05:49:47+00:00"
+}

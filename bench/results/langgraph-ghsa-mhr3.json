@@ -1,0 +1,225 @@
+{
+  "case": "langgraph-ghsa-mhr3",
+  "kbc_id": "kbc-ghsa-mhr3-j7m5-c7c9",
+  "advisory_url": "https://github.com/advisories/GHSA-mhr3-j7m5-c7c9",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T11:37:26+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langgraph-ghsa-mhr3:vuln",
+      "image_id": "sha256:d1d0d35f9e1416c3c0f00972e12af3d9ec366bf7643482e93d97ade236e975c0",
+      "sha": "cb2faa7dda0f2ea49d2729361e1802fb233feaa5",
+      "sha_verified": true,
+      "build_seconds": 52.2
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langgraph-ghsa-mhr3:fix",
+      "image_id": "sha256:a01e898538f237faec3005ac0d778baa735720d62df3e086402aa56c14e8c418",
+      "sha": "f91d79d0c86932ded6e3b9f195d5a0bbd5aef99c",
+      "sha_verified": true,
+      "build_seconds": 31.7
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB928bab863caa0562",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_attack_1_7919a7",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): 0}",
+          "oracle_rc": 0,
+          "oracle_out": "canary holds the per-trial nonce: pickle gadget executed",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5e56addaaffd948a",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_attack_2_5b07e3",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): 0}",
+          "oracle_rc": 0,
+          "oracle_out": "canary holds the per-trial nonce: pickle gadget executed",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBa69cb077d0dfa105",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_attack_3_3bc00d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): 0}",
+          "oracle_rc": 0,
+          "oracle_out": "canary holds the per-trial nonce: pickle gadget executed",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB866f6a5f74035f11",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_attack_4_45a711",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): 0}",
+          "oracle_rc": 0,
+          "oracle_out": "canary holds the per-trial nonce: pickle gadget executed",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB399ffaf79ae066b0",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_attack_5_f844ee",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): 0}",
+          "oracle_rc": 0,
+          "oracle_out": "canary holds the per-trial nonce: pickle gadget executed",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB4c9382c13e310eb2",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_control_1_d8416c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 44 bytes under langgraph:cache:agent:node_cache:step-result encoding msgpack\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): {'status': 'ok', 'note': 'PSB4c9382c13e310eb2'}}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBaa5bfbf265ac1cb3",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_control_2_d99e0e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 44 bytes under langgraph:cache:agent:node_cache:step-result encoding msgpack\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): {'status': 'ok', 'note': 'PSBaa5bfbf265ac1cb3'}}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd39bda16c71c3484",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_control_3_7e17ac",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 44 bytes under langgraph:cache:agent:node_cache:step-result encoding msgpack\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): {'status': 'ok', 'note': 'PSBd39bda16c71c3484'}}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB176f37405f617f3b",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_control_4_fa1b53",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 44 bytes under langgraph:cache:agent:node_cache:step-result encoding msgpack\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): {'status': 'ok', 'note': 'PSB176f37405f617f3b'}}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB546cce2b93ac4e43",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_control_5_f7d418",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 44 bytes under langgraph:cache:agent:node_cache:step-result encoding msgpack\nvictim serde pickle_fallback = True\nvictim cache.get -> {(('agent', 'node_cache'), 'step-result'): {'status': 'ok', 'note': 'PSB546cce2b93ac4e43'}}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB073643f8e61ddcf6",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_fix_1_21a47d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = False\nvictim cache.get -> {}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB5053b5c49fc9e1d7",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_fix_2_6167a6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = False\nvictim cache.get -> {}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBb65ca1d035ccb0d2",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_fix_3_df91c3",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = False\nvictim cache.get -> {}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB6ccc05b97f463685",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_fix_4_d3fc31",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = False\nvictim cache.get -> {}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBa13f93b8ee47ec94",
+          "container": "pitsense_rd_bench_langgraph-ghsa-mhr3_fix_5_b1b3df",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "attacker planted 92 bytes under langgraph:cache:agent:node_cache:step-result encoding pickle\nvictim serde pickle_fallback = False\nvictim cache.get -> {}",
+          "oracle_rc": 1,
+          "oracle_out": "no canary file (no code execution)",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T11:40:05+00:00"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "chainlab-case/0",
+  "id": "praisonai-codeagent-ghsa-2xv2-w8cq-5gxw",
+  "version": "1",
+  "title": "PraisonAI CodeAgent runs LLM-generated Python unsandboxed even with sandbox=True",
+  "cve": "CVE-2026-61447",
+  "ghsa": "GHSA-2xv2-w8cq-5gxw",
+  "advisory_url": "https://github.com/MervinPraison/PraisonAI/security/advisories/GHSA-2xv2-w8cq-5gxw",
+  "framework": {
+    "name": "praisonaiagents",
+    "vuln_version": "1.6.77",
+    "fix_version": "1.6.78",
+    "repo": "https://github.com/MervinPraison/PraisonAI"
+  },
+  "sink": "praisonaiagents/agent/code_agent.py:CodeAgent._execute_python -> subprocess.run([python, tmp], env=os.environ.copy()) (no sandbox)",
+  "sink_class": "code-exec",
+  "rd_class": "prompt-injection-to-tool",
+  "attacker": "untrusted-llm-input",
+  "attacker_story": "An app builds a PraisonAI CodeAgent and runs code it generates: code = agent.generate(prompt); agent.execute(code). The agent asks its LLM (via litellm) to write code and returns the completion verbatim; execute() routes it to _execute_python, which in 1.6.77 writes the string to a temp .py and runs `python <tmp>` in a subprocess with the FULL parent environment (os.environ.copy()), no AST validation and no import restrictions -- even when CodeConfig(sandbox=True) is set. A prompt injection in the agent's input, a tool result, or ingested content steers the model into emitting code that runs on the host and exfiltrates every environment secret (CVE-2026-61447 / GHSA-2xv2-w8cq-5gxw). No model is needed to prove it: the scripted model stands in for the completion the injection would elicit; the finding is that the framework executes model-authored code with the sandbox flag ignored. Fixed in 1.6.78 by routing through a real sandbox (tools/python_tools.execute_code, sandbox_mode honoured).",
+  "scripted_model": {
+    "interface": "a fake litellm module plugged into CodeAgent.litellm; its completion() returns the attacker-chosen code as response.choices[0].message.content -- the framework's own LLM call site",
+    "plugged_into": "agent._litellm = <fake litellm>; code = agent.generate(prompt); agent.execute(code)",
+    "behavior": "returns the fixture code verbatim, ignoring the prompt; proves the framework runs model-authored code with no enforced sandbox independent of model behaviour",
+    "may_assume": "that some untrusted content could make a real code-writing model emit this completion -- in-shape output for a CodeAgent, i.e. a block of Python the agent is built to execute; nothing more",
+    "may_not_assume": "no privileged config (sandbox is left at its default True -- the advisory's point is that it is ignored), no network, no attacker code already on disk; only that the model's output reaches execute()"
+  },
+  "injected_content": "fixtures/attack.txt",
+  "benign_content": "fixtures/control.txt",
+  "canary": {
+    "kind": "marker",
+    "mechanism": "the executed Python runs os.system('echo <nonce> > /tmp/chainlab_canary'); oracle reads the file and checks the per-trial nonce"
+  },
+  "build": {"dockerfile": "Dockerfile", "version_arg": "PKG_VERSION", "context": "."},
+  "run": {
+    "network": "none",
+    "driver": ["python", "-I", "/case/driver.py", "{arm}", "{nonce}"],
+    "oracle": ["python", "-I", "/case/oracle.py", "{nonce}"],
+    "timeout": 120
+  },
+  "expect": {"attack": 5, "control": 0, "fix": 0}
+}

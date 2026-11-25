@@ -1,0 +1,229 @@
+{
+  "case": "langflow-ghsa-rvqx",
+  "kbc_id": "kbc-ghsa-rvqx-wpfh-mfx7",
+  "advisory_url": "https://github.com/advisories/GHSA-rvqx-wpfh-mfx7",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T02:53:17+00:00",
+  "trials_per_arm": 5,
+  "target_network": "internal",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_langflow-ghsa-rvqx:vuln",
+      "image_id": "sha256:2d05629c1a91dc8ae5db1b6745720a6ebd9c5d0c875c979a8cf1e68764cdef55",
+      "sha": "e1ee081d3223bd2150425ddb9487b5e9f4ccff26",
+      "sha_verified": true,
+      "build_seconds": 5.4
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_langflow-ghsa-rvqx:fix",
+      "image_id": "sha256:06cb27f0ffc6604e9f756cbbfb64232fa49bffb442bca9dfd7dbb171c7a1e6d1",
+      "sha": "faac4db133de32fcb6d483fa9ff52f40ce42bdc0",
+      "sha_verified": true,
+      "build_seconds": 3.2
+    }
+  },
+  "network": {
+    "name": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+    "internal": true
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB6af538dcf0ac0d85",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_attack_1_e93eed",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBbbeb5b78613e1477",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_attack_2_5b8d9c",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB176a510b5ac242d5",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_attack_3_a720d2",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBcb6f82c67b834ac9",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_attack_4_d5fc3e",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB38eae37c8946e761",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_attack_5_0d5fdb",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB824adc539ae7dfa9",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_control_1_12f36f",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBd60f6b48e82f4a13",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_control_2_54a303",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB24b995f5e9ddca9b",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_control_3_fc999f",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBb7a46d94cb9f90ce",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_control_4_fd470c",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBecbfa6555fb3e1e0",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_control_5_5ff919",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "200 b'{\"imports\":{\"errors\":[]},\"function\":{\"errors\":[]}}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBb7f35935269b4a7a",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_fix_1_5dd6c4",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "403 b'{\"detail\":\"An API key must be passed as query or header\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBf53f69a9b3b453cf",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_fix_2_c3fe00",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "403 b'{\"detail\":\"An API key must be passed as query or header\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB6d3a4b3205a0ec21",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_fix_3_661cbb",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "403 b'{\"detail\":\"An API key must be passed as query or header\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBd4272d55bb8b96cb",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_fix_4_465b81",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "403 b'{\"detail\":\"An API key must be passed as query or header\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBbb313b81a2a9750b",
+          "container": "pitsense_rd_bench_langflow-ghsa-rvqx_fix_5_a39527",
+          "network_mode": "pitsense_rd_bench_net_langflow-ghsa-rvqx",
+          "deliver_rc": 0,
+          "deliver_tail": "403 b'{\"detail\":\"An API key must be passed as query or header\"}'",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T03:23:44+00:00"
+}

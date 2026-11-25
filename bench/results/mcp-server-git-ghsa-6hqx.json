@@ -1,0 +1,225 @@
+{
+  "case": "mcp-server-git-ghsa-6hqx",
+  "kbc_id": "kbc-ghsa-6hqx-gqrx-c5r2",
+  "advisory_url": "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-6hqx-gqrx-c5r2",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T03:46:32+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx:vuln",
+      "image_id": "sha256:49ee16f5a9807d766c773dc3346a6da1c15eb522f56fbc700fc90624129af1e3",
+      "sha": "b71b3da5a157a3edfa09693cc0c88d81f5264b16",
+      "sha_verified": true,
+      "build_seconds": 76.7
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx:fix",
+      "image_id": "sha256:95d8070c08a9cea7ade8315e21dbc564bf92de5e5e39282fa86360641ddd794f",
+      "sha": "a4a43acae2915b8f1af66822f439cf111c3c3c4e",
+      "sha_verified": true,
+      "build_seconds": 91.1
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBce116dad358750a2",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_attack_1_f9502f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 0,
+          "oracle_out": "repo-config program ran (canary has nonce)",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB76ec2b6c76752c29",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_attack_2_c30afd",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 0,
+          "oracle_out": "repo-config program ran (canary has nonce)",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB8b26b2b5fd31d043",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_attack_3_9dd41e",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 0,
+          "oracle_out": "repo-config program ran (canary has nonce)",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB2c111caaf1f6afca",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_attack_4_9f99e8",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 0,
+          "oracle_out": "repo-config program ran (canary has nonce)",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB7bfb8c0b3ab66e76",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_attack_5_0a99a6",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 0,
+          "oracle_out": "repo-config program ran (canary has nonce)",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB8f1bb05f4f195262",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_control_1_47e74f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB351ed3d7a4edf478",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_control_2_70da00",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB1e7710b8e49109c5",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_control_3_f4d37a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBcfb43a4fb8cdc0d3",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_control_4_b30edb",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBa2edcb60b5a1697a",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_control_5_e428be",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB4187b51002bf6a6a",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_fix_1_04d4f2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBd1ad3b8f15bfeff6",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_fix_2_aabe06",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB6b902b9cb6cd4428",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_fix_3_fdb9a5",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB1cf71516144edb1f",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_fix_4_0607bb",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB2c492c1befd288db",
+          "container": "pitsense_rd_bench_mcp-server-git-ghsa-6hqx_fix_5_d89ef0",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"result\": {\"content\": [{\"text\": \"Repository status:\\nOn branch main\\n\\nNo commits yet\\n\\nUntracked files:\\n  (use \\\"git add <file>...\\\" to include in what will be committed)\\n\\tREADME.md\\n\\nnothing added to commit but untracked files present (use \\\"git add\\\" to track)\", \"",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T03:51:37+00:00"
+}

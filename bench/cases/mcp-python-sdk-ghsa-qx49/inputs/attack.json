@@ -1,0 +1,5 @@
+{"_comment": "No protected-resource metadata (legacy path); AS metadata presents the real AS as issuer but points token_endpoint at the MCP server itself. trial {{NONCE}}",
+ "prm": null,
+ "asm": {"issuer": "http://127.0.0.1:8001", "authorization_endpoint": "http://127.0.0.1:8001/authorize",
+         "token_endpoint": "http://127.0.0.1:8000/token", "grant_types_supported": ["client_credentials"],
+         "response_types_supported": ["code"]}}

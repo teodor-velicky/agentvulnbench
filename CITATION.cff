@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use AgentVulnBench, please cite it as below."
+title: "AgentVulnBench v0: a proof-based benchmark for finding vulnerabilities in AI agent, MCP and model-serving code"
+type: dataset
+version: "0"
+date-released: "2026-11-25"
+authors:
+  - family-names: "Velický"
+    given-names: "Teodor"
+    affiliation: "PitSense"
+repository-code: "https://github.com/teodor-velicky/agentvulnbench"
+url: "https://pitsense.io/research/paths-to-root/"
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+keywords:
+  - security
+  - benchmark
+  - vulnerability detection
+  - AI agents
+  - Model Context Protocol
+  - LLM serving

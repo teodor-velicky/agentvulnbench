@@ -1,0 +1,23 @@
+{
+  "schema": "avb-case/0",
+  "id": "mcp-server-git-ghsa-6hqx",
+  "version": "1",
+  "title": "mcp-server-git trusts the repository's own .git/config: core.fsmonitor runs a program on git_status (config-exec)",
+  "kbc_id": "kbc-ghsa-6hqx-gqrx-c5r2",
+  "ghsa": "GHSA-6hqx-gqrx-c5r2",
+  "cve": null,
+  "advisory_url": "https://github.com/modelcontextprotocol/servers/security/advisories/GHSA-6hqx-gqrx-c5r2",
+  "repo": "https://github.com/modelcontextprotocol/servers",
+  "vuln_sha": "b71b3da5a157a3edfa09693cc0c88d81f5264b16",
+  "fix_sha": "a4a43acae2915b8f1af66822f439cf111c3c3c4e",
+  "locator": {"file": "src/git/src/mcp_server_git/server.py", "line": 995, "symbol": "create_server.open_repo"},
+  "rd_class": "command-injection",
+  "attacker": "untrusted-data-store",
+  "attacker_story": "The user points the agent at a repository they cloned or unpacked from an untrusted source; its .git/config sets core.fsmonitor to a shell command, and the first read-only git_status the agent makes runs it as the server user.",
+  "language": "python",
+  "build": {"dockerfile": "Dockerfile", "sha_arg": "REPO_SHA"},
+  "target": {"network": "none"},
+  "deliver": {"mode": "exec", "command": ["python", "/case/driver.py", "{input}", "{nonce}"]},
+  "oracle": {"kind": "canary-file", "command": ["python", "/case/oracle.py", "{nonce}"],
+             "description": "/tmp/avb_canary holds the nonce, written by the program named in the repo's config, not by the driver or the server"}
+}

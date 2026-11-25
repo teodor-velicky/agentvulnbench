@@ -1,0 +1,225 @@
+{
+  "case": "mcp-remote-ghsa-6xpm",
+  "kbc_id": "kbc-ghsa-6xpm-ggf7-wc3p",
+  "advisory_url": "https://github.com/advisories/GHSA-6xpm-ggf7-wc3p",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T12:09:10+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_mcp-remote-ghsa-6xpm:vuln",
+      "image_id": "sha256:519587fd877b1c0c0e71091ee33c41e36ceb7f7fbee2f82cef46f9bb7ddc42b8",
+      "sha": "2a0665de6c5a0cec0695effe592aec7a34c5f215",
+      "sha_verified": true,
+      "build_seconds": 14.3
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_mcp-remote-ghsa-6xpm:fix",
+      "image_id": "sha256:140293adc18cbe74e7789646236e984059d055de83b1afbb5b9544200a99e4f4",
+      "sha": "783bf8656952a9590eacfda50db485edbd13aff8",
+      "sha_verified": true,
+      "build_seconds": 9.1
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB4f07fc26acf5152e",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_attack_1_bf8f38",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for avbexec:\n[8] \nPlease authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB4f07fc26acf5152e&avbnonce=PSB4f07fc26acf5152e\n\n[8] Browser opened automatically.",
+          "oracle_rc": 0,
+          "oracle_out": "scheme handler launched by open(): canary written",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB0b229fe2cf05e529",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_attack_2_753815",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for avbexec:\n[8] \nPlease authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB0b229fe2cf05e529&avbnonce=PSB0b229fe2cf05e529\n\n[8] Browser opened automatically.",
+          "oracle_rc": 0,
+          "oracle_out": "scheme handler launched by open(): canary written",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB669e0a98d6cd867f",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_attack_3_097439",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for avbexec:\n[8] \nPlease authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB669e0a98d6cd867f&avbnonce=PSB669e0a98d6cd867f\n\n[8] Browser opened automatically.",
+          "oracle_rc": 0,
+          "oracle_out": "scheme handler launched by open(): canary written",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBb911bdf646a32262",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_attack_4_40e5bf",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for avbexec:\n[8] \nPlease authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSBb911bdf646a32262&avbnonce=PSBb911bdf646a32262\n\n[8] Browser opened automatically.",
+          "oracle_rc": 0,
+          "oracle_out": "scheme handler launched by open(): canary written",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB269269a1e03eb045",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_attack_5_000d8b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for avbexec:\n[8] \nPlease authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB269269a1e03eb045&avbnonce=PSB269269a1e03eb045\n\n[8] Browser opened automatically.",
+          "oracle_rc": 0,
+          "oracle_out": "scheme handler launched by open(): canary written",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBc718449c925ce194",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_control_1_f437ef",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for https:\n[8] \nPlease authorize this client by visiting:\nhttps://127.0.0.1/authorize?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSBc718449c925ce194&avbnonce=PSBc718449c925ce194\n\n[8] Browser opened automatically.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB6e4dbc372baa8f30",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_control_2_14cb52",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for https:\n[8] \nPlease authorize this client by visiting:\nhttps://127.0.0.1/authorize?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB6e4dbc372baa8f30&avbnonce=PSB6e4dbc372baa8f30\n\n[8] Browser opened automatically.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB6fdec226010e360e",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_control_3_e03093",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for https:\n[8] \nPlease authorize this client by visiting:\nhttps://127.0.0.1/authorize?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB6fdec226010e360e&avbnonce=PSB6fdec226010e360e\n\n[8] Browser opened automatically.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB05eb7f8f6fb65d59",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_control_4_8948da",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for https:\n[8] \nPlease authorize this client by visiting:\nhttps://127.0.0.1/authorize?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB05eb7f8f6fb65d59&avbnonce=PSB05eb7f8f6fb65d59\n\n[8] Browser opened automatically.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB9e089d28ab6d0aba",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_control_5_e68ba2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "redirectToAuthorization returned for https:\n[8] \nPlease authorize this client by visiting:\nhttps://127.0.0.1/authorize?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB9e089d28ab6d0aba&avbnonce=PSB9e089d28ab6d0aba\n\n[8] Browser opened automatically.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB4cc5ea78ae576092",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_fix_1_f90cac",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ase authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB4cc5ea78ae576092&avbnonce=PSB4cc5ea78ae576092\n\n[8] Could not open browser automatically. Please copy and paste the URL above into your browser.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB14f2b03fe91adb07",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_fix_2_1df8b9",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ase authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB14f2b03fe91adb07&avbnonce=PSB14f2b03fe91adb07\n\n[8] Could not open browser automatically. Please copy and paste the URL above into your browser.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd7191aaf84b8c8b4",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_fix_3_671209",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ase authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSBd7191aaf84b8c8b4&avbnonce=PSBd7191aaf84b8c8b4\n\n[8] Could not open browser automatically. Please copy and paste the URL above into your browser.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB1c21273d82be74e3",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_fix_4_9a09ff",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ase authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB1c21273d82be74e3&avbnonce=PSB1c21273d82be74e3\n\n[8] Could not open browser automatically. Please copy and paste the URL above into your browser.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB8e51f5846e45714c",
+          "container": "pitsense_rd_bench_mcp-remote-ghsa-6xpm_fix_5_01d35a",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "ase authorize this client by visiting:\navbexec://authorize/?response_type=code&client_id=avb-client&redirect_uri=http%3A%2F%2F127.0.0.1%3A3334%2Foauth%2Fcallback&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&state=PSB8e51f5846e45714c&avbnonce=PSB8e51f5846e45714c\n\n[8] Could not open browser automatically. Please copy and paste the URL above into your browser.",
+          "oracle_rc": 1,
+          "oracle_out": "no canary: open() did not launch the scheme handler",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T12:10:49+00:00"
+}

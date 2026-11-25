@@ -1,0 +1,225 @@
+{
+  "case": "smolagents-ghsa-6v92",
+  "kbc_id": "kbc-ghsa-6v92-r5mx-h5fx",
+  "advisory_url": "https://github.com/advisories/GHSA-6v92-r5mx-h5fx",
+  "harness_version": "0.1.0",
+  "case_version": "1",
+  "started_utc": "2026-11-25T00:07:09+00:00",
+  "trials_per_arm": 5,
+  "target_network": "none",
+  "images": {
+    "vuln": {
+      "tag": "pitsense_rd_bench_smolagents-ghsa-6v92:vuln",
+      "image_id": "sha256:6a6293293a1f2ef59b096f9de4b287ca23a223ee878a455fcf03c21d4f674638",
+      "sha": "41b1d7fd3034f386f9d1e64d082a16956bded0e8",
+      "sha_verified": true,
+      "build_seconds": 3.5
+    },
+    "fix": {
+      "tag": "pitsense_rd_bench_smolagents-ghsa-6v92:fix",
+      "image_id": "sha256:dc3979f3701c91db39cfd60fb33b2939df5ea69c476995abfddc94c82b2d2b01",
+      "sha": "33a942e62b6fbf6a35d41f1c735bda2d64c163d0",
+      "sha_verified": true,
+      "build_seconds": 5.9
+    }
+  },
+  "arms": {
+    "attack": {
+      "image": "vuln",
+      "input": "attack",
+      "hits": 5,
+      "trials": 5,
+      "expected_hits": 5,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB46b78c341a746cb2",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_attack_1_fcd173",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: ([[0]], '', False)",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBacaee814259fc94c",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_attack_2_921713",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: ([[0]], '', False)",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBd8362e6e861e51c8",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_attack_3_3e7255",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: ([[0]], '', False)",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBc10fc96e0568490a",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_attack_4_8bb8c4",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: ([[0]], '', False)",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBe91a0bb047bfee15",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_attack_5_756f93",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: ([[0]], '', False)",
+          "oracle_rc": 0,
+          "oracle_out": "canary matches nonce",
+          "hit": true
+        }
+      ]
+    },
+    "control": {
+      "image": "vuln",
+      "input": "control",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSBd79ae081ce7b468d",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_control_1_05e40c",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: (19, '', False)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSB4b1006fa260509b3",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_control_2_66cdca",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: (19, '', False)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSB6dbacbefa48b195a",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_control_3_21ed2d",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: (19, '', False)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSBc0dab316826f69d3",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_control_4_3b4162",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: (19, '', False)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSB63a4d8478fccd407",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_control_5_bc7d80",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor returned: (19, '', False)",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    },
+    "fix": {
+      "image": "fix",
+      "input": "attack",
+      "hits": 0,
+      "trials": 5,
+      "expected_hits": 0,
+      "ok": true,
+      "records": [
+        {
+          "trial": 1,
+          "nonce": "PSB531e9b2f59ed6eea",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_fix_1_d4be73",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor raised: InterpreterError Code execution failed at line 'mods = list(map(getattr, list(map(getattr, [warnings], [\"sys\"])), [\"modules\"]))[0]' due to: InterpreterError: Forbidden access to module: sys",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 2,
+          "nonce": "PSBf0a0e7248d28b850",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_fix_2_4cc89f",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor raised: InterpreterError Code execution failed at line 'mods = list(map(getattr, list(map(getattr, [warnings], [\"sys\"])), [\"modules\"]))[0]' due to: InterpreterError: Forbidden access to module: sys",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 3,
+          "nonce": "PSBf1f118105b2bf716",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_fix_3_90c19b",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor raised: InterpreterError Code execution failed at line 'mods = list(map(getattr, list(map(getattr, [warnings], [\"sys\"])), [\"modules\"]))[0]' due to: InterpreterError: Forbidden access to module: sys",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 4,
+          "nonce": "PSB4a5b2dac2eac363f",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_fix_4_26e7ba",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor raised: InterpreterError Code execution failed at line 'mods = list(map(getattr, list(map(getattr, [warnings], [\"sys\"])), [\"modules\"]))[0]' due to: InterpreterError: Forbidden access to module: sys",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        },
+        {
+          "trial": 5,
+          "nonce": "PSBd673c163beb92032",
+          "container": "pitsense_rd_bench_smolagents-ghsa-6v92_fix_5_5db3d2",
+          "network_mode": "none",
+          "deliver_rc": 0,
+          "deliver_tail": "executor raised: InterpreterError Code execution failed at line 'mods = list(map(getattr, list(map(getattr, [warnings], [\"sys\"])), [\"modules\"]))[0]' due to: InterpreterError: Forbidden access to module: sys",
+          "oracle_rc": 1,
+          "oracle_out": "no canary",
+          "hit": false
+        }
+      ]
+    }
+  },
+  "verdict": "PROVEN",
+  "finished_utc": "2026-11-25T00:08:25+00:00"
+}
